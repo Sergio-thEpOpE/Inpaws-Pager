@@ -1,0 +1,270 @@
+LISTADO de COMANDOS y PARÄMETROS
+
+-Parámetros (entre paréntesis):
+x - byte coordenada o desplazamiento x
+y - byte coordenada o desplazamiento y
+loc - byte localidad
+chr - byte carácter de texto o shade
+compr - byte con desplazamientos x e y comprimidos según (16*x)+y
+
+-Todo lo que no está entre paréntesis es información implícita en el código del comando.
+
+-Los números sin usar son, eso mismo, números sin usar, aunque todavía podría haberse escapado algún comando o variante (raro, pero no imposible)
+
+
+000 #00 PLOT (x,y)
+001 #01 LINE (x,y)
+002 #02 FILL (x,y)
+003 #03 GOSUB scale 0 (loc)
+004 #04 TEXT (chr,x,y)
+005 #05 PAPER 0
+006 #06 INK 0
+007 #07 Código de fin de gráfico
+008 #08 PLOT over (x,y)
+009 #09 LINE over (x,y)
+010 #0A
+011 #0B GOSUB scale 1 (loc)
+012 #0C TEXT over (chr,x,y)
+013 #OD PAPER 1
+014 #0E INK 1
+015 #0F
+016 #10 PLOT inverse (x,y)
+017 #11 LINE inverse (x,y)
+018 #12 BLOCK (x,y,x1,y1)
+019 #13 GOSUB scale 2 (loc)
+020 #14 TEXT inverse (chr,x,y)
+021 #15 PAPER 2
+022 #16 INK 2
+023 #17
+024 #18 PLOT over inverse (x,y) - aka ABS MOVE (x,y)
+025 #19 LINE over inverse (x,y) - aka REL MOVE (x,y)
+026 #1A
+027 #1B GOSUB scale 3 (loc)
+028 #1C TEXT inverse over (chr,x,y)
+029 #1D PAPER 3
+030 #1E INK 3
+031 #1F
+032 #20
+033 #21 LINE COMPRIMIDO (compr)
+034 #22 SHADE (x,y,chr)
+035 #23 GOSUB scale 4 (loc)
+036 #24
+037 #25 PAPER 4
+038 #26 INK 4
+039 #27
+040 #28
+041 #29 LINE COMPRIMIDO over (compr)
+042 #2A
+043 #2B GOSUB scale 5 (loc)
+044 #2C
+045 #2D PAPER 5
+046 #2E INK 5
+047 #2F
+048 #30
+049 #31 LINE COMPRIMIDO inverse (compr)
+050 #32 SHADE inverse (x,y,chr)
+051 #33 GOSUB scale 6 (loc)
+052 #34
+053 #35 PAPER 6
+054 #36 INK 6
+055 #37
+056 #38
+057 #39 LINE COMPRIMIDO over inverse (compr) - aka REL MOVE COMPRIMIDO (compr)
+058 #3A
+059 #3B GOSUB scale 7 (loc)
+060 #3C
+061 #3D PAPER 7
+062 #3E INK 7
+063 #3F
+064 #40
+065 #41 LINE x-neg (x,y)
+066 #42 FILL x-neg (x,y)
+067 #43 GOSUB scale 0 rotate x (loc)
+068 #44
+069 #45 PAPER 8
+070 #46 INK 8
+071 #47
+072 #48
+073 #49 LINE over x-neg (x,y)
+074 #4A
+075 #4B GOSUB scale 1 rotate x (loc)
+076 #4C
+077 #4D
+078 #4E
+079 #4F
+080 #50
+081 #51 LINE inverse x-neg (x,y)
+082 #52
+083 #53 GOSUB scale 2 rotate x (loc)
+084 #54
+085 #55
+086 #56
+087 #57
+088 #58
+089 #59 LINE over inverse x-neg (x,y) aka REL MOVE x-neg (x,y)
+090 #5A
+091 #5B GOSUB scale 3 rotate x (loc)
+092 #5C
+093 #5D
+094 #5E
+095 #5F
+096 #60
+097 #61 LINE COMPRIMIDO x-neg (compr)
+098 #62 SHADE x-neg (x,y,chr)
+099 #63 GOSUB scale 4 rotate x (loc)
+100 #64
+101 #65
+102 #66
+103 #67
+104 #68
+105 #69 LINE COMPRIMIDO over x-neg (compr)
+106 #6A
+107 #6B GOSUB scale 5 rotate x (loc)
+108 #6C
+109 #6D
+110 #6E
+111 #6F
+112 #70
+113 #71 LINE COMPRIMNIDO inverse x-neg (compr)
+114 #72 SHADE inverse x-neg (x,y,chr)
+115 #73 GOSUB scale 6 rotate x (loc)
+116 #74
+117 #75
+118 #76
+119 #77
+120 #78
+121 #79 LINE COMPRIMIDO over inverse x-neg (compr) aka REL MOVE COMPRIMIDO x-neg (compr)
+122 #7A
+123 #7B GOSUB scale 7 rotate x (loc)
+124 #7C
+125 #7D
+126 #7E
+127 #7F
+128 #80
+129 #81 LINE y-neg (x,y)
+130 #82 FILL y-neg (x,y)
+131 #83 GOSUB scale 0 rotate y (loc)
+132 #84
+133 #85 BRIGHT 0
+134 #86 FLASH 0
+135 #87
+136 #88
+137 #89 LINE over y-neg (x,y)
+138 #8A
+139 #8B GOSUB scale 1 rotate y (loc)
+140 #8C
+141 #8D BRIGHT 1
+142 #8E FLASH 1
+143 #8F
+144 #90
+145 #91 LINE inverse y-neg (x,y)
+146 #92
+147 #93 GOSUB scale 2 rotate y (loc)
+148 #94
+149 #95
+150 #96
+151 #97
+152 #98
+153 #99 LINE over inverse y-neg (x,y) aka REL MOVE y-neg (x,y)
+154 #9A
+155 #9B GOSUB scale 3 rotate y (loc)
+156 #9C
+157 #9D
+158 #9E
+159 #9F
+160 #A0
+161 #A1 LINE COMPRIMIDO y-neg (compr)
+162 #A2 SHADE y-neg (x,y,chr)
+163 #A3 GOSUB sclae 4 rotate y (loc)
+164 #A4
+165 #A5
+166 #A6
+167 #A7
+168 #A8
+169 #A9 LINE COMPRIMIDO over y-neg (compr)
+170 #AA
+171 #AB GOSUB scale 5 rotate y (loc)
+172 #AC
+173 #AD
+174 #AE
+175 #AF
+176 #B0
+177 #B1 LINE COMPRIMIDO inverse y-neg (compr)
+178 #B2 SHADE inverse (x,-y,chr)
+179 #B3 GOSUB scale 6 rotate y (loc)
+180 #B4
+181 #B5
+182 #B6
+183 #B7
+184 #B8
+185 #B9 LINE COMPRIMIDO over inverse y-neg (compr) aka REL MOVE COMPRIMIDO y-neg (compr)
+186 #BA
+187 #BB GOSUB scale 7 rotate y (loc)
+188 #BC
+189 #BD
+190 #BE
+191 #BF
+192 #C0
+193 #C1 LINE x-neg y-neg(x,y)
+194 #C2 FILL x-neg y-neg (x,y)
+195 #C3 GOSUB scale 0 rotate x rotate y (loc)
+196 #C4
+197 #C5 BRIGHT 8
+198 #C6 FLASH 8
+199 #C7
+200 #C8
+201 #C9 LINE over x-neg y-neg (x,y)
+202 #CA
+203 #CB GOSUB scale 1 rotate x rotate y (loc)
+204 #CC
+205 #CD
+206 #CE
+207 #CF
+208 #D0
+209 #D1 LINE inverse x-neg y-neg (x,y)
+201 #D2
+211 #D3 GOSUB scale 2 rotate x rotate y (loc)
+212 #D4
+213 #D5
+214 #D6
+215 #D7
+216 #D8
+217 #D9 LINE over inverse x-neg y-neg (x,y) aka REL MOVE x-neg y-neg (x,y)
+218 #DA
+219 #DB GOSUB scale 3 rotate x rotate y (loc)
+220 #DC
+221 #DD
+222 #DE
+223 #DF
+224 #E0
+225 #E1 LINE COMPRIMIDO x-neg y-neg (compr)
+226 #E2 SHADE x-neg y-neg (x,y,chr)
+227 #E3 GOSUB scale 4 rotate x rotate y (loc)
+228 #E4
+229 #E5
+230 #E6
+231 #E7
+232 #E8
+233 #E9 LINE COMPRIMIDO over x-neg y-neg (compr)
+234 #EA
+235 #EB GOSUB scale 5 rotate x rotate y (loc)
+236 #EC
+237 #ED
+238 #EE
+239 #EF
+240 #F0
+241 #F1 LINE COMPRIMIDO inverse x-neg y-neg (compr)
+242 #F2 SHADE inverse x-neg y-neg (x,y,chr)
+243 #F3 GOSUB scale 6 rotate x rotate y (loc)
+244 #F4
+245 #F5
+246 #F6
+247 #F7
+248 #F8
+249 #F9 LINE COMPRIMIDO over inverse x-neg y-neg (compr) aka REL MOVE COMPRIMIDO x-neg y-neg (compr)
+250 #FA
+251 #FB GOSUB scale 7 rotate x rotate y (loc)
+252 #FC
+253 #FD
+254 #FE
+255 #FF

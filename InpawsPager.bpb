@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://www.purebasic.com/namespace" version="1.0" creator="PureBasic 5.31 (Windows - x86)">
+  <section name="config">
+    <options closefiles="1" openmode="0" name="InPaws Pager"/>
+  </section>
+  <section name="data">
+    <explorer view="C:\Users\pOpE\Documents\" pattern="0"/>
+    <log show="1"/>
+    <lastopen date="2019-08-09 00:37" user="thEpOpE" host="POPE-PC"/>
+  </section>
+  <section name="files">
+    <file name="InpawsPager.pb">
+      <config load="1" scan="1" panel="1" warn="1" lastopen="1" panelstate="+"/>
+      <fingerprint md5="e379fa7cc137a209ff690101648e1bab"/>
+    </file>
+  </section>
+  <section name="targets">
+    <target name="Default Target" enabled="1" default="1">
+      <inputfile value="InpawsPager.pb"/>
+      <outputfile value="InpawsPager.exe"/>
+      <compiler version="PureBasic 5.31 (Windows - x86)"/>
+      <commandline value="c planet\planet.paws -o planet.tap"/>
+      <executable value="InpawsPager.exe"/>
+      <options/>
+      <format exe="console" cpu="0"/>
+    </target>
+  </section>
+</project>

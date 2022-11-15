@@ -1,0 +1,1515 @@
+//---------------------------------------------------------------------------------------
+//  Adventure A: PLANET OF DEATH
+//  Original: Copyright (c) 1981 Artic Computing
+//  Adaptación libre a PAWS: Mastodon (2009)
+//
+// Debería generar versiones correctas para Spectrum y Superglus(1.0)
+// Version 1.1. Última actualización: 05/05/09
+//---------------------------------------------------------------------------------------
+
+#include "LibPAW.h"
+//#define MOSTRAR_SALIDAS;
+
+Flag puntuacion 30; // puntuación hasta el momento en la aventura
+Constant puntTablon 1;         // Puntos por arrancar un tablon de la extraña construcción
+Constant puntAtravesar 2;    // Puntos por atravesar el tablon en el riachuelo
+Constant puntBloqueHielo 2; // Puntos por arrancar un bloque de hielo (con las botas o con la plancha de madera)
+Constant puntMontadoHielo 1; // Puntos por montarse en el bloque de hielo
+Constant puntLianaCortada 1; // Puntos por cortar la liana con el pedernal
+Constant puntBajarPorLiana 2; // He llegado a algún sitio tras bajar con la liana
+Constant puntBarraHierro 3; // He destrozado la rejilla y roto una de las barras de hierro
+Constant puntCogerRecipiente 2; // Cogido recipiente del gran gusano
+Constant puntEspejoCogido 2; // He cogido el espejo sobre el que duerme la criatura
+Constant puntBarreraFuerza 2; // Puntos por eliminar la barrera fundiendo el dispositivo
+Constant puntConseguirUniforme 2; // He neutralizado al técnico y conseguido el uniforme
+Constant puntTarjetaHexagonal 1; // He metido la tarjeta hexagonal en el orificio para abrir la puerta
+Constant puntTanqueLlenado 3; // He llenado el tanque del mecanismo hidráulico del hangar
+Constant puntMeterCanalizador 1; // He metido el canalizador de plasma en el compartimento de la nave
+Constant puntLanzamiento 5; // Puntos por haber iniciado el lanzamiento de la nave
+
+Flag basuraEnBasurero 5; // Flag autodecrementado, contador para que aparezca el camion de la basura
+Flag contadorPillado 6; // Al cabo de unos turnos en el hangar te detienen y te llevan al basurero
+Process DispararSub;
+
+//---------------------------------------------------------------------------------------
+// Caracteres acentuados
+//---------------------------------------------------------------------------------------
+
+#ifdef PAWSPECTRUM
+SUBCHAR "¿" "{146}";
+SUBCHAR "á" "{144}";
+SUBCHAR "é" "{148}";
+SUBCHAR "í" "{152}";
+SUBCHAR "ó" "{158}";
+SUBCHAR "ú" "{159}";
+SUBCHAR "¡" "{147}";
+SUBCHAR "ñ" "{149}";
+SUBCHAR "Ñ" "{150}";
+SUBCHAR "ü" "{151}";
+#endif
+SUBCHAR "%" "^{16}{6}"; // Color del título de la localidad
+SUBCHAR "&" "{16}{7}"; // Color del texto de la localidad y el resto de la aventura
+
+//---------------------------------------------------------------------------------
+// PRESENTACION
+//---------------------------------------------------------------------------------
+
+Location Inicial 0
+{
+    #ifndef PAWSPECTRUM
+    "AVENTURA A: PLANET OF DEATH^^^ Adaptación libre por Mastodon^             2009^^   A partir del original de^      Artic Computing de^             1981^^En esta aventura te encuentras varado en un misterioso y lejano planeta. Tienes que recuperar tu nave y escapar.^^       ¡Buena suerte!";
+   #endif
+
+  #ifdef PAWSPECTRUM
+  "";
+  #endif
+  
+}
+
+PROCESS 1 { 
+    #ifndef PAWSPECTRUM
+    * *: AT Inicial MODE 1 1 LET 53 64 PROMPT 2 ABILITY 255 255 PROCESS InitBabosas LET posicionRobot SalaDeControl ANYKEY GOTO Meseta CLS SYSMESS "{19}{1}Planet of Death{19}{0}^Versión 1.1 (05-09-09)^Programa: Mastodon^Beta testing: Akbarr y Baltasarq^" DESC; 
+    #endif
+    
+    #ifdef PAWSPECTRUM
+    * *: AT Inicial CLS EXTERN 5 MODE 1 1 LET 53 64 PROMPT 2 ABILITY 255 255 PROCESS InitBabosas LET posicionRobot SalaDeControl ANYKEY GOTO Meseta CLS SYSMESS "{19}{1}Planet of Death{19}{0}^Versión 1.1 (05-09-09)^Programa: Mastodon^Beta testing: Akbarr y Baltasarq^" DESC; 
+    #endif
+    
+}
+
+#ifdef PAWGLULX
+SYSMESSAGES
+{
+    61: "No sé como hacer eso. Intenta describirlo de otra forma.^";
+    62: "No pude entenderte. Usa otras palabras.^";
+}
+#endif
+
+#include "Examina.h"
+//----------------------------------------------------------------------
+// Meseta y acantilado, localidad inicial
+//----------------------------------------------------------------------
+
+Location Meseta // Localidad inicial
+{
+    "%Meseta&^ Estás en una pequeña meseta pedregosa sobre las montañas, al borde de un pronunciado precipicio. La meseta se extiende al este y al oeste. Bajo las montañas ves un frondoso bosque al que se llega descendiendo por un estrecho camino hacia el suroeste.";
+    CONNECTIONS { Este to CavidadHumeda Oeste to Fosa};
+} VOCABULARY { Noun: "PRECIPICIO"; }
+
+PROCESS Salidas
+{
+    * _ : AT Meseta PLACE obj_abajo loc_compas PLACE obj_suroeste loc_compas;
+}
+
+Object objPedernal
+{
+    "trozo de pedernal";
+    INITIALLYAT Meseta;
+    WORDS PEDERNAL _;
+    WEIGHT 1;
+} VOCABULARY { Noun: "PEDERNAL"; }
+
+RESPONSE
+{
+    TIRA _| ARROJA _: AT Meseta PROCESS Present NOTZERO flagRet NOUN2 PRECIPICIO MESSAGE "Sería una pérdida segura." DONE;
+    SO _ | ABAJO _: AT Meseta MES "El camino es escarpado y sinuoso, apareces mirando hacia el " MESSAGE "este." GOTO BosqueDenso DESC;
+}
+
+//----------------------------------------------------------------------
+// Bosque
+//----------------------------------------------------------------------
+
+Flag lianaCortada;
+Location BosqueDenso
+{
+    "%Bosque&^ Te encuentras en un poblado bosque con densa vegetación. Algunos árboles dejan caer sus lianas hasta casi rozar el suelo. Un camino pedregoso desciende de forma pronunciada desde el oeste, y continúa hacia el sur entre sombríos parajes boscosos.";
+    Connections { Sur to JuntoLago };
+} VOCABULARY { Noun: "ARBOL" #ifdef PAWGLULX, "ARBOLES"#endif; }
+
+PROCESS Salidas
+{
+    * _ : AT BosqueDenso PLACE obj_arriba loc_compas PLACE obj_oeste loc_compas;
+}
+
+Object objLiana
+{
+    "liana";
+    WEIGHT 2;
+    INITIALLYAT BosqueDenso;
+    WORDS LIANA _;
+} VOCABULARY { Noun: "LIANA", "CUERDA" #ifdef PAWGLULX, "LIANAS" #endif; }
+
+PROCESS ExtPropiedad
+{
+     _ _: EQ 51 objLiana ZERO lianaCortada SET PROP_ESTATICO SET PROP_NOLISTAR;
+}
+
+RESPONSE
+{
+    O _ | ARRIBA _: AT BosqueDenso MES "El camino es escarpado y sinuoso, apareces mirando hacia el " MESSAGE "nordeste." GOTO Meseta DESC;
+    N _: AT BosqueDenso MESSAGE "Te topas con la montaña. El camino hacia la meseta está al oeste." DONE;
+    COGE LIANA: AT BosqueDenso ZERO lianaCortada|ABSENT objLiana MESSAGE "Las lianas cuelgan de los árboles, no puedes cogerlas sin más." DONE;
+    TREPA LIANA|SUBE LIANA|
+    TREPA ARBOL|SUBE ARBOL: AT BosqueDenso MESSAGE "Trepas un rato por una de las lianas, pero al ver que el camino hasta arriba es más largo de lo que parece desistes." DONE;
+    ROMPE LIANA: AT BosqueDenso LET 33 CORTA;
+    CORTA LIANA: AT BosqueDenso CARRIED objPedernal ZERO lianaCortada SET lianaCortada PLUS puntuacion puntLianaCortada MESSAGE "Cortas una de las lianas con el pedernal, y cae al suelo formando una útil cuerda." DONE;
+    CORTA LIANA: AT BosqueDenso CARRIED objPedernal MESSAGE "No necesitas podar el bosque entero." DONE;
+    CORTA LIANA: AT BosqueDenso MESSAGE "Las lianas son bastante resistentes, necesitas el material adecuado para cortarlas." DONE;
+}
+
+//----------------------------------------------------------------------
+// Fosa
+//----------------------------------------------------------------------
+
+Flag lianaAtada;
+Location Fosa
+{
+    "%Al borde de una fosa&^ La meseta finaliza bruscamente en una escarpada pendiente imposible de escalar, tachonada de grandes moles de piedra.";
+    CONNECTIONS { Este to Meseta };
+}
+
+PROCESS 1
+{
+    _ _ : AT FOSA NOTZERO lianaAtada MESSAGE " {16}{4}Una liana atada a una de las piedras se descuelga por la fosa.&";
+}
+
+Object objPiedra
+{
+    "piedra";
+    WEIGHT 2;
+    INITIALLYAT Fosa;
+    WORDS PIEDRA _;
+} VOCABULARY { Noun: "MOLE", "MOLES", "PIEDRA" #ifdef PAWGLULX , "PIEDRAS" #endif; }
+
+PROCESS ExtPropiedad
+{
+    _ _: EQ 51 objPiedra SET PROP_ESTATICO SET PROP_NOLISTAR;
+}
+
+Object objFosa 2
+{
+    "fosa";
+    WORDS FOSA _;
+    INITIALLYAT Fosa;
+    PROPERTY CONTAINER;
+} VOCABULARY { Noun: "FOSA"; }
+Location objFosaLoc 2 { ""; }
+
+PROCESS ExtPropiedad
+{
+    _ _: EQ 51 objFosa SET PROP_ESTATICO LET PROP_GENNUM GenNum_FS;
+}
+
+Process LimpiarFosa;
+Process 2 // Todo lo que caiga en la fosa, va para abajo
+{
+    _ _: AT Fosa LET flagPrm1 objFosaLoc PROCESS ContarAt NOTZERO flagRet PROCESS LimpiarFosa;
+}
+
+PROCESS LimpiarFosa
+{
+    _ _ : DOALL objFosaLoc;
+    _ _ : WHATO;
+    _ _ : EQ 34 TABLON PUTO GrutaGlaciar; // El tablon pesa mucho y no baja el terraplén
+    _ _ : NOTEQ 34 ESPEJO NOTEQ 34 TABLON PUTO CavernaVerde; // El resto va a la caverna tranquila
+    _ _ : Process PrintFirstArtDetMayusc MES " cae" PROCESS TermGeneroVerbo MESSAGE " por la fosa y se pierde en la oscuridad.";
+    _ _ : EQ 34 ESPEJO DESTROY objEspejo MESSAGE "Oyes como el espejo se despedaza contra el fondo de la fosa.";
+    _ _ : DONE;
+}
+
+PROCESS Salidas
+{
+    * _ : AT Fosa NOTZERO lianaAtada PLACE obj_abajo loc_compas PLACE obj_entrar loc_compas;
+}
+
+Process AtaLianaProc;
+RESPONSE
+{
+    TREPA LIANA|TREPA FOSA: AT Fosa NOTZERO lianaAtada CLEAR estadoSuspension CLEAR contadorBalanceo MESSAGE "Desciendes por la liana con cuidado, pero su longitud no te permite llegar al fondo." GOTO LocSuspendido DESC;
+    TREPA LIANA: AT Fosa CARRIED objLiana MESSAGE "Deberías atarla a algo consistente antes de escalar." DONE;
+    ENTRA FOSA| BAJA FOSA|TREPA FOSA: AT Fosa NOUN2 LIANA CARRIED objLiana ZERO lianaAtada MESSAGE "Deberías atarla a algo consistente antes de escalar." DONE;
+    ENTRA _|ABAJO _|TREPA FOSA: AT Fosa ZERO lianaAtada MESSAGE "La fosa es demasiado profunda para tirarte por ella." DONE;
+    ENTRA _|ABAJO _|TREPA FOSA: AT Fosa CARRIED objTablon MESSAGE "O el tablón o tú, los dos no cabeis por la fosa." DONE;
+    ENTRA _|ABAJO _|TREPA FOSA: AT Fosa CLEAR estadoSuspension CLEAR contadorBalanceo MESSAGE "Desciendes por la liana con cuidado, pero su longitud no te permite llegar al fondo." GOTO LocSuspendido DESC;
+    ATA LIANA: AT Fosa PROCESS AtaLianaProc DONE;
+    COGE LIANA|DESATA LIANA: AT Fosa NOTZERO lianaAtada CLEAR lianaAtada PLACE objLiana CARRIED MESSAGE "Desatas la liana." DONE;
+    TIRA _: AT Fosa NOUN2 FOSA PROCESS MeterSub DONE;
+}
+
+Process AtaLianaProc
+{
+    _ _ : NOUN2 Piedra CARRIED objLiana ZERO lianaAtada SET lianaAtada DESTROY objLiana MESSAGE "Atas la liana a una de las piedras y la dejas caer por la fosa." DONE;
+    _ _ : NOUN2 Piedra NOTZERO lianaAtada MESSAGE "Ya está atada." DONE;
+    _ _ : NOUN2 Fosa CARRIED objLiana MESSAGE "La fosa no tiene asideros para atar la liana." DONE;
+    _ _ : NOTCARR objLiana MESSAGE "No tienes nada de eso." DONE;
+    _ _ : PREP A MESSAGE "No le ves sentido en este momento a atar la liana a eso." DONE;
+    _ _ : MESSAGE "Tienes que atar la liana a algo." DONE;
+}
+//----------------------------------------------------------------------
+// Suspendido en la cuerda
+//----------------------------------------------------------------------
+
+Flag estadoSuspension;
+Constant suspensionTerraplen 0; // En suspension sobre el terraplen
+Constant balanceoTerraplen 1;   // En suspension, balanceandote un poco
+Constant movimCavernaTranquila 2; // En movimiento, sobre la caverna tranquila
+Constant movimGrutaGlaciar 3; // En movimiento, sobre la gruta glaciar
+Constant movimTerraplenIda 4;    // En movimiento, sobre el terraplen
+Constant movimTerraplenVuelta 5; // Lo mismo que antes, de vuelta
+Flag puntuadaFosa;
+Location LocSuspendido
+{
+    "%En suspensión&";
+    CONNECTIONS { SUBIR to Fosa };
+}
+
+Process DescribeSuspendido;
+PROCESS 1
+{
+    _ _ : AT LocSuspendido PROCESS DescribeSuspendido;
+}
+
+Process DescribeSuspendido
+{
+    _ _ : LT estadoSuspension 2 MES " Te encuentras en suspensión";
+    _ _ : GT estadoSuspension 1 MES " Estás balanceándote enérgicamente";
+    _ _ : MES ", colgando de una liana, ";
+    _ _ : EQ estadoSuspension balanceoTerraplen MES "y balanceándote suavemente ";  
+    _ _ : LT estadoSuspension 2 MESSAGE "sobre un peligroso terraplén cubierto de afilados fragmentos de hielo incrustado.";
+    _ _ : EQ estadoSuspension movimCavernaTranquila MESSAGE "y a tus pies ves una tranquila caverna de color verdusco.";
+    _ _ : EQ estadoSuspension movimGrutaGlaciar MESSAGE "sobre una fría gruta con grandes bloques de hielo.";
+    _ _ : GT estadoSuspension movimGrutaGlaciar MESSAGE "a la altura del peligroso terraplén de afilados trozos de hielo.";
+}
+
+Process LimpiarSuspendido; // Todo lo que dejemos caerá
+Process 2 
+{
+    _ _: AT LocSuspendido LET flagPrm1 LocSuspendido PROCESS ContarAt NOTZERO flagRet PROCESS LimpiarSuspendido;
+    _ _: AT LocSuspendido NOTZERO estadoSuspension PROCESS BalancearDaemon GT estadoSuspension balanceoTerraplen PROCESS DescribeSuspendido;
+}
+
+PROCESS Limpiarsuspendido
+{
+    _ _ : DOALL LocSuspendido;
+    _ _ : WHATO;
+    _ _ : NOTEQ estadoSuspension movimGrutaGlaciar PUTO CavernaVerde; 
+    _ _ : EQ estadoSuspension movimGrutaGlaciar PUTO GrutaGlaciar;
+    _ _ : Process PrintFirstArtDetMayusc MES " cae" PROCESS TermGeneroVerbo MESSAGE " al fondo de la cueva." DONE;
+}
+
+Process BalancearProc;
+Process BalancearDaemon;
+Process SueltaLianaProc;
+RESPONSE
+{
+    TREPA _: AT LocSuspendido GOTO Fosa DESC;
+    BALANCEA _: AT LocSuspendido EQ 34 255 PROCESS BalancearProc DONE;
+    BALANCEA LIANA: AT LocSuspendido PROCESS BalancearProc DONE;
+    DEJA LIANA| ABAJO _| SALTA _: AT LocSuspendido MES "Te sueltas de la liana y caes en " PROCESS SueltaLianaProc DONE;
+}
+
+Flag contadorBalanceo;
+Constant turnosBalanceo 10; // Turnos que nos balanceamos "a todo tren"
+Process BalancearProc
+{
+    _ _ : ZERO estadoSuspension LET estadoSuspension balanceoTerraplen LET contadorBalanceo 2 MESSAGE "Te empiezas a columpiar en la cuerda imprimiéndole un suave movimiento de vaivén." DONE;
+    _ _ : EQ estadoSuspension balanceoTerraplen LET contadorBalanceo turnosBalanceo LET estadoSuspension movimTerraplenIda MESSAGE "Te das un nuevo impulso y ahora te balanceas sobre un ángulo más amplio." DONE;
+    _ _ : GT estadoSuspension balanceoTerraplen LET contadorBalanceo turnosBalanceo MESSAGE "Te impulsas un poco más, aunque la longitud de la liana no permite ampliar el ángulo de balanceo." DONE;
+}
+Process BalancearDaemon
+{
+    _ _ : MINUS contadorBalanceo 1;
+    _ _ : ZERO contadorBalanceo CLEAR estadoSuspension MESSAGE "El balanceo cesa completamente y quedas suspendido sobre el terraplén." DONE;
+    _ _ : EQ contadorBalanceo 2 LET estadoSuspension balanceoTerraplen MESSAGE "El balanceo pierde fuerza y se queda en un suave vaivén sobre el terraplén." DONE;
+    _ _ : EQ estadoSuspension movimCavernaTranquila LET estadoSuspension movimTerraplenIda DONE;
+    _ _ : EQ estadoSuspension movimTerraplenIda LET estadoSuspension movimGrutaGlaciar DONE;
+    _ _ : EQ estadoSuspension movimGrutaGlaciar LET estadoSuspension movimTerraplenVuelta DONE;
+    _ _ : EQ estadoSuspension movimTerraplenVuelta LET estadoSuspension movimCavernaTranquila;
+}
+
+Process SueltaLianaProc
+{
+    _ _ : ZERO puntuadaFosa SET puntuadaFosa PLUS puntuacion puntBajarPorLiana;
+    _ _ : EQ estadoSuspension movimGrutaGlaciar MESSAGE "..." GOTO GrutaGlaciar DESC;
+    _ _ : EQ estadoSuspension movimCavernaTranquila MESSAGE "..." GOTO CavernaVerde DESC;
+    _ _ : MESSAGE "medio de los trozos de hielo afilados, precipitándote terraplén abajo. Durante el descenso, las heladas cuchillas literalmente te despedazan.^^      {16}{2}*** HAS PERDIDO ***&^" SCORE TURNS END;
+}
+//----------------------------------------------------------------------
+// Junto al lago
+//----------------------------------------------------------------------
+
+Flag tablonEnRiachuelo;
+Location JuntoLago
+{
+    "%Junto al lago&^ Un lago de aguas gélidas se extiende a lo que tu vista alcanza en dirección sur. Esta debió ser una zona habitada, a juzgar por la extraña construcción que hay hacia el este y el cobertizo hacia el oeste. El camino al oeste está bloqueado por un riachuelo que desemboca en el lago. El sendero del bosque conduce al norte.";
+    Connections { N to BosqueDenso 
+                             E to ExtrañaConstruccion };
+} VOCABULARY { Noun: "LAGO", "Remolino"; }
+
+Object objRiachuelo 1
+{
+    "riachuelo";
+    WORDS RIACHUELO _;
+    INITIALLYAT JuntoLago;
+    WEIGHT 1;
+    PROPERTY CONTAINER;
+} VOCABULARY { Noun: "RIO", "RIACHUELO"; }
+Location locRiachuelo 1 { ""; }
+
+Process ExtPropiedad
+{
+    _ _: EQ 51 objRiachuelo SET PROP_ESTATICO SET PROP_NOLISTAR LET PROP_GENNUM GenNum_MS;
+}
+
+RESPONSE
+{
+    OESTE _ | CRUZA RIACHUELO: AT JuntoLago ZERO tablonEnRiachuelo MESSAGE "El riachuelo es demasiado profundo y caudaloso para cruzarlo." DONE;
+    OESTE _ | CRUZA RIACHUELO: AT JuntoLago GOTO Cobertizo DESC;
+    NADA RIACHUELO|SALTA RIACHUELO: AT JuntoLago MESSAGE "El riachuelo es demasiado profundo y caudaloso para cruzarlo." DONE;
+    ENTRA LAGO | SUR _: AT JuntoLago NOTWORN objBotas MESSAGE "El agua está helada, y el suelo resbaloso." DONE;
+    ENTRA LAGO | SUR _: AT JuntoLago MESSAGE "Te adentras unos pasos en el lago, hasta llegar al remolino que forma el riachuelo..." GOTO locRemolino DESC;
+    TIRA _ | ARROJA _ : AT JuntoLago NOUN2 LAGO MESSAGE "Sería una pérdida segura." DONE;
+}
+
+PROCESS Salidas
+{
+    * _ : AT JuntoLago NOTZERO tablonEnRiachuelo PLACE obj_oeste loc_compas;
+    * _ : AT JuntoLago WORN objBotas PLACE obj_sur loc_compas;
+}
+
+Process LimpiarRiachuelo;
+
+// Manejo del riachuelo
+PROCESS 2
+{
+    // Si no hay tablon, limpia el flag
+    _ _: AT JuntoLago NOTZERO tablonEnRiachuelo ISNOTAT objTablon locRiachuelo CLEAR tablonEnRiachuelo;
+    // Si el tablon se pone, activa el flag
+    _ _: AT JuntoLago ZERO tablonEnRiachuelo ISAT objTablon locRiachuelo SET tablonEnRiachuelo MESSAGE "El tablón queda atravesado entre las orillas del riachuelo.";
+    _ _: AT JuntoLago LET flagPrm1 locRiachuelo PROCESS ContarAt NOTZERO flagRet PROCESS LimpiarRiachuelo;
+}
+
+// Todo lo que tiremos al riachuelo, irá a parar al remolino (menos las botas y el tablón)
+PROCESS LimpiarRiachuelo
+{
+    _ _ : DOALL locRiachuelo;
+    _ _ : EQ 34 BOTAS MESSAGE "Las botas son muy pesadas, y quedan varadas en la orilla."  PUTO JuntoLago DONE;
+    _ _ : NOTEQ 34 TABLON 
+            WHATO
+            PUTO locRemolino MES "Al caer al agua, " PROCESS PrintFirstArtDet MES " es arrastrad"  PROCESS TermGenero MESSAGE " por la corriente y se pierde en el lago." DONE;
+}
+
+//-------------------------------------------------------------------------------------
+// El remolino en el lago
+//-------------------------------------------------------------------------------------
+
+Location locRemolino 
+{ 
+    "%Remolino en el lago&^ Te encuentras de pie, unos metros dentro del lago junto a un remolino que forma la desembocadura del riachuelo en el lago."; 
+    CONNECTIONS { N to JuntoLago };
+}
+
+RESPONSE
+{
+    QUITA BOTAS|SACATE BOTAS: AT locRemolino MESSAGE "Eso no sería una acción muy inteligente, aquí dentro del lago." DONE;
+    DEJA _ : AT locRemolino WHATO EQ 54 CARRIED PUTO 255 MES "Sueltas " PROCESS PrintFirstArtDet MES ", y ves como " PROCESS ProAcusativo MESSAGE " engulle el remolino." DONE;
+    SACA _: AT locRemolino NOUN2 Remolino PROCESS CogerSub DONE;
+}
+
+
+//----------------------------------------------------------------------
+// Extraña construcción
+//----------------------------------------------------------------------
+
+Flag tablonCogido;
+Location ExtrañaConstruccion
+{
+    "%Construcción alienígena&^ Una extraña construcción de piedras y barro. Tiene forma hexagonal, con altas ventanas circulares y un simple hueco al oeste a modo de entrada. El suelo está formado por grandes tablones de madera encajados, probablemente procedentes del bosque cercano.";
+    CONNECTIONS { Oeste to JuntoLago 
+                                    Salir to JuntoLago };
+} VOCABULARY { Noun: "SUELO"; }
+
+Object objTablon
+{
+    "tablón";
+    INITIALLYAT NOTCREATED;
+    WEIGHT 1;
+    WORDS TABLON _;
+} VOCABULARY { Noun: "Tablon" #ifdef PAWGLULX , "Tablones" #endif; }
+
+Object objBotas
+{
+    "botas";
+    INITIALLYAT ExtrañaConstruccion;
+    WEIGHT 4;
+    WORDS BOTAS _;
+    PROPERTY CLOTHING;
+} VOCABULARY { Noun: "BOTAS", "BOTA"; }
+
+RESPONSE
+{
+    EX SUELO: AT ExtrañaConstruccion MESSAGE "Su estado de abandono ha dejado varios asideros entre los tablones." DONE;
+    EX TABLON: AT ExtrañaConstruccion ABSENT objTablon MESSAGE "Su estado de abandono ha dejado varios asideros entre los tablones." DONE;
+    COGE TABLON|
+    TIRA TABLON|
+    ROMPE TABLON: AT ExtrañaConstruccion ZERO tablonCogido SET tablonCogido PLACE objTablon CARRIED PLUS puntuacion puntTablon MESSAGE "Tiras con fuerza de uno de los tablones hasta desprenderlo del suelo." DONE;
+    COGE TABLON|
+    TIRA TABLON|
+    ROMPE TABLON: AT ExtrañaConstruccion ABSENT objTablon MESSAGE "No puedes arrancar más." DONE;
+} 
+    
+//----------------------------------------------------------------------
+// Viejo cobertizo
+//----------------------------------------------------------------------
+
+Flag visitadoCobertizo;
+Location Cobertizo
+{
+    "%Viejo cobertizo&^ Estás en el interior de un viejo cobertizo, una especie de almacén aparentemente abandonado. Numerosos utensilios, la mayoría desconocidos para tí, adornan sus paredes.";
+    CONNECTIONS { E to JuntoLago SALIR to JuntoLago };
+} VOCABULARY { Noun: "UTENSILIO" #ifdef PAWGLULX , "UTENSILIOS" #endif ;}
+
+Object objPistolaNeutralizante
+{
+    "pistola neutralizante";
+    INITIALLYAT Cobertizo;
+    WORDS PISTOLA NEUTRALIZANTE;
+    WEIGHT 2;
+} VOCABULARY { Noun: "PISTOLA"; Adjective: "NEUTRALIZANTE"; }
+
+RESPONSE
+{
+    COGE UTENSILIO: AT Cobertizo MESSAGE "La mayoría está en muy malas condiciones y no sabes ni para qué sirven." DONE;
+}
+
+PROCESS 1
+{
+    _ _ : AT Cobertizo ZERO visitadoCobertizo SET visitadoCobertizo PLUS puntuacion puntAtravesar;
+}
+
+//----------------------------------------------------------------------
+// Cavidad húmeda
+//----------------------------------------------------------------------
+
+Location CavidadHumeda
+{
+    "%Cavidad húmeda&^ Una amplia cavidad con paredes de piedra caliza cubiertas de humedad, de cuyo techo cuelga una miríada de estalactitas de caprichosas formas. En una de las paredes observas una pintura.^ La cavidad se estrecha y continúa hacia el norte en una leve pendiente descendente, y se abre hacia el oeste al exterior.";
+    CONNECTIONS { Oeste to Meseta };
+} VOCABULARY { Noun: "PINTURA"; }
+
+PROCESS Salidas
+{
+    * _ : AT CavidadHumeda PLACE obj_norte loc_compas;
+}
+
+RESPONSE
+{
+    Norte _ : AT CavidadHumeda CARRIED objTablon MESSAGE "No puedes pasar con el tablón, la cavidad es muy estrecha." DONE;
+    Norte _ : AT CavidadHumeda MES "Atraviesas la cavidad, que da un repentino giro hacia el " MESSAGE "oeste." GOTO GrutaGlaciar DESC;
+}
+
+//------------------------------------------------------------------------
+// Gruta glaciar
+//-------------------------------------------------------------------------
+
+Flag BloqueHieloPuntuado; // Si he arrancado un bloque de hielo
+Flag MontadoHieloPuntuado; // Si me he montado en el bloque de hielo
+Location GrutaGlaciar
+{
+    "%Gruta glaciar&^ En este lugar de la cueva la temperatura es realmente baja, los altos muros que te rodean están cubiertos por enormes placas de hielo, y el techo semeja la bóveda de una nívea catedral. La cavidad continúa hacia el sur bajando por un empinado terraplén cubierto de afilados trozos de hielo incrustados en el suelo. Un estrecho pasaje conduce al este.";
+    CONNECTIONS { Este to CavidadHumeda };
+} 
+
+PROCESS Salidas
+{
+    * _ : AT GrutaGlaciar PLACE obj_este loc_compas;
+}
+
+VOCABULARY { 
+  Noun: "BLOQUE", "PLACA", "HIELO" #ifdef PAWGLULX , "PLACAS" #endif ; 
+  Noun: "PIE", "PIES"; 
+  Noun: "PATADA";
+  Noun: "PUÑETAZO", "PUNETAZO";
+}
+
+Object objBloqueHielo
+{
+	"bloque de hielo";
+	INITIALLYAT NOTCREATED;
+	WORDS HIELO _;
+	WEIGHT 1;
+}
+
+Process RompeHielo;
+Process PuntuaHielo;
+Process MontaHieloProc;
+RESPONSE
+{
+    Este _ : AT GrutaGlaciar CARRIED objTablon MESSAGE "No puedes pasar con el tablón, la cavidad es muy estrecha." DONE;
+    ESTE _ : AT GrutaGlaciar MES "Atraviesas la cavidad, que da un repentino giro hacia el " MESSAGE "sur." GOTO CavidadHumeda DESC;
+	COGE HIELO: AT GrutaGlaciar ISAT objBloqueHielo GrutaGlaciar MESSAGE "Es demasiado pesado." DONE;
+	COGE HIELO: AT GrutaGlaciar MESSAGE "Son enormes bloques, y están incrustados en la roca." DONE;
+	ROMPE HIELO: AT GrutaGlaciar PREP Con PROCESS RompeHielo DONE;
+    DA PATADA: AT GrutaGlaciar PREP AL NOUN2 HIELO LET 33 ROMPE LET 34 HIELO LET 35 255 LET 44 PIES LET 45 255 PROCESS RompeHielo DONE;
+    DA PUÑETAZO: AT GrutaGlaciar PREP A NOUN2 HIELO MESSAGE "¿Así, con las manos?" DONE;
+	ROMPE HIELO: AT GrutaGlaciar MESSAGE "¿Así, con las manos?" DONE;
+    
+    EMPUJA HIELO: AT GrutaGlaciar Present objBloqueHielo DESTROY objBloqueHielo MESSAGE "Le das un suave empujoncito al bloque de hielo, que se desliza por la pendiente perdiéndose de vista al instante." DONE;
+    EMPUJA HIELO: AT GrutaGlaciar MESSAGE "Son enormes bloques, y están incrustados en la roca." DONE;
+    MONTA HIELO|
+    SUBE HIELO|
+    ENTRA HIELO: AT GrutaGlaciar Present objBloqueHielo PROCESS MontaHieloProc DONE;
+    SUR _: AT GrutaGlaciar MESSAGE "Te diriges al terraplen, pero al poner pie en él resbalas por la presencia de placas de hielo. El descenso no es menos doloroso al arrastrarte entre trozos afilados de hielo partido." SCORE TURNS END;
+}
+
+Process RompeHielo
+{
+	_ _ : Present objBloqueHielo MESSAGE "Hay un bloque en el suelo ¿Cuantos quieres arrancar?" DONE;
+	_ _ : NOUN2 Botas|Noun2 Pies PRESENT objBotas NOTWORN objBotas MESSAGE "No sería mala opción con esas botazas, si al menos las tuvieras puestas." DONE;
+	_ _ : NOUN2 Botas|Noun2 Pies WORN objBotas PLACE objBloqueHielo GrutaGlaciar MESSAGE "Das un enorme patadón a una de las protuberancias heladas. La fuerza del golpe lo desprende de su asidero y cae al suelo entre ecos retumbantes." DONE;
+	_ _ : NOUN2 Pies MESSAGE "No tienes el calzado adecuado para esa acción tan radical." DONE;
+    _ _ : NOUN2 Tablon CARRIED objTablon PLACE objBloqueHielo GrutaGlaciar MESSAGE "Tomas impulso y obsequias a uno de los bloques de hielo protuberantes con un tremendo golpe de tablón. El hielo se desquebraja y un bloque cae con un estruendo replicado por toda la estancia." DONE;
+    _ _ : NOUN2 Tablon MESSAGE "No tienes nada de eso." DONE;
+    _ _ : NOUN2 Pedernal CARRIED objPedernal MESSAGE "El sílex no es suficientemente duro para eso." DONE;
+    _ _ : NOUN2 Pedernal MESSAGE "No tienes nada de eso." DONE;
+	_ _ : MESSAGE "No lo veo como una opción para romper el hielo." DONE;
+}
+
+Process PuntuaHielo
+{
+    _ _ : ZERO MontadoHieloPuntuado SET MontadoHieloPuntuado PLUS puntuacion puntMontadoHielo;
+}
+
+Process MontaHieloProc
+{
+    _ _ : CARRIED objTablon MESSAGE "Con el tablón sería muy aparatoso." DONE;
+    _ _ : DESTROY objBloqueHielo Process PuntuaHielo MESSAGE "Te subes al bloque de hielo, y al instante comienza a moverse hacia el terraplén.  Apenas llega al borde, se precipita veloz hacia el abismo, tropezando y saltando al chocar con los trozos de hielo dispersos del suelo. Cuando llegas abajo, el bloque de hielo es historia, pero tú pareces estar (increiblemente) en buenas condiciones." GOTO CavernaVerde DESC;
+}
+
+PROCESS 2
+{
+	_ _ : AT GrutaGlaciar ZERO BloqueHieloPuntuado SET BloqueHieloPuntuado PLUS puntuacion puntBloqueHielo;
+}
+
+//-----------------------------------------------------------------------------
+// Caverna verde
+//-----------------------------------------------------------------------------
+
+// La caverna está habitada por horribles babosas verdes que si son tocadas o matadas por el jugador, queda envenenado
+// En las salidas hay espejos, si el jugador se fija, los gusanos dan la vuelta al toparse con uno de ellos
+// En una de las estancias hay una criatura durmiendo encima de un espejo
+// En otra hay un cuenco de donde comen los gusanos, sólo nos podremos acercar si llevamos un espejo
+// El contenido del cuenco es capaz de derretir el mecanismo que activa el campo de fuerza
+
+Location CavernaVerde 3
+{
+	"";
+    CONNECTIONS { O to CavernaVerde4 NO to CavernaVerde5 S to CavernaVerde2 E to TunelSinuoso};
+}
+
+Location CavernaVerde2 4
+{
+	"";
+    CONNECTIONS { N to CavernaVerde E to CavernaVerde3 S to PasajeAcolchado };
+}
+
+Location CavernaVerde3 5
+{
+	"";
+    CONNECTIONS { O to CavernaVerde2 };
+}
+
+Location CavernaVerde4 6
+{
+	"";
+    CONNECTIONS { E to CavernaVerde N to CavernaVerde5 O to SalaDeControl };
+}
+
+Location CavernaVerde5 7
+{
+	"%Comedero de babosas&^ Esta parte de la caverna verde es más amplia y más alta";
+    CONNECTIONS { S to CavernaVerde4 SE to CavernaVerde };
+} 
+PROCESS 1
+{
+    * _: AT CavernaVerde5 ISAT objGusano CavernaVerde5 MES ". Al fondo de la estancia hay " MES "un enorme gusano";
+    * _: AT CavernaVerde5 ISAT objGusano CavernaVerde5 ISAT objRecipienteGusano CavernaVerde5 MES " comiendo compulsivamente de un recipiente con un líquido gelatinoso";
+    * _: AT CavernaVerde5 ISNOTAT objGusano CavernaVerde5 ISAT objRecipienteGusano CavernaVerde5 MES ". Al fondo de la estancia hay " MES "un recipiente con un líquido gelatinoso";
+    * _: AT CavernaVerde5 MES ".";
+}
+Object objGusano
+{
+    "gusano enorme";
+    WEIGHT 1;
+    WORDS GUSANO _;
+    INITIALLYAT CavernaVerde5;
+} VOCABULARY { Noun: "GUSANO"; }
+Process ExtPropiedad{ _ _ : EQ 51 objGusano SET PROP_ESTATICO;
+                      _ _ : EQ 51 objGusano ISAT objGusano CavernaVerde5|ISAT objGusano EstrechoCubiculo SET PROP_NOLISTAR ;}
+
+Object objRecipienteGusano
+{
+    "recipiente";
+    WEIGHT 1;
+    WORDS RECIPIENTE _;
+    INITIALLYAT CavernaVerde5;
+} VOCABULARY { Noun: "RECIPIENTE", "LIQUIDO"; }
+Process ExtPropiedad{_ _ : EQ 51 objRecipienteGusano SET PROP_NOLISTAR SET PROP_ESTATICO;}
+
+Object objEspejoSalida
+{
+    "espejo";
+    WEIGHT 1;
+    WORDS ESPEJO ESTATICO;
+    INITIALLYAT NOTCREATED;
+} VOCABULARY { Noun: "ESPEJO"; Adjective: "ESTATICO"; }
+
+Process ExtPropiedad
+{
+    _ _ : EQ 51 objEspejoSalida SET PROP_NOLISTAR SET PROP_ESTATICO;
+}
+
+PROCESS 1
+{
+    * *  : GT 38 2 LT 38 7 MES "%Caverna verde&^ Estás en una estrecha caverna laberíntica, iluminada débilmente por un suave resplandor verde que emana de las paredes y el suelo.";
+    * * :  AT CavernaVerde PLACE objEspejoSalida CavernaVerde MES " La salida del " MES "este" MES " tiene un espejo encima con un extraño símbolo.";
+    * * : AT CavernaVerde4 PLACE objEspejoSalida CavernaVerde4 MES " La salida del " MES "oeste" MES " tiene un espejo encima con un extraño símbolo.";
+    * * : AT CavernaVerde2 PLACE objEspejoSalida CavernaVerde2 MES " La salida del " MES "sur" MES " tiene un espejo encima con un extraño símbolo.";
+    * * :  AT CavernaVerde MES " Hacia el norte, la caverna asciende en una escarpada pendiente, imposible de escalar.";
+    _ _ : GT 38 2 LT 38 8 SYSMESS "^" Process Salidas;
+} VOCABULARY { Noun: "SIMBOLO"; }
+
+Object objCriaturaVerde
+{
+    "criatura verde";
+    WEIGHT 2;
+    INITIALLYAT CavernaVerde3;
+    WORDS CRIATURA VERDE;
+} VOCABULARY { Noun: "CRIATURA"; Adjective: "VERDE"; }
+
+Object objEsqueletoPulposo
+{
+    "esqueleto pulposo";
+    WEIGHT 1;
+    INITIALLYAT NOTCREATED;
+    WORDS ESQUELETO _;
+} VOCABULARY { Noun: "ESQUELETO"; }
+
+Flag espejoMovido;
+Object objEspejo
+{
+    "espejo";
+    WEIGHT 1;
+    INITIALLYAT CavernaVerde3;
+    WORDS ESPEJO DEMANO;
+} VOCABULARY { Adjective: "DEMANO"; }
+RESPONSE { COGE ESPEJO: ISAT objEspejo 255 LET 35 DEMANO; } // Evita conflictos con el otro espejo
+
+PROCESS 1
+{
+    _ * : Present objCriaturaVerde NOTAT EstrechoCubiculo NOTAT Vertedero MES "La criatura verde está durmiendo plácidamente, " ZERO espejoMovido MES "sobre el espejo. ";
+    _ * : Present objCriaturaVerde NOTAT EstrechoCubiculo NOTAT Vertedero NOTZERO espejoMovido MES "roncando como un colegial. ";
+    _ * : Present objCriaturaVerde AT EstrechoCubiculo MES "La criatura verde está totalmente aterrorizada, sus ojos de par en par. ";
+}
+
+PROCESS 2
+{
+    _ * : ISAT objCriaturaVerde Vertedero DESTROY objCriaturaVerde AT Vertedero MES "Al verse libre la criatura huye despavorida entre los restos de basura hasta desaparecer de tu vista. ";
+}
+
+//PROCESS 2
+//{
+//    _ _ : AT CavernaVerde3 ZERO espejoMovido ISNOTAT objEspejo CavernaVerde3 SET espejoMovido;
+//}
+
+// Manejo de las babosas
+#include "Babosas.h"
+
+PROCESS 2
+{
+    _ _ : LET flagPrm1 1 PROCESS BabosaDaemon  // Andando babosa uno
+          LET flagPrm1 2 PROCESS BabosaDaemon;  // y la dos
+          //LET flagPrm1 3 PROCESS BabosaDaemon; // y la tres
+}
+
+Flag puntuadoEspejoCogido;
+PROCESS CogerRecipienteGusano;
+RESPONSE
+{
+    // Respuestas para la criatura
+    
+    DESPIERTA CRIATURA|
+    EMPUJA CRIATURA|
+    COGE CRIATURA: Present objCriaturaVerde NOTAT EstrechoCubiculo MES "Al poner la mano sobre la criatura, se " MESSAGE "despierta repentinamente y dando un ágil salto se cuelga de tu hombro. Instantes después notas sus largas manos y afiladas uñas cerrarse en torno a tu cuello. Pierdes la conciencia al cabo de poco rato." SCORE TURNS END;
+    GOLPEA CRIATURA|
+    MATA CRIATURA: Present objCriaturaVerde ZERO espejoMovido MESSAGE "Podrías romper el espejo, y parece un objeto muy valioso aquí." DONE;
+    * CRIATURA: Present objCriaturaVerde AT EstrechoCubiculo MESSAGE "No te molestes, los dos estáis en una situación comprometida." DONE;
+    COGE ESPEJO: AT CavernaVerde3 ZERO espejoMovido MES "Coges el espejo alegremente y la criatura cae rodando del otro lado. Se " MESSAGE "despierta repentinamente y dando un ágil salto se cuelga de tu hombro. Instantes después notas sus largas manos y afiladas uñas cerrarse en torno a tu cuello. Pierdes la conciencia al cabo de poco rato." SCORE TURNS END;
+    COGE ESPEJO: ZERO puntuadoEspejoCogido PRESENT objEspejo SET puntuadoEspejoCogido PLUS puntuacion puntEspejoCogido; // No hago DONE para que actue la libreria
+    ENSENA _| DA _: NOUN2 CRIATURA NOTAT EstrechoCubiculo Present objCriaturaVerde MESSAGE "Está durmiendo." DONE;
+    COGE ESQUELETO: PRESENT objEsqueletoPulposo MESSAGE "No vas a tocar eso." DONE;
+    
+    // Respuestas para las babosas
+    
+    DISPARA BABOSA: PROCESS PRESENT NOTZERO flagRet CARRIED objPistolaNeutralizante MESSAGE "Lanzas una ráfaga a la babosa. La babosa se desintegra por toda la estancia enbadurnándote con sus ácidos fluidos." SCORE TURNS END;
+    EMPUJA BABOSA|
+    TIRA BABOSA|
+    COGE BABOSA: PROCESS PRESENT NOTZERO flagRet MESSAGE "Al acercarte al bicho, te salpica con sus pútridos líquidos corrosivos que te penetran y despedazan en cuestión de segundos." SCORE TURNS END;
+    ARROJA _| TIRA _: NOUN2 BABOSA WHATO EQ 54 CARRIED LET 44 255 COPYFF 38 flagPrm1 PROCESS HayBabosa LET 44 BABOSA NOTZERO flagRet MESSAGE "Eso sería garantía de pérdida. La babosa es muy corrosiva." DONE;
+    ENSENA _| DA _: NOUN2 BABOSA WHATO EQ 54 CARRIED EQ 51 objEspejo LET 44 255 COPYFF 38 flagPrm1 PROCESS HayBabosa LET 44 BABOSA NOTZERO flagRet MESSAGE "La babosa hace un gesto de desdén al mostrarle es espejo." DONE;
+    ENSENA _| DA _: NOUN2 BABOSA WHATO EQ 54 CARRIED LET 44 255 COPYFF 38 flagPrm1 PROCESS HayBabosa LET 44 BABOSA NOTZERO flagRet MESSAGE "La babosa no está interesada." DONE;
+    
+    // Gusano grande y recipiente
+    
+    COGE RECIPIENTE: NOTCARR objRecipienteGusano PRESENT objRecipienteGusano PROCESS CogerRecipienteGusano DONE; 
+    QUITA GUANTES|SACATE GUANTES: CARRIED objRecipienteGusano MESSAGE "No parece viable con este recipiente en tus manos." DONE;
+    DEJA RECIPIENTE : CARRIED objRecipienteGusano NOTAT CavernaVerde5 MESSAGE "No parece adecuado dejar el recipiente aquí." DONE;
+    COGE GUSANO| MATA GUSANO| GOLPEA GUSANO: PRESENT objGusano MESSAGE "Está fuera de tus posibilidades." DONE;
+}
+
+PROCESS CogerSub
+{
+    * _: NOTEQ 51 objRecipienteGusano CARRIED objRecipienteGusano MESSAGE "No parece viable con este recipiente en tus manos." DONE;
+}
+
+PROCESS DispararSub // Dispara a la criatura
+{
+    * _ : EQ 34 CRIATURA Present objCriaturaVerde CARRIED objPistolaNeutralizante MESSAGE "La descarga no produce ningún efecto. No parece el tipo de objetivo adecuado." DONE;
+    * _ : EQ 34 GUSANO Present objGusano CARRIED objPistolaNeutralizante MESSAGE "La descarga no produce ningún efecto. No parece el tipo de objetivo adecuado." DONE;
+}
+
+Flag puntuadoRecipiente;
+Process PuntuarRecipiente;
+PROCESS CogerRecipienteGusano
+{
+    _ _ : WORN objGuantes Present objGusano CARRIED objEspejo MESSAGE "Coges el recipiente." PLACE objRecipienteGusano CARRIED PROCESS PuntuarRecipiente DONE;
+    _ _ : PRESENT objGusano NOTCARR objEspejo MESSAGE "El gusano podría ser un inconveniente." DONE;
+    _ _ : NOTWORN objGuantes MESSAGE "Chorrea líquido viscoso y corrosivo, te abrasarías." DONE;
+    _ _ : MESSAGE "Coges el recipiente." PLACE objRecipienteGusano CARRIED PROCESS PuntuarRecipiente DONE;
+}
+
+Process PuntuarRecipiente
+{
+    _ _: ZERO puntuadoRecipiente SET puntuadoRecipiente PLUS puntuacion puntCogerRecipiente;
+}
+//---------------------------------------------------------------------
+// Tunel sinuoso
+//--------------------------------------------------------------------
+
+Location TunelSinuoso
+{
+    "%Túnel sinuoso&^ Te encuentras en un túnel sinuoso. Al final del túnel, hacia el este, ves una puerta. El túnel continúa hacia el oeste.";
+    CONNECTIONS { O to CavernaVerde E to SalaComputadora};
+} VOCABULARY { Noun: "PUERTA"; }
+
+RESPONSE
+{
+    ABRE PUERTA: AT TunelSinuoso|AT SalaComputadora|AT FinPasillo MESSAGE "No es necesario, es de apertura automática." DONE;
+}
+
+Object objGuantes
+{
+    "guantes";
+    INITIALLYAT TunelSinuoso;
+    WEIGHT 3;
+    WORDS GUANTES _;
+    PROPERTY CLOTHING;
+} VOCABULARY { Noun: "GUANTES"; }
+
+//---------------------------------------------------------------------
+// Sala de computadora
+//--------------------------------------------------------------------
+
+Location SalaComputadora
+{
+    "%Sala de computadoras&^ Las paredes de esta sala están repletas de monitores y cuadros de mando, teclados y otros dispositivos para tí desconocidos, y probablemente destinados al control electrónico de la base. Un monitor gigante ocupa buena parte de una de las paredes. La salida está al oeste.";
+    CONNECTIONS { O to TunelSinuoso };
+} VOCABULARY { Noun: "MONITOR"; }
+
+Object objTarjeta
+{
+    "tarjeta hexagonal";
+    WEIGHT 2;
+    INITIALLYAT SalaComputadora;
+    WORDS TARJETA _;
+} VOCABULARY { Noun: "TARJETA"; }
+
+//---------------------------------------------------------------------
+// Sala de control (control del robot de los túneles)
+//--------------------------------------------------------------------
+
+Location SalaDeControl
+{
+    "%Sala de control&^ Una pequeña sala circular de techo abovedado semejando un panteón, que da paso al complejo de cavernas verdes hacia el este. En el centro de la estancia hay un panel con varios controles. Un estrecho pasillo continua hacia el sur.";
+    CONNECTIONS { E to CavernaVerde4 S to SalaDeBasuras };
+} 
+
+Object objPanelControl
+{
+    "panel de control";
+    WEIGHT 1;
+    INITIALLYAT SalaDeControl;
+    WORDS PANEL _;
+} VOCABULARY { Noun: "CONTROLES"; Noun: "PANEL"; }
+PROCESS ExtPropiedad {  _ _: EQ 51 objPanelControl SET PROP_ESTATICO SET PROP_NOLISTAR; }
+
+Object objRobot
+{
+    "robot";
+    WEIGHT 1;
+    INITIALLYAT SalaDeControl;
+    WORDS ROBOT _;
+} VOCABULARY { Noun: "ROBOT"; }
+PROCESS ExtPropiedad {  _ _: EQ 51 objRobot SET PROP_ESTATICO; }
+Location locRobot { ""; } // Aquí almacenamos lo que lleva suspendido el robot
+
+#include "Robot.h" // Manejo del robot mediante el panel de control
+
+RESPONSE
+{
+    * CONTROLES: PRESENT objPanelControl LET 34 PANEL;
+}
+
+//---------------------------------------------------------------------
+// Sala de basuras
+//--------------------------------------------------------------------
+
+Location SalaDeBasuras
+{
+    "%Sala de basuras&^ Estás en un diminuto cuartucho de paredes metálicas utilizado para salida de residuos, como parece deducirse por el succionador de basuras y la rejilla en el suelo, de la que se desprende un fuerte olor. La única salida visible es hacia el norte. ";
+    CONNECTIONS { N to SalaDeControl };
+} 
+
+PROCESS 1
+{
+    _ _ : AT SalaDeBasuras ISAT objGusano EstrechoCubiculo MES "{16}{4}Hay un enorme gusano atascado entre el succionador y la sala de basuras de abajo.& ";
+}
+
+Flag rejillaSinBarrote;
+Object objRejilla
+{
+    "rejilla";
+    WEIGHT 2;
+    INITIALLYAT SalaDeBasuras;
+    WORDS REJILLA _;
+} VOCABULARY {  Noun: "REJILLA"; }
+PROCESS ExtPropiedad {  _ _: EQ 51 objRejilla SET PROP_ESTATICO SET PROP_NOLISTAR; }
+
+Object objBarroteHierro
+{
+    "barrote de hierro";
+    WEIGHT 1;
+    INITIALLYAT NOTCREATED;
+    WORDS BARROTE _;
+} VOCABULARY {  Noun: "BARROTE"; }
+
+Object objSuccionador
+{
+    "succionador";
+    WEIGHT 1;
+    INITIALLYAT SalaDeBasuras;
+    WORDS SUCCIONADOR _;
+} VOCABULARY { Noun: "SUCCIONADOR"; }
+PROCESS ExtPropiedad {  _ _: EQ 51 objSuccionador SET PROP_ESTATICO SET PROP_NOLISTAR; }
+
+PROCESS SaltaRejilla; // Lo que ocurre cuando saltamos sobre la rejilla
+RESPONSE
+{
+    // Respuestas para el succionador
+    EX SUCCIONADOR: Present objSuccionador MES "El succionador es una gran cavidad en una de las paredes";
+    EX SUCCIONADOR: Present objSuccionador ISAT objGusano EstrechoCubiculo MESSAGE ", actualmente bloqueado por un enorme gusano." DONE;
+    EX SUCCIONADOR: Present objSuccionador MES " ...oh..ooohhh... " MESSAGE "El mecanismo de absorción se activa y una fuerza irresistible te chupa al interior. Apareces en..." GOTO EstrechoCubiculo DESC;
+    ENTRA SUCCIONADOR: Present objSuccionador ISNOTAT objGusano EstrechoCubiculo MESSAGE "El mecanismo de absorción se activa y una fuerza irresistible te chupa al interior. Apareces en..." GOTO EstrechoCubiculo DESC;
+    ENTRA SUCCIONADOR: Present objSuccionador MESSAGE "Está atascado." DONE;
+    TIRA _: NOUN2 SUCCIONADOR PROCESS MeterSub DONE;
+    SACA GUSANO: NOUN2 SUCCIONADOR Present objSuccionador ISAT objGusano EstrechoCubiculo MESSAGE "Está atascado." DONE;
+    EX GUSANO|COGE GUSANO: Present objSuccionador ISAT objGusano EstrechoCubiculo MESSAGE "Está atascado." DONE;
+    EMPUJA GUSANO: Present objSuccionador ISAT objGusano EstrechoCubiculo MESSAGE "Ya ocupa todo el cubículo de abajo, no entra más." DONE;
+    
+    // Respuestas para la rejilla
+    SALTA _: AT SalaDeBasuras PROCESS SaltaRejilla DONE;
+    GOLPEA BARROTE|GOLPEA REJILLA: AT SalaDeBasuras NOUN2 PIES PROCESS SaltaRejilla DONE;
+    GOLPEA BARROTE|GOLPEA REJILLA: AT SalaDeBasuras WORN objBotas NOUN2 BOTAS PROCESS SaltaRejilla DONE;
+    DA PATADA: AT SalaDeBasuras NOUN2 BARROTE|NOUN2 REJILLA PROCESS SaltaRejilla DONE;
+    
+    COGE BARROTE|
+    EMPUJA BARROTE|
+    TIRA BARROTE|
+    GOLPEA BARROTE: AT SalaDeBasuras ZERO rejillaSinBarrote MESSAGE "No está lo suficientemente suelto. Es necesario un método más contundente." DONE;
+    COGE BARROTE|
+    EMPUJA BARROTE|
+    TIRA BARROTE|
+    GOLPEA BARROTE: ABSENT objBarroteHierro AT SalaDeBasuras MESSAGE "Ya has tenido una experiencia con ese tema, no necesitas más." DONE;
+    
+}
+
+Process MirarEnSub
+{
+    * _: AT SalaDeBasuras EQ 34 SUCCIONADOR ISAT objGusano EstrechoCubiculo MESSAGE "El succionador está atascado por un gran gusano." DONE;
+    * _: AT SalaDeBasuras EQ 34 REJILLA MESSAGE "La rejilla está muy alta y el interior es oscuro." DONE;
+}
+
+
+PROCESS MeterSub // Ampliamos el proceso para el succionador
+{
+    * _ : EQ 54 CARRIED NOUN2 Succionador Present objSuccionador ISAT objGusano EstrechoCubiculo MESSAGE "El succionador está bloqueado por el gusano." DONE;
+    * _ : EQ 54 CARRIED NOUN2 Succionador Present objSuccionador PUTO EstrechoCubiculo PROCESS PrintFirstArtDetMayusc MES " desaparece" PROCESS TermGeneroVerbo MES ", absorvid" PROCESS TermGenero MESSAGE " con ímpetu al interior." DONE;
+}
+
+Process SaltaRejilla
+{
+    _ _ : NOTZERO rejillaSinBarrote MESSAGE "Ya has tenido una experiencia con ese tema, no necesitas más." DONE;
+    _ _ : MES "Das un enorme ";
+    _ _ : NOTEQ 33 SALTA MES "patadón";
+    _ _ : EQ 33 SALTA MES "salto";
+    _ _ : MESSAGE " ejerciendo todo tu peso sobre la rejilla. Uno de los barrotes cede al embate y caéis al vacío. " SET rejillaSinBarrote PLACE objBarroteHierro EstrechoCubiculo GOTO EstrechoCubiculo;
+    _ _ : CARRIED objRecipienteGusano MESSAGE "Con el recipiente en tus manos, la caida es muy aparatosa y el líquido se desparrama por todas partes. Cuando llegas al fondo no eres más que una pulpa gelatinosa." SCORE TURNS END;
+    _ _ : ISAT objGusano EstrechoCubiculo PLUS puntuacion puntBarraHierro MESSAGE "Por suerte, el bicho para tu caida como si de un colchón se tratara." DESC;
+    
+    _ _ : MESSAGE "La caída es demasiado dura para sobrevivir." SCORE TURNS END;
+}
+
+//---------------------------------------------------------------------
+// Estrecho cubículo (en las basuras)
+//--------------------------------------------------------------------
+
+Location EstrechoCubiculo
+{
+    "%Estrecho cubículo&^ Estás en una pequeña sala de 2 x 2 metros sin ningún tipo de elemento distinguible";
+} 
+
+PROCESS 1
+{
+    * *: AT EstrechoCubiculo PRESENT objGusano MES ", salvo ese enorme gusano que reposa atontado bajo tus pies";
+    * *: AT EstrechoCubiculo MES ".";
+}
+
+Process VaciarBasureroProc;
+Process VaciarBasureroLoop;
+Constant contadorBasurero 3;
+PROCESS 2
+{
+    _ _ : ZERO basuraEnBasurero LET flagPrm1 EstrechoCubiculo PROCESS ContarAtReal NOTZERO flagRet LET basuraEnBasurero contadorBasurero;
+    _ _ : ZERO basuraEnBasurero AT EstrechoCubiculo LET basuraEnBasurero contadorBasurero;
+    _ _ : EQ basuraEnBasurero 1 PROCESS VaciarBasureroProc;
+}
+
+Process VaciarBasureroProc
+{
+    _ _ : AT SalaDeBasuras MESSAGE "A través de la rejilla oyes el inconfundible rumor de maquinaria funcionando. Luego el silencio.";
+    _ _ : AT EstrechoCubiculo MESSAGE "De repente, el suelo de la sala comienza a abrirse.";
+    _ _ : PROCESS VaciarBasureroLoop;
+    _ _ : AT EstrechoCubiculo
+          MESSAGE "Se vuelve a cerrar el suelo. Durante un largo rato notas que te transportan en algún tipo de medio de locomoción. Finalmente eres arrojado a..." GOTO Vertedero DESC;
+}
+
+Process VaciarBasureroLoop
+{
+    _ _ : ISAT objGusano EstrechoCubiculo AT EstrechoCubiculo 
+          MESSAGE "El gusano cede bajo tu peso y cae al vacío." PLACE objGusano Vertedero;
+    _ _ : ISNOTAT objGusano EstrechoCubiculo AT EstrechoCubiculo MESSAGE "Caes al vacío.";
+    _ _ : DOALL EstrechoCubiculo;
+    _ _ : WHATO 
+          NOTEQ 51 objGusano
+          PUTO Vertedero 
+          AT EstrechoCubiculo
+          MES "Ves caer " PROCESS PrintFirstArtDet SYSMESS ".^";
+    _ _ : DONE;
+}
+
+//---------------------------------------------------------------------
+// Vertedero
+//--------------------------------------------------------------------
+
+Location Vertedero
+{
+    "%Vertedero&^ Estás en una montaña de basura y residuos al aire libre. La única salida es hacia abajo.";
+}
+
+RESPONSE
+{
+    SALIR _| BAJA _: AT Vertedero MESSAGE "Caes rodando por los restos de basura..." GOTO Fosa DESC;
+}
+
+PROCESS Salidas
+{
+    * _ : AT Vertedero PLACE obj_abajo loc_compas PLACE obj_salir loc_compas;
+}
+
+//---------------------------------------------------------------------
+// Pasaje acolchado
+//--------------------------------------------------------------------
+
+Flag campoFuerzaDestruido;
+Location PasajeAcolchado
+{
+    "%Pasaje acolchado&^ Estás en un amplio pasillo de paredes acolchadas que discurre de norte a sur. En dirección al sur, hay una hilera de orificios en el suelo, junto a un extraño dispositivo.";
+    CONNECTIONS { N to CavernaVerde2 };
+}
+PROCESS 1
+{
+    _ _ : AT PasajeAcolchado NOTZERO campoFuerzaDestruido MES "El dispositivo está totalmente destruido.";
+}
+PROCESS Salidas
+{
+    * _ : AT PAsajeAcolchado NOTZERO campoFuerzaDestruido PLACE obj_sur loc_compas;
+}
+
+Object objDispositivo
+{
+    "dispositivo";
+    WEIGHT 1;
+    INITIALLYAT PasajeAcolchado;
+    WORDS DISPOSITIVO _;
+} VOCABULARY {  Noun: "DISPOSITIVO"; }
+PROCESS ExtPropiedad {  _ _: EQ 51 objDispositivo SET PROP_ESTATICO SET PROP_NOLISTAR; }
+
+RESPONSE
+{
+    SUR _: AT PasajeAcolchado ZERO campoFuerzaDestruido MESSAGE "¡Plong! Al llegar a la altura de los orificios te topas con un impenetrable campo de fuerza que te impide avanzar." DONE;
+    SUR _: AT PasajeAcolchado GOTO Hangar DESC;
+    TIRA LIQUIDO| ARROJA LIQUIDO|METE LIQUIDO| PON LIQUIDO: CARRIED objRecipienteGusano LET 33 DERRAMA;
+    DERRAMA LIQUIDO: CARRIED objRecipienteGusano AT PasajeAcolchado NOUN2 DISPOSITIVO ZERO campoFuerzaDestruido SET campoFuerzaDestruido PLUS puntuacion puntBarreraFuerza MESSAGE "Echas un poco del pútrido líquido sobre el mecanismo. El dispositivo se disuelve." DONE;
+    DERRAMA LIQUIDO: CARRIED objRecipienteGusano AT PasajeAcolchado NOUN2 DISPOSITIVO MESSAGE "Ya está bastante retorcido." DONE;
+    DERRAMA LIQUIDO: CARRIED objRecipienteGusano AT SalaDeBasuras NOUN2 BARROTE|NOUN2 REJILLA ZERO rejillaSinBarrote MESSAGE "Eso lo desintegraría completamente, y el barrote puede serte útil." DONE;
+    DERRAMA LIQUIDO: CARRIED objRecipienteGusano MESSAGE "No lo ves apropiado en este momento." DONE;
+}
+
+//---------------------------------------------------------------------
+// Hangar
+//--------------------------------------------------------------------
+
+Flag estadoTecnico; //0: dormido, 1: fuera de juego, 2: le hemos quitado el uniforme y no existe
+Flag puntuadoTarjeta; // Si ya ha puntuado el atravesar la puerta con la tarjeta hexagonal
+Flag compuertaNaveAbierta; // Si está abierta la compuerta del motor de la nave
+Constant TurnosPillado 5; // turnos hasta que te detectan (si no llevas uniforme)
+Location Hangar
+{
+    "%Hangar&^ El corazón del complejo, el lugar común de todo el tráfico de este planeta. Varios aparatos están estacionados o siendo revisados por extraños hombrecillos de aspecto humanoide. Hay una puerta de acero al oeste, una gran compuerta al este, probablemente destinada a la salida de las naves, y un amplio pasillo acolchado que conduce hacia el norte.";
+    CONNECTIONS { N to PasajeAcolchado };
+}
+PROCESS Salidas
+{
+    * _ : AT Hangar PLACE obj_arriba loc_compas;
+}
+
+PROCESS 1
+{
+    _ _ : AT Hangar MES "Aquí puedes ver tu nave. ";
+    _ _ : AT Hangar ZERO estadoTecnico MES "Junto a ella hay un técnico de mantenimiento " MES "durmiendo plácidamente. ";
+    _ _ : AT Hangar EQ estadoTecnico 1 MES "Junto a ella hay un técnico de mantenimiento " MES "grogui en el suelo. ";
+    _ _ : NOTZERO contadorPillado NOTAT Hangar CLEAR contadorPillado;
+}
+PROCESS 2
+{
+    _ _ : AT Hangar ZERO contadorPillado NOTWORN objUniforme LET contadorPillado TurnosPillado;
+    _ _ : AT Hangar NOTWORN objUniforme EQ contadorPillado 3 MESSAGE "Algunos de los hombrecillos empiezan a extrañarse por tu presencia y te lanzan miradas suspicaces.";
+    _ _ : AT Hangar NOTWORN objUniforme EQ contadorPillado 1 MESSAGE "Un grupo de hombrecillos armados te aborda y, despues de mirarte extrañados, y luego mirarse entre ellos extrañados, te llevan a...." ISNOTAT objGusano EstrechoCubiculo GOTO EstrechoCubiculo DESC;
+    _ _ : AT Hangar NOTWORN objUniforme EQ contadorPillado 1 GOTO Vertedero DESC;
+}
+
+Object objNave
+{
+    "nave";
+    WEIGHT 2;
+    INITIALLYAT Hangar;
+    WORDS NAVE _;
+} VOCABULARY {  Noun: "NAVE"; }
+PROCESS ExtPropiedad {  _ _: EQ 51 objNave SET PROP_ESTATICO SET PROP_NOLISTAR; }
+
+Flag compartimentoAbierto;
+Flag puntuadoCompartimento;
+Object objCompartimento 10
+{
+    "compartimento del propulsor";
+    WEIGHT 1;
+    INITIALLYAT Hangar;
+    WORDS COMPARTIMENTO _;
+    PROPERTY CONTAINER;
+} VOCABULARY {  Noun: "COMPARTIMENTO"; }
+PROCESS ExtPropiedad {  _ _: EQ 51 objCompartimento SET PROP_ESTATICO SET PROP_NOLISTAR SET PROP_ABRIBLE LET PROP_GENNUM GenNum_MS NOTZERO compartimentoAbierto SET PROP_ABIERTO; }
+Location locCompartimento 10 { ""; }
+    RESPONSE { 
+        ABRIR COMPARTIMENTO: PRESENT objCompartimento ZERO compartimentoAbierto SET compartimentoAbierto PROCESS AbrirText PROCESS ListAtFirstNoun DONE; 
+        CIERRA COMPARTIMENTO: PRESENT objCompartimento NOTZERO compartimentoAbierto CLEAR compartimentoAbierto PROCESS CerrarText DONE;
+    }
+    PROCESS MeterSub
+    {
+        * *: NOUN2 COMPARTIMENTO NOTZERO compartimentoAbierto PRESENT objCompartimento NOTEQ 34 CANALIZADOR MESSAGE "El compartimento no es para eso." DONE;
+        * *: NOUN2 COMPARTIMENTO NOTZERO compartimentoAbierto PRESENT objCompartimento ZERO puntuadoCompartimento SET puntuadoCompartimento PLUS puntuacion puntMeterCanalizador;
+    }
+    Process ListAtFirstNoun
+    {
+        * *: EQ 51 objCompartimento SYSMESS "En su interior hay varios componentes del propulsor, " ISAT objCanalizadorPlasma locCompartimento SYSMESS "incluyendo el canalizador.^" DONE;
+        * *: EQ 51 objCompartimento SYSMESS "pero falta el canalizador de plasma.^" DONE;
+    }
+    Process DescPropiedad
+    {
+        * *: EQ 51 objCompartimento NOTZERO compartimentoAbierto ISNOTAT objCanalizadorPlasma locCompartimento SYSMESS "En su interior hay varios componentes del propulsor, " SYSMESS "pero falta el canalizador de plasma.^" DONE;
+    }
+
+Object objTecnico
+{
+    "tecnico de mantenimiento";
+    WEIGHT 1;
+    INITIALLYAT Hangar;
+    WORDS TECNICO _;
+} VOCABULARY {  Noun: "TECNICO"; }
+PROCESS ExtPropiedad {  _ _: EQ 51 objTecnico SET PROP_ESTATICO SET PROP_NOLISTAR; }
+
+Object objUniforme
+{
+    "uniforme de mantenimiento";
+    WEIGHT 1;
+    INITIALLYAT NOTCREATED;
+    WORDS UNIFORME _;
+    PROPERTY CLOTHING;
+} VOCABULARY { Noun: "UNIFORME"; }
+PROCESS PonerSub { * _: EQ 51 objUniforme CARRIED objUniforme LET flagPrm1 WORN PROCESS ContarAt NOTZERO flagRet MESSAGE "Antes tienes que quitarte todo." DONE; }
+PROCESS QuitarSub { * _: EQ 51 objUniforme WORN objUniforme LET flagPrm1 WORN PROCESS ContarAt GT flagRet 1 MESSAGE "Antes tienes que quitarte el resto de cosas que llevas puestas." DONE; }
+
+Object objPuertaAcero
+{
+    "puerta de acero";
+    WEIGHT 2;
+    INITIALLYAT Hangar;
+    WORDS PUERTA _;
+} VOCABULARY { Noun: "ORIFICIO"; }
+PROCESS ExtPropiedad {  _ _: EQ 51 objPuertaAcero SET PROP_ESTATICO SET PROP_NOLISTAR; }
+
+Process GolpeaTecnico;
+Process AtraviesaPuertaAcero;
+RESPONSE
+{
+    // Entrada a la nave
+    ENTRA NAVE|SUBE _: PRESENT objNave GOTO TuNave DESC;
+    
+    // Interacción con el técnico de mantenimiento
+    
+    DESPIERTA TECNICO|
+    EMPUJA TECNICO|
+    TIRA TECNICO|
+    COGE TECNICO: PRESENT objTecnico ZERO estadoTecnico MESSAGE "El técnico se despierta y da la alarma. Al instante acude un equipo de hombrecillos armados que te provoca un final rápido, pero no carente de dolor." SCORE TURNS END;
+    DESPIERTA TECNICO|
+    EMPUJA TECNICO|
+    TIRA TECNICO|
+    COGE TECNICO: PRESENT objTecnico MESSAGE "Déjalo que se recupere." DONE;
+    GOLPEA TECNICO: PRESENT objTecnico PROCESS GolpeaTecnico DONE;
+    DISPARA TECNICO: PRESENT objTecnico CARRIED objPistolaNeutralizante EQ estadoTecnico 0 LET estadoTecnico 1 MESSAGE "Lanzas una discreta ráfaga neutralizadora al pobre individuo. Ahora dormirá un buen rato." DONE;
+    DISPARA TECNICO: PRESENT objTecnico EQ estadoTecnico 1 MESSAGE "Eso sería ensañamiento." DONE;
+    QUITA UNIFORME|COGE UNIFORME: PRESENT objTecnico EQ estadoTecnico 1 PLUS puntuacion puntConseguirUniforme DESTROY objTecnico LET estadoTecnico 2 PLACE objUniforme CARRIED MESSAGE "Le quitas el uniforme al técnico, arrojando al pobre diablo en una de las naves aparcadas para que no llame la atención." DONE;
+    QUITA UNIFORME|COGE UNIFORME: PRESENT objTecnico MESSAGE "El técnico se despierta y da la alarma. Al instante acude un equipo de hombrecillos armados que te provoca un final rápido, pero no carente de dolor." SCORE TURNS END;
+    
+    // Apertura de la puerta del oeste (cerradura hexagonal)
+    
+    ABRE PUERTA: PRESENT objPuertaAcero MESSAGE "No parece abrirse del modo tradicional." DONE;
+    CIERRA PUERTA: PRESENT objPuertaAcero MESSAGE "Está cerrada." DONE;
+    EMPUJA PUERTA|
+    DISPARA PUERTA|
+    GOLPEA PUERTA: PRESENT objPuertaAcero MESSAGE "Fútil." DONE;
+    METE TARJETA|PON TARJETA|INSERTA TARJETA: PRESENT objPuertaAcero CARRIED objTarjeta NOUN2 ORIFICIO Process AtraviesaPuertaAcero DONE;
+    METE _|PON _|INSERTA _: PROCESS Present NOTZERO flagRet PRESENT objPuertaAcero NOUN2 ORIFICIO MESSAGE "No encaja." DONE;
+} 
+
+Process GolpeaTecnico
+{
+    _ _ : EQ estadoTecnico 1 MESSAGE "Eso sería ensañamiento." DONE;
+    _ _ : PREP CON PROCESS PresentSecond NOTEQ flagRet CARRIED NOTEQ flagRet WORN SYSMESS 28 DONE; // No tienes nada de eso
+    _ _ : NOUN2 PEDERNAL|NOUN2 BOTAS|NOUN2 BARROTE LET estadoTecnico 1 MES "Golpeas discretamente al técnico con " PROCESS PrintSecondArtDet MESSAGE ", y lo dejas fuera de combate durante un buen rato." DONE;
+    _ _ : EQ flagRet CARRIED| EQ flagRet WORN MESSAGE "No conseguirías mucho." DONE;
+    _ _ : MESSAGE "¿Así, con las manos?" DONE;
+}
+
+Process AtraviesaPuertaAcero
+{
+    _ _ : ZERO puntuadoTarjeta SET puntuadoTarjeta PLUS puntuacion puntTarjetaHexagonal;
+    _ _ : MESSAGE "La tarjeta encaja en el orificio, y la puerta se abre con un siseo. La atraviesas y recoges la tarjeta..." AT Hangar PLACE objPuertaAcero SalaDeMantenimiento GOTO SalaDeMantenimiento DESC;
+    _ _ : AT SalaDeMantenimiento PLACE objPuertaAcero Hangar GOTO Hangar DESC;
+}
+
+//---------------------------------------------------------------------
+// Tu nave
+//--------------------------------------------------------------------
+
+Location TuNave
+{
+    "%Tu nave&^ Tu nave es un pequeño y potente vehículo de exploración. De todo el complejo cuadro de mandos que tienes ante ti sólo te interesan en este momento dos botones: INICIAR SECUENCIA e IGNICION.";
+    CONNECTIONS { SALIR to Hangar BAJAR to HANGAR };
+} VOCABULARY { Noun: "BOTON"; }
+
+Object objBotonIniciarSecuencia
+{
+    "botón de iniciar secuencia";
+    WEIGHT 1;
+    INITIALLYAT TuNave;
+    WORDS INICIAR _;
+} VOCABULARY {  Noun: "INICIAR"; }
+PROCESS ExtPropiedad {  _ _: EQ 51 objBotonIniciarSecuencia SET PROP_ESTATICO SET PROP_NOLISTAR; }
+
+Object objBotonIgnicion
+{
+    "botón de ignición";
+    WEIGHT 1;
+    INITIALLYAT TuNave;
+    WORDS IGNICION _;
+} VOCABULARY {  Noun: "IGNICION"; }
+PROCESS ExtPropiedad {  _ _: EQ 51 objBotonIgnicion SET PROP_ESTATICO SET PROP_NOLISTAR; }
+
+Process IniciarLanzamiento;
+Flag puntuadoLanzamientoIniciado; // Si ha puntuado el lanzamiento iniciado
+Flag lanzamientoIniciado;
+RESPONSE
+{
+    SALIR _ | BAJAR _: NOTZERO lanzamientoIniciado MESSAGE "¡La nave está en posición de lanzamiento, no puedes bajar!" DONE;
+    * BOTON: AT TuNave NOTEQ 44 INICIAR NOTEQ 44 IGNICION MESSAGE "¿A cuál te refieres?" DONE;
+    * BOTON: AT TuNave COPYFF 44 34 COPYFF 45 35;
+    
+    // Aquí las acciones con los botones
+    EMPUJA IGNICION|EMPUJA INICIAR: AT TuNave LET 33 PULSA;
+    PULSA INICIAR: AT TuNave PROCESS IniciarLanzamiento DONE;
+    PULSA IGNICION: AT TuNave NOTZERO lanzamientoIniciado CLS INK 4 MESSAGE " Los sistemas de la nave rugen y una cuenta atrás comienza su andadura. 3..2..1...^^ Abandonas el planeta ante la sorpresa de los alienígenas, que apenas tienen tiempo de activar sus sistemas defensivos para evitar tu huida.^^" ANYKEY CLS MESSAGE " De vuelta a la nave nodriza tus compañeros escuchan tu histora con estupor. Te has ganado unas vacaciones, allá en la Tierra.^^ Pero parece que podrían durar poco. Dadas tus dotes de supervivencia te han propuesto una arriesgada misión en cierto templo Inca...^^ Pero esa es otra historia.^^" INK 7 SCORE TURNS END;
+    PULSA IGNICION: AT TuNave MESSAGE "No has iniciado la secuencia de lanzamiento." DONE;
+    
+    _ IGNICION: AT TuNave NOTDONE;
+    _ INICIAR: AT TuNave NOTDONE;
+}
+Process IniciarLanzamiento
+{
+    _ _: ZERO lanzamientoIniciado MES "\"{16}{4}Iniciando comprobación de sistemas... " PAUSE 40;
+    _ _: ISAT objCanalizadorPlasma locCompartimento ZERO compartimentoAbierto NOTZERO tanqueHidraulicoLlenado ZERO lanzamientoIniciado ZERO puntuadoLanzamientoIniciado SET puntuadoLanzamientoIniciado PLUS puntuacion puntLanzamiento;
+    _ _: ISAT objCanalizadorPlasma locCompartimento ZERO compartimentoAbierto NOTZERO tanqueHidraulicoLlenado ZERO lanzamientoIniciado SET lanzamientoIniciado MESSAGE "OK&\"^La nave es transportada a través del hangar hacia la gran compuerta. Una vez abierta, la nave es posicionada verticalmente en un pequeño silo, lista para el lanzamiento." DONE;
+    _ _: NOTZERO lanzamientoIniciado CLEAR lanzamientoIniciado MESSAGE "El lanzamiento se suspende y la nave es devuelta a su posición en el hangar." DONE;
+    _ _: NOTZERO compartimentoAbierto MESSAGE "{16}{2}NOK(ERR70F5). Compartimento abierto&\"" DONE;
+    _ _: ISNOTAT objCanalizadorPlasma locCompartimento MESSAGE "{16}{2}NOK(ERR14A5). No detectado. Sist: plato de impulso. Componente: canalizador&\"" DONE;
+    _ _: ZERO tanqueHidraulicoLlenado MESSAGE "{16}{2}NOK(ERR83E4). Externo.& Sistema hidráulico de posicionamiento&\"" DONE;
+}
+
+//---------------------------------------------------------------------
+// Sala de Mantenimiento
+//--------------------------------------------------------------------
+
+Flag tanqueHidraulicoLlenado;
+Location SalaDeMantenimiento
+{
+    "%Sala de mantenimiento&^ Una estrecha estancia, casi un pasillo, con diversa maquinaria de control. El camino al este está bloqueado por una puerta de acero. El pasillo continúa hacia el sur.";
+    CONNECTIONS { S to FinPasillo };
+} 
+
+Object objPalancaLlenado
+{
+    "palanca";
+    WEIGHT 2;
+    INITIALLYAT SalaDeMantenimiento;
+    WORDS PALANCA _;
+} VOCABULARY {  Noun: "PALANCA"; }
+PROCESS ExtPropiedad {  _ _: EQ 51 objPalancaLlenado SET PROP_ESTATICO; }
+
+Flag cuadroElectricoAbierto;
+Object objCuadroElectrico 9
+{
+    "cuadro electrico";
+    WEIGHT 1;
+    INITIALLYAT SalaDeMantenimiento;
+    WORDS CUADRO _;
+    PROPERTY CONTAINER;
+} VOCABULARY {  Noun: "CUADRO"; }
+Location locCuadroElectrico 9 { ""; } 
+PROCESS ExtPropiedad {  _ _: EQ 51 objCuadroElectrico SET PROP_ESTATICO SET PROP_ABRIBLE LET PROP_GENNUM GenNum_MS NOTZERO cuadroElectricoAbierto SET PROP_ABIERTO; }
+RESPONSE { 
+    ABRIR CUADRO: PRESENT objCuadroElectrico ZERO cuadroElectricoAbierto SET cuadroElectricoAbierto PROCESS AbrirText PROCESS ListAtFirstNoun DONE; 
+    CIERRA CUADRO: PRESENT objCuadroElectrico NOTZERO cuadroElectricoAbierto CLEAR cuadroElectricoAbierto PROCESS CerrarText DONE;
+}
+
+Object objFusibleFundido
+{
+    "fusible fundido";
+    WEIGHT 1;
+    INITIALLYAT locCuadroElectrico;
+    WORDS FUSIBLE _;
+} VOCABULARY {  Noun: "FUSIBLE"; }
+
+PROCESS MeterSub
+{
+    * _: NOUN2 CUADRO PRESENT objCuadroElectrico EQ 54 CARRIED NOTZERO cuadroElectricoAbierto LET flagPrm1 locCuadroElectrico PROCESS ContarAt NOTZERO flagRet MES "No puedes meter nada en el cuadro eléctrico, está ocupado por " PROCESS ListAt NEWLINE DONE;
+    * _: NOUN2 CUADRO PRESENT objCuadroElectrico EQ 54 CARRIED NOTZERO cuadroElectricoAbierto NOTEQ 51 objFusibleFundido NOTEQ 51 objBarroteHierro MESSAGE "No puedes meter eso en el cuadro eléctrico." DONE;
+}
+
+RESPONSE
+{
+    EMPUJA PALANCA: PRESENT objPalancaLlenado MESSAGE "No cede, sólo permite tirar de ella." DONE;
+    TIRA PALANCA|MUEVE PALANCA: PRESENT objPalancaLlenado ISNOTAT objBarroteHierro locCuadroElectrico MES "Tiras de la palanca. " MES "Oyes un \"clong\" seco dentro del cuadro, y luego silencio. " MESSAGE "La palanca vuelve lentamente a su posición inicial." DONE;
+    TIRA PALANCA|MUEVE PALANCA: PRESENT objPalancaLlenado  NOTZERO tanqueHidraulicoLlenado MES "Tiras de la palanca. " MESSAGE "La palanca vuelve lentamente a su posición inicial." DONE;
+    TIRA PALANCA|MUEVE PALANCA: PRESENT objPalancaLlenado SET tanqueHidraulicoLlenado PLUS puntuacion puntTanqueLlenado MES "Tiras de la palanca. " MES "En algún lugar hacia el este oyes algo parecido a la apertura de una esclusa y el inconfudible sonido de líquido fluyendo. " MESSAGE "La palanca vuelve lentamente a su posición inicial." DONE;
+}
+
+//---------------------------------------------------------------------
+// Fin del pasillo
+//--------------------------------------------------------------------
+
+Location FinPasillo
+{
+    "%Final del pasillo&^ El pasillo discurre de norte a sur, donde finaliza frente a una puerta. La puerta tiene una pequeña ventana redonda en el centro.";
+    CONNECTIONS { Sur to Talleres N to SalaDeMantenimiento };
+} 
+
+Object objVentana
+{
+    "ventana";
+    WEIGHT 2;
+    INITIALLYAT FinPasillo;
+    WORDS VENTANA _;
+} VOCABULARY { Noun: "VENTANA" #ifdef PAWGLULX , "VENTANITA" #endif; }
+PROCESS ExtPropiedad {  _ _: EQ 51 objVentana SET PROP_ESTATICO SET PROP_NOLISTAR; }
+
+//---------------------------------------------------------------------
+// Talleres
+//--------------------------------------------------------------------
+
+Location Talleres
+{
+    "%Talleres&^ Este lugar está repleto de mesas donde bulle la actividad, instrumental científico de diversa naturaleza, maquinaria de todos los tamaños, así como numerosas piezas que supones pertenecen a las naves del hangar. La única salida es atravesar el arco hacia el norte.";
+    CONNECTIONS { Norte to FinPasillo };
+}
+
+Object objCanalizadorPlasma
+{
+    "canalizador de plasma";
+    WEIGHT 1;
+    WORDS CANALIZADOR _;
+    INITIALLYAT Talleres;
+} VOCABULARY { Noun: "CANALIZADOR"; }
+
+PROCESS 2
+{
+    _ _ : AT Talleres NOTWORN objUniforme MESSAGE "Varios operarios detectan tu presencia, extraña para ellos, y se arremolinan a tu alrededor. Después de un rato en el que no parecen llegar a una conclusión definitiva sobre tu naturaleza, te llevan a..." ISNOTAT objGusano EstrechoCubiculo GOTO EstrechoCubiculo DESC;
+    _ _ : AT Talleres NOTWORN objUniforme GOTO Vertedero DESC;
+}
+
+//----------------------------------------------------------------------
+// Definiciones generales de la aventura
+//----------------------------------------------------------------------
+
+VOCABULARY
+{
+    VERB: "TIRA", "TIRAR", "ARRANCA" #ifdef PAWGLULX, "ARRANCAR" #endif;
+    VERB: "ARROJA", "LANZA" #ifdef PAWGLULX, "ARROJAR", "LANZAR" #endif;
+    VERB: "NADA", "NADAR";
+    VERB: "CRUZA" #ifdef PAWGLULX , "CRUZAR" #endif;
+    VERB: "SALTA" #ifdef PAWGLULX , "SALTAR" #endif;
+    VERB: "PUNTOS", "PUNTUACION";
+    VERB: "PATEA" #ifdef PAWGLULX , "PATEAR" #endif;
+    VERB: "ROMPE", "PARTE", "PARTIR", "GOLPEA"  #ifdef PAWGLULX ,  "GOLPEAR", "ROMPER" #endif;
+    VERB: "CORTA" #ifdef PAWGLULX ,"CORTAR" #endif ;
+    PREPOSITION: "CON";
+    PREPOSITION: "A", "AL";
+    PREPOSITION: "SOBRE";
+    VERB: "EMPUJA" #ifdef PAWGLULX, "EMPUJAR" #endif;
+    VERB: "PULSA", "PRESIONA", "APRIETA", "APRETAR" #ifdef PAWGLULX, "PULSAR", "PRESIONAR" #endif;
+    VERB: "MONTA", "SUBETE";
+    VERB: "TREPA", "ESCALA" #ifdef PAWGLULX, "TREPAR", "ESCALAR" #endif;
+    VERB: "ATA", "ATAR", "ANUDA" #ifdef PAWGLULX, "ANUDAR" #endif;
+    VERB: "DESATA", "DESANUDA" #ifdef PAWGLULX, "DESATAR", "DESANUDAR" #endif;
+    VERB: "BALANCEA", "COLUMPIA" #ifdef PAWGLULX, "BALANCEATE", "COLUMPIATE" #endif;
+    VERB: "DESPIERTA", "DESPERTAR";
+    VERB: "DISPARA" #ifdef PAWGLULX, "DISPARAR" #endif;
+    VERB: "MATA", "MATAR";
+    VERB: "INSERTA", "INTRODUCE", "COLOCA" #ifdef PAWGLULX , "INSERTAR", "INTRODUCIR", "COLOCAR" #endif;
+    VERB: "MUEVE", "MOVER";
+    VERB: "Z", "ESPERA";
+    VERB 250: "DERRAMA", "ECHA", "ECHAR", "VIERTE", "VERTER" #ifdef PAWGLULX , "DERRAMAR" #endif;
+}
+
+Flag nomTmp;
+Flag adjTmp;
+RESPONSE
+{
+    PATEA *: WORN objBotas LET 33 GOLPEA LET 43 CON LET 44 BOTAS;
+    PATEA *: NOTWORN objBotas LET 33 GOLPEA LET 43 CON LET 44 PIES;
+    TIRA _ : PROCESS PRESENT NOTZERO flagRet PREP A|PREP EN PROCESS MeterSub DONE;
+    TIRA _ : PROCESS PRESENT NOTZERO flagRet MES "No le ves mucho sentido ahora a tirar " PROCESS PrintFirstDel SYSMESS ".^" DONE;
+    TIRA _ : MESSAGE "No lo ves como una opción adecuada en este momento." DONE;
+    ARROJA _: Process MeterSub DONE;
+    NADA _: MESSAGE "No lo ves como una opción adecuada en este momento." DONE;
+    SALTA _: MESSAGE "Saltas en el sitio. Fútil." DONE;
+    PUNTUACION _ : SYSMESS 21 PRINT puntuacion SYSMESS 22 DONE;
+    ROMPE _: MESSAGE "No parece que esa opción violenta sea la solución en este momento." DONE;
+    PATEA _: MESSAGE "No parece que esa opción violenta sea la solución en este momento." DONE;
+    DA PATADA:  MESSAGE "No parece que esa opción violenta sea la solución en este momento." DONE;
+    DA PUÑETAZO: MESSAGE "No parece que esa opción violenta sea la solución en este momento." DONE;
+    CORTA _: PROCESS PRESENT NOTZERO flagRet MES "No le ves sentido a cortar " PROCESS PrintFirstArtDet MESSAGE " en este momento." DONE;
+    CORTA _: MESSAGE "No le ves sentido a cortar eso en este momento." DONE;
+    EMPUJA _ |PULSA _ : PROCESS PRESENT NOTZERO flagRet MES "No le ves sentido a empujar " PROCESS PrintFirstArtDet SYSMESS ".^" DONE;
+    EMPUJA _|PULSA _: MESSAGE "No produce ningún efecto." DONE;
+    ATA _: PROCESS PRESENT NOTZERO flagRet MES "No le ves sentido a atar " PROCESS PrintFirstArtDet SYSMESS ".^" DONE;
+    ATA _: MES "No le ves sentido a atar " MESSAGE "eso." DONE;
+    DESATA _: PROCESS PRESENT NOTZERO flagRet MES "No has atado " PROCESS PrintFirstArtDet MESSAGE " a nada." DONE;
+    DESATA _: MESSAGE "No ves nada atado." DONE;
+    MONTA _: MESSAGE "Subirte a eso no parece muy adecuado en este momento." DONE;
+    TREPA _: PROCESS PRESENT NOTZERO flagRet MES "No le ves sentido a trepar por " PROCESS PrintFirstArtDet MESSAGE " en este momento." DONE;
+    TREPA _: MES "No le ves sentido a trepar por " MES "nada" MESSAGE " en este momento." DONE;
+    BALANCEA _: PROCESS PRESENT NOTZERO flagRet MES "No le ves un uso práctico a balancear " PROCESS PrintFirstArtDet MESSAGE " en este momento." DONE;
+    BALANCEA _: MESSAGE "No le ves sentido a balancear eso en este momento." DONE;
+    DESPIERTA _: PROCESS PRESENT NOTZERO flagRet MES "Despertar " PROCESS PrintFirstArtDet MESSAGE " es una idea ridícula." DONE;
+    DESPIERTA _: MESSAGE "No es muy coherente despertar a eso." DONE;
+    MATA _: PROCESS PRESENT NOTZERO flagRet MES "No veo muy lógico intentar matar " PROCESS PrintFirstAl SYSMESS ".^" DONE;
+    MATA _: MESSAGE "No es muy adecuado ponerse a matar ahora mismo." DONE;
+    DISPARA PISTOLA: COPYFF 44 nomTmp COPYFF 45 adjTmp COPYFF 34 44 COPYFF 35 45 COPYFF nomTmp 34 COPYFF adjTmp 35;
+    DISPARA _: PROCESS DispararSub DONE;
+    INSERTA _: PROCESS MeterSub DONE;
+    MUEVE _: MESSAGE "No produce ningún efecto." DONE;
+    DERRAMA _: PROCESS PRESENT NOTZERO flagRet MES "No le ves sentido ahora a derramar " PROCESS PrintFirstArtDet SYSMESS ".^" DONE;
+    DERRAMA _: MESSAGE "No le ves mucho sentido ahora a derramar eso." DONE;
+    ESPERA _: MESSAGE "Esperas..." DONE;
+}
+
+PROCESS DispararSub
+{
+    _ _: PROCESS Present NOTZERO flagRet CARRIED objPistolaNeutralizante MES "No le ves utilidad a disparar" MES " con la pistola " PROCESS PrintFirstAl MESSAGE " en este momento." DONE;
+    _ _: Process Present NOTZERO flagRet MES "No tienes con qué dispararle " PROCESS PrintFirstAl MESSAGE " en este momento." DONE;
+    _ _: CARRIED objPistolaNeutralizante EQ 34 255 MES "No le ves utilidad a disparar" MESSAGE " en este momento." DONE;
+    _ _: CARRIED objPistolaNeutralizante MES "No le ves utilidad a disparar" MES " a eso" MESSAGE " en este momento." DONE;
+    _ _: MESSAGE "Disparar ¿Con qué?" DONE;
+}
+
+
+CHARACTERS
+{
+	8, 16, 56, 4, 60, 68, 60, 0, 
+	0, 0, 0, 0, 0, 0, 0, 0, 
+	0, 16, 0, 16, 32, 66, 60, 0, 
+	0, 8, 0, 8, 8, 8, 8, 0, 
+	8, 16, 56, 68, 120, 64, 60, 0, 
+	56, 0, 120, 68, 68, 68, 68, 0, 
+	24, 66, 98, 82, 74, 70, 66, 0, 
+	40, 0, 68, 68, 68, 68, 56, 0, 
+	8, 16, 0, 48, 16, 16, 56, 0, 
+	0, 0, 0, 15, 8, 8, 8, 8, 
+	0, 0, 0, 248, 8, 8, 8, 8, 
+	8, 8, 8, 15, 0, 0, 0, 0, 
+	8, 8, 8, 248, 0, 0, 0, 0, 
+	8, 8, 8, 8, 8, 8, 8, 8, 
+	8, 16, 56, 68, 68, 68, 56, 0, 
+	8, 16, 68, 68, 68, 68, 56, 0, 
+	16, 8, 16, 8, 16, 8, 16, 8, 
+	170, 85, 170, 85, 170, 85, 170, 85, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	170, 85, 170, 85, 170, 85, 170, 85, 
+	204, 51, 204, 51, 204, 51, 204, 51, 
+	170, 170, 85, 85, 170, 170, 85, 85, 
+	136, 0, 2, 0, 136, 0, 32, 0, 
+	0, 0, 32, 0, 0, 0, 2, 0, 
+	16, 16, 16, 16, 16, 16, 16, 16, 
+	0, 0, 0, 255, 0, 0, 0, 0, 
+	68, 68, 68, 68, 68, 68, 68, 68, 
+	0, 255, 0, 0, 0, 255, 0, 0, 
+	128, 64, 32, 16, 8, 4, 2, 1, 
+	1, 2, 4, 8, 16, 32, 64, 128, 
+	34, 17, 136, 68, 34, 17, 136, 68, 
+	68, 136, 17, 34, 68, 136, 17, 34, 
+	195, 60, 195, 60, 195, 60, 195, 60, 
+	4, 4, 255, 64, 64, 64, 255, 4, 
+	1, 3, 6, 12, 24, 48, 96, 192, 
+	0
+}
+
+#include "LibPAW.paw"

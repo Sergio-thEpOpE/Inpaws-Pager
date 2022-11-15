@@ -1,0 +1,634 @@
+DEFAULTS
+{
+	CHARSET: 1;
+	INK: 9;
+	PAPER: 0;
+	FLASH: 0;
+	BRIGHT: 0;
+	INVERSE: 0;
+	OVER: 0;
+	BORDER: 0;
+}
+
+LOCATION 0
+{
+	"Ves un sueño sobre algo placentero y y sabroso. Es hora de {16}{4}levantarse{16}{7}!";
+}
+
+LOCATION 1
+{
+	"Estás sentado en el {16}{4}centro{16}{7} de tu jaula. A la izquierda ver un {16}{4}comedero{16}{7}, a la derecha hay un {16}{4}cuenco{16}{7}, y justo en frente hay una {16}{4}noria{16}{7} para correr. Justo detrás de tí está la {16}{4}puerta{16}{7} de salida.";
+	CONNECTIONS { W TO 3 E TO 2 N TO 4 S TO 5 };
+}
+
+LOCATION 2
+{
+	"Te has acercado hasta el cuenco gateando. Está lleno de {16}{4}leche{16}{7} chapoteante y de aspecto sabroso.";
+	CONNECTIONS { W TO 1 };
+}
+
+LOCATION 3
+{
+	"Has llegado hasta el \"comedor\" de la jaula. Quizás tampoco sea tan malo estar aquí.";
+	CONNECTIONS { E TO 1 };
+}
+
+LOCATION 4
+{
+	"Hay una maravillosa {16}{4}noria{16}{7} en la que ejercitarse un raton.";
+	CONNECTIONS { S TO 1 };
+}
+
+LOCATION 5
+{
+	"Estás junto a la {16}{4}puerta{16}{7}, Es el modo de salir de aquí. ¿Acaso quieres huir?";
+	CONNECTIONS { N TO 1 };
+}
+
+VOCABULARY
+{
+	NOUN 2: "S", "SUR";
+	NOUN 3: "E", "ESTE";
+	NOUN 4: "O", "OESTE";
+	NOUN 5: "N", "NORTE";
+	NOUN 10: "ABAJO", "BAJAR";
+	NOUN 11: "ARRIBA", "SUBIR";
+	NOUN 12: "I", "INVENTARIO";
+	VERB 13: "ENTRAR";
+	VERB 14: "SALIR";
+	VERB 21: "DESPERTAR", "LEVANTARSE", "DESPIERTA";
+	VERB 22: "COGER", "COGE", "COJO";
+	VERB 23: "CHAMP", "CHOMP", "CHUMP", "CRUNC", "EAT", "GNAW", "SCRUN";
+	VERB 24: "LEG", "RACE", "RUN";
+	VERB 25: "SAY", "TELL";
+	VERB 26: "RESTA", "START";
+	VERB 27: "EXPLO", "INSPE", "PROBE", "SEE";
+	VERB 28: "DAB", "DIG", "JAB", "POKE", "PROD", "SHOVE", "THRUS";
+	VERB 29: "FIRE", "SHOOT", "SPIT";
+	VERB 30: "DISCA", "DROP";
+	VERB 31: "OPEN";
+	VERB 32: "CLOSE";
+	VERB 33: "PUSH";
+	VERB 34: "PULL";
+	VERB 35: "WEAR";
+	VERB 36: "REMOV", "UNWEA";
+	VERB 37: "PUT";
+	VERB 38: "L", "LOOK", "R";
+	VERB 39: "HELP";
+	VERB 40: "HELLO";
+	VERB 41: "KILL";
+	VERB 42: "END";
+	VERB 43: "GO";
+	VERB 44: "SPIN";
+	VERB 45: "USE";
+	VERB 46: "LOAD";
+	VERB 47: "SAVE";
+	VERB 48: "QUIT";
+	VERB 49: "EXAM", "EXAMI", "X";
+	NOUN 50: "PAPER";
+	NOUN 51: "CAGE", "HOUSE";
+	NOUN 52: "FEED", "FOOD";
+	NOUN 53: "HOBNA", "NAIL", "PIN", "SPIKE";
+	NOUN 54: "ALL", "EVERY";
+	NOUN 55: "MILK";
+	NOUN 56: "FEEDE";
+	NOUN 57: "BOWL";
+	NOUN 58: "WHEEL";
+	NOUN 59: "RUNNI";
+	NOUN 60: "AROUN";
+	NOUN 61: "DOOR";
+	NOUN 62: "PIECE";
+	NOUN 63: "CAT";
+	NOUN 64: "ME";
+	NOUN 65: "WORLD";
+	NOUN 66: "JOKE";
+	NOUN 67: "YOURS";
+	NOUN 68: "GAME";
+	NOUN 69: "AGAIN";
+	NOUN 70: "FRONT";
+	NOUN 71: "LEFT";
+	NOUN 72: "RIGHT";
+	NOUN 73: "CENTE";
+	NOUN 74: "BACK";
+	NOUN 75: "AWAY";
+	NOUN 76: "BIB", "DRINK", "IMBIB", "SOT", "TIPPL";
+}
+
+OBJECT 0
+{
+	"";
+	INITIALLYAT NOTCREATED;
+	WORDS _ _;
+	WEIGHT 1;
+}
+OBJECT 1
+{
+	"Papel";
+	INITIALLYAT 1;
+	WORDS PAPEL _;
+	WEIGHT 1;
+}
+OBJECT 2
+{
+	"Uña";
+	INITIALLYAT NOTCREATED;
+	WORDS UÑA _;
+	WEIGHT 1;
+}
+OBJECT 3
+{
+	"Leche";
+	INITIALLYAT NOTCREATED;
+	WORDS LECHE _;
+	WEIGHT 1;
+}
+
+MESSAGES
+{
+	0: "^This feeder is made of a coffee lid and filled to the brim with various foods.";
+	1: "^A bowl of warm milk.";
+	2: "^Every mouse locked in a cage dreams of about it.";
+	3: "^Where are you, my sleeping beauty?";
+	4: "^A mouse cage is a cage designed to house mouses. Probably against their will...";
+	5: "^The door looks absolutely impregnable.";
+	6: "^There are small pieces of paper everywhere.";
+	7: "^This nail is very {16}{2}sharp{16}{7}, it would be nice to wrap it in {16}{4}something{16}{7}.";
+	8: "{7}You really want to {16}{2}drink{16}{7}, but it may make sense to grab some milk with you.";
+	9: "^The cat is looking at you very unfriendly.";
+	10: "^It seems everything is calm, there is no cat nearby.";
+	11: "^{16}{6}You have to start helping yourself if you want to get help.{16}{7}";
+	12: "^{16}{6}- How do chinese cats say hello?{16}{7}";
+	13: "^{16}{6}- Mi Yao{16}{7}";
+	14: "^For several days you were starving to climb through the bars of the cage.";
+	15: "^{16}{2}Your plan would be perfect if only the cat had not noticed you.{16}{7}";
+	16: "{7}You are already in the center of this cage.";
+	17: "^{16}{6}Wow! You notice that a nail is lying on its bottom.{16}{7}";
+	18: "{7}You wake up and for a long time you can not understand where you are. Soon you realize that it is a big {16}{2}mouse cage{16}{7}. It will be better to look around before planning an escape operation.";
+	19: "{7}You do not sleep.";
+	20: "^{16}{2}You shove the sharp nail in your cheek and pierce yourself. With such a bloody wound, you can not escape!{16}{7}";
+	21: "{7}You carefully wrap a nail in a piece of paper.";
+	22: "^In the hope of running away from the cat, you have started to run at a frantic speed. In full accordance with the law of nature, you remain in place and the cat too.";
+	23: "^{16}{4}You are running, and the cat is watching...{16}{7}";
+	24: "^{16}{6}The cat is watching, and you are running...{16}{7}";
+	25: "^{16}{2}Soon you lose your breath from overwork.{16}{7}";
+	26: "{7}You climbed into the wheel, twisted it for two minutes and became just a {16}{4}superb mouse{16}{7} - strong and omnipotent!";
+	27: "^After thinking for a couple of seconds, you decided that you are already strong and you don not need to play sports.";
+	28: "{7}You enjoy milk, but suddenly you pay attention to a strange taste...";
+	29: "^{16}{2}It seems it has long gone bad. Unfortunately, it is too late.{16}{7}";
+	30: "{7}You pour milk on the cheek, and cheek slowly but surely swells.";
+	31: "{7}You are aiming at the enemy (cat) and shoot milk!";
+	32: "^{16}{6}Wet cat resentful left to lick his fur.{16}{7}";
+	33: "^No matter how you try, the door cannot be opened.";
+	34: "{7}You have the necessary tool. Use it!";
+	35: "{7}You are strong now, but you cannot open the door with your bare paws. You need some kind of tool like a crowbar for mouses.";
+	36: "^{16}{2}You started to gnaw metal and just broke all your teeth. Without teeth, no escape!{16}{7}";
+	37: "{7}You took a nail and tried to kill the cat. The cat jumped away with curses, but returned.";
+	38: "{7}You inserted a nail into the door and were about to break it, but you found that you are too weak for that.";
+	39: "{7}You inserted a nail into the door of the cage and turned the nail with muscular paws.";
+	40: "^{16}{6}The door is opened!{16}{7}";
+	41: "{7}You pull yourself up on your front paws and get out of the cage under the drum roll and the sounds of fanfare!";
+	42: "^{16}{4}Hooray! Hurray! You are free!{16}{7}";
+	43: "^This is not the time or place.";
+	44: "^{16}{2}By the way, the evil cat sits nearby.{16}{7}";
+	45: "^{16}{6}At the sight of such a luxury you almost change your mind to escape, but come to your senses and begin decisive actions.{16}{7}";
+	46: "^{16}{6}Where would you like to go?{16}{7}";
+	47: "^It contains a lot of {16}{4}feed{16}{7}: peas, oats, seeds and other meal like that.";
+	48: "^{16}{6}Several cockroaches ran past you with a businesslike look.{16}{7}";
+	49: "^{16}{6}You do not mind a little drink.{16}{7}";
+	50: "{7}You scrambled into the wheel with difficulty and began to unwind kilometers, but (Oh HORROR) a cat came running to the noise. Even if the cat is outside and can not get you, but you still feel uneasy... Of course, you are stopping.";
+	51: "{7}You climbed into the wheel and did not find a cat nearby.";
+	52: "^{16}{6}You climbed into the wheel. The cat is diligently on duty nearby.{16}{7}";
+	53: "^^^^^^^";
+	54: "^    {16}{4}Little Mouse Adventure{16}{7}";
+	55: "^                                ";
+	56: "^               {19}{1}{16}{7}@{16}{7}{19}{0}                ";
+	57: "^Once upon a time there was a little mouse. She lived in a hole, which she dug herself under the roots of a sprawling oak. She had everything in the hole: the seeds were tasty, the crumbs of cheese, and even the sausage bits. A sturdy door led into the hole to hide from a {16}{2}terrible cat{16}{7}.";
+	58: "^One day, a mischievous boy (the owner of the cat) caught a poor mouse while she was sleeping and put her in a cage.";
+	59: "^Now she {16}{4}(you){16}{7} needs to figure out how to get out!";
+}
+
+SYSMESSAGES
+{
+	0: "^It's too dark to see anything.";
+	1: "^^{16}{6}You see:{16}{7}^";
+	2: "^What Now?^^";
+	3: "^What Next?^^";
+	4: "^Now What?^^";
+	5: "^What Now?^^";
+	6: "{7}You don't quite understand that.{7}";
+	7: "{7}You can't go in that direction.{7}";
+	8: "{7}You can't do that.{7}";
+	9: "{16}{6}{7}You are carrying:{16}{7}^";
+	10: " (worn)";
+	11: "Nothing at all.{7}";
+	12: "^Are you sure?^";
+	13: "^Would you like another go?^";
+	14: "^Goodbye...{7}";
+	15: "^OK.{7}";
+	16: "^                   {19}{1}Press Any Key{19}{0}";
+	17: "{7}You have taken ";
+	18: " turn";
+	19: "s";
+	20: ".{7}";
+	21: "{7}You have scored ";
+	22: "%^";
+	23: "^You're not wearing one of those.{7}";
+	24: "{7}You can't.{7}";
+	25: "{7}You are already carrying it.{7}";
+	26: "^There isn't one of those here.{7}";
+	27: "{7}You can't carry any more things.{7}";
+	28: "{7}You don't have one of those.{7}";
+	29: "^You're already wearing something.{7}";
+	30: "Y";
+	31: "N";
+	32: "^More...";
+	33: "{146}{147}";
+	34: "{148}";
+	35: "^Time passes...{7}";
+	36: "^Taken.{7}";
+	37: "^Worn.{7}";
+	38: "^Removed.{7}";
+	39: "^Dropped.{7}";
+	40: "{7}You can't wear that.{7}";
+	41: "{7}You can't remove that.{7}";
+	42: "^Your hands are full.{7}";
+	43: "^Too Heavy.{7}";
+	44: "^The _ is in the ";
+	45: "^The _ isn't in the ";
+	46: ", ";
+	47: " and ";
+	48: ".{7}";
+	49: "{7}You don't have the _.{7}";
+	50: "^You're not wearing the _.{7}";
+	51: ".{7}";
+	52: "^There isn't one of those in the";
+	53: "Nothing of interest.{7}";
+	54: "Type in name of file:^";
+	55: ".";
+	56: ".";
+	57: ".";
+	58: ".";
+	59: ".";
+	60: ".";
+	61: ".";
+	62: ".";
+	63: "{7}You see nothing special.{7}";
+}
+
+GRAPHICS
+{
+	6,
+	1, 1, 1, 1, 1, 1,
+	7, 7, 7, 7, 7, 7,
+	7, 7, 7, 7, 7, 7
+}
+
+CHARACTERS
+{
+
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	102, 255, 219, 126, 60, 126, 126, 60, 
+	0, 0, 0, 0, 0, 0, 0, 0, 
+	0, 0, 0, 0, 0, 0, 0, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255, 
+	255, 255, 255, 255, 255, 255, 255, 255,
+	1, 
+	0, 0, 0, 0, 0, 0, 0, 0, 
+	28, 28, 28, 24, 24, 0, 24, 0, 
+	108, 72, 0, 0, 0, 0, 0, 0, 
+	0, 108, 254, 108, 108, 254, 108, 0, 
+	16, 124, 214, 112, 28, 214, 124, 16, 
+	64, 236, 88, 48, 100, 206, 4, 0, 
+	112, 216, 216, 112, 222, 204, 126, 0, 
+	24, 24, 0, 0, 0, 0, 0, 0, 
+	4, 24, 48, 48, 48, 24, 4, 0, 
+	32, 24, 12, 12, 12, 24, 32, 0, 
+	24, 126, 60, 60, 126, 24, 0, 0, 
+	0, 24, 24, 126, 24, 24, 0, 0, 
+	0, 0, 0, 0, 0, 0, 24, 48, 
+	0, 0, 0, 254, 0, 0, 0, 0, 
+	0, 0, 0, 0, 0, 0, 24, 0, 
+	2, 6, 12, 24, 48, 96, 64, 0, 
+	56, 108, 206, 214, 230, 108, 56, 0, 
+	24, 56, 24, 24, 24, 24, 24, 0, 
+	124, 198, 6, 28, 112, 192, 254, 0, 
+	254, 6, 12, 28, 6, 198, 124, 0, 
+	12, 24, 48, 108, 204, 254, 12, 0, 
+	254, 192, 252, 6, 6, 198, 124, 0, 
+	60, 96, 192, 252, 198, 198, 124, 0, 
+	254, 6, 12, 24, 48, 96, 192, 0, 
+	124, 198, 198, 124, 198, 198, 124, 0, 
+	124, 198, 198, 126, 6, 12, 120, 0, 
+	0, 0, 24, 0, 0, 0, 24, 0, 
+	0, 0, 24, 0, 0, 0, 24, 48, 
+	12, 24, 48, 96, 48, 24, 12, 0, 
+	0, 0, 126, 0, 126, 0, 0, 0, 
+	48, 24, 12, 6, 12, 24, 48, 0, 
+	124, 198, 6, 12, 24, 0, 24, 0, 
+	102, 255, 219, 126, 60, 126, 126, 60, 
+	16, 56, 40, 108, 124, 198, 198, 0, 
+	252, 198, 198, 252, 198, 198, 252, 0, 
+	60, 102, 192, 192, 192, 102, 60, 0, 
+	248, 204, 198, 198, 198, 204, 248, 0, 
+	254, 198, 192, 252, 192, 198, 254, 0, 
+	254, 198, 192, 252, 192, 192, 192, 0, 
+	60, 102, 192, 206, 198, 102, 62, 0, 
+	198, 198, 198, 254, 198, 198, 198, 0, 
+	126, 24, 24, 24, 24, 24, 126, 0, 
+	14, 6, 6, 6, 6, 198, 124, 0, 
+	198, 204, 216, 240, 216, 204, 198, 0, 
+	192, 192, 192, 192, 192, 198, 254, 0, 
+	198, 238, 254, 214, 198, 198, 198, 0, 
+	198, 230, 246, 222, 206, 198, 198, 0, 
+	56, 108, 198, 198, 198, 108, 56, 0, 
+	252, 198, 198, 252, 192, 192, 192, 0, 
+	56, 108, 198, 198, 202, 108, 54, 0, 
+	252, 198, 198, 252, 216, 204, 198, 0, 
+	124, 198, 192, 124, 6, 198, 124, 0, 
+	126, 24, 24, 24, 24, 24, 24, 0, 
+	198, 198, 198, 198, 198, 198, 124, 0, 
+	198, 198, 198, 108, 108, 56, 16, 0, 
+	198, 198, 198, 214, 254, 238, 68, 0, 
+	198, 198, 108, 56, 108, 198, 198, 0, 
+	102, 102, 102, 60, 24, 24, 24, 0, 
+	254, 204, 24, 48, 96, 198, 254, 0, 
+	60, 48, 48, 48, 48, 48, 60, 0, 
+	64, 96, 48, 24, 12, 6, 2, 0, 
+	60, 12, 12, 12, 12, 12, 60, 0, 
+	16, 56, 108, 198, 0, 0, 0, 0, 
+	0, 0, 0, 0, 0, 0, 0, 255, 
+	60, 102, 96, 248, 96, 96, 254, 0, 
+	0, 0, 60, 6, 126, 198, 126, 0, 
+	192, 192, 220, 230, 198, 198, 252, 0, 
+	0, 0, 124, 198, 192, 198, 124, 0, 
+	6, 6, 118, 206, 198, 198, 126, 0, 
+	0, 0, 124, 198, 254, 192, 124, 0, 
+	28, 48, 48, 252, 48, 48, 48, 0, 
+	0, 0, 126, 198, 198, 126, 6, 60, 
+	192, 192, 220, 230, 198, 198, 198, 0, 
+	24, 0, 24, 24, 24, 24, 24, 0, 
+	6, 0, 6, 6, 6, 6, 102, 60, 
+	192, 192, 198, 220, 240, 220, 198, 0, 
+	56, 24, 24, 24, 24, 24, 24, 0, 
+	0, 0, 236, 254, 214, 214, 214, 0, 
+	0, 0, 220, 230, 198, 198, 198, 0, 
+	0, 0, 124, 198, 198, 198, 124, 0, 
+	0, 0, 220, 230, 198, 252, 192, 192, 
+	0, 0, 118, 206, 198, 126, 6, 6, 
+	0, 0, 220, 230, 192, 192, 192, 0, 
+	0, 0, 124, 192, 124, 6, 124, 0, 
+	48, 48, 252, 48, 48, 48, 28, 0, 
+	0, 0, 198, 198, 198, 206, 118, 0, 
+	0, 0, 198, 198, 108, 56, 16, 0, 
+	0, 0, 198, 214, 214, 124, 40, 0, 
+	0, 0, 198, 108, 56, 108, 198, 0, 
+	0, 0, 198, 198, 108, 56, 48, 96, 
+	0, 0, 126, 12, 56, 96, 252, 0, 
+	14, 24, 24, 112, 24, 24, 14, 0, 
+	24, 24, 24, 24, 24, 24, 24, 0, 
+	112, 24, 24, 14, 24, 24, 112, 0, 
+	50, 126, 76, 0, 0, 0, 0, 0, 
+	60, 66, 157, 177, 177, 157, 66, 60
+}
+
+PROCESS 3;
+PROCESS 4;
+PROCESS 5;
+PROCESS 6;
+PROCESS 7;
+PROCESS 8;
+PROCESS 9;
+PROCESS 10;
+PROCESS 11;
+PROCESS 12;
+PROCESS 13;
+PROCESS 14;
+PROCESS 15;
+PROCESS 16;
+
+RESPONSE
+{
+	I _: NEWLINE INVEN NEWLINE;
+	AWAKE U: AT 0 MESSAGE 18 GOTO 1 DONE;
+	AWAKE U: MESSAGE 19 DONE;
+	GET HOBNA: NOTCARR 2 PRESENT 2 CLEAR 60 PROCESS 12 NOTZERO 60 DONE;
+	GET ALL: DOALL 255;
+	GET MILK: AT 2 ZERO 74 MESSAGE 30 PLACE 3 254 SET 74 DONE;
+	GET BIB: AT 2 MESSAGE 28 ANYKEY MESSAGE 29 BORDER 2 BEEP 20 42 BEEP 20 35 BEEP 20 28 END DONE;
+	GET _: AUTOG DONE;
+	CHAMP FEED: AT 3 ZERO 73 MESSAGE 17 CREATE 2 SET 73 DONE;
+	CHAMP MILK: AT 2 MESSAGE 28 ANYKEY MESSAGE 29 BORDER 2 BEEP 20 42 BEEP 20 35 BEEP 20 28 END DONE;
+	CHAMP DOOR: AT 5 MESSAGE 36 BORDER 2 BEEP 20 42 BEEP 20 35 BEEP 20 28 END DONE;
+	LEG WHEEL: AT 4 CLEAR 60 PROCESS 13 NOTZERO 60 DONE;
+	LEG AWAY: AT 5 CLEAR 60 PROCESS 3 NOTZERO 60 DONE;
+	SAY JOKE: MESSAGE 12 ANYKEY MESSAGE 13 DONE;
+	RESTA GAME: MESSAGE 14 ANYKEY MESSAGE 15 BORDER 2 BEEP 20 42 BEEP 20 35 BEEP 20 28 END DONE;
+	RESTA AGAIN: MESSAGE 14 ANYKEY MESSAGE 15 BORDER 2 BEEP 20 42 BEEP 20 35 BEEP 20 28 END DONE;
+	EXPLO PAPER: PRESENT 1 NOTCARR 1 MESSAGE 6 DONE;
+	EXPLO PAPER: CARRIED 1 MESSAGE 6 DONE;
+	EXPLO CAGE: NOTAT 0 MESSAGE 4 DONE;
+	EXPLO HOBNA: PRESENT 2 NOTCARR 2 MESSAGE 7 DONE;
+	EXPLO MILK: AT 2 MESSAGE 8 DONE;
+	EXPLO FEEDE: NOTAT 0 MESSAGE 0 DONE;
+	EXPLO BOWL: NOTAT 0 MESSAGE 1 DONE;
+	EXPLO WHEEL: NOTAT 0 MESSAGE 2 DONE;
+	EXPLO DOOR: NOTAT 0 MESSAGE 5 DONE;
+	EXPLO CAT: EQ 69 5 MESSAGE 9 DONE;
+	EXPLO CAT: NOTAT 0 MESSAGE 10 DONE;
+	DAB HOBNA: CARRIED 2 CLEAR 60 PROCESS 5 NOTZERO 60 DONE;
+	FIRE MILK: AT 1 CARRIED 3 MESSAGE 31 ANYKEY MESSAGE 32 LET 69 1 DESTROY 3 DONE;
+	FIRE CAT: AT 1 CARRIED 3 MESSAGE 31 ANYKEY MESSAGE 32 LET 69 1 DESTROY 3 DONE;
+	DISCA ALL: DOALL 254;
+	DISCA _: AUTOD DONE;
+	OPEN DOOR: AT 5 CLEAR 60 PROCESS 16 NOTZERO 60 DONE;
+	WEAR _: AUTOW DONE;
+	REMOV _: AUTOR DONE;
+	L AROUN: AT 0 MESSAGE 3 DONE;
+	L AROUN: DESC DONE;
+	L _: DESC;
+	L _: PLUS 29 128 DESC;
+	HELP ME: MESSAGE 11 DONE;
+	HELLO WORLD: MESSAGE 12 ANYKEY MESSAGE 13 DONE;
+	KILL ME: MESSAGE 14 ANYKEY MESSAGE 15 BORDER 2 BEEP 20 42 BEEP 20 35 BEEP 20 28 END DONE;
+	KILL YOURS: MESSAGE 14 ANYKEY MESSAGE 15 BORDER 2 BEEP 20 42 BEEP 20 35 BEEP 20 28 END DONE;
+	END GAME: MESSAGE 14 ANYKEY MESSAGE 15 BORDER 2 BEEP 20 42 BEEP 20 35 BEEP 20 28 END DONE;
+	GO CAGE: AT 1 MESSAGE 16 DONE;
+	GO CAGE: NOTAT 0 GOTO 1 DESC DONE;
+	GO FEEDE: AT 1 GOTO 3 DESC;
+	GO BOWL: AT 1 GOTO 2 DESC;
+	GO WHEEL: AT 1 GOTO 4 DESC;
+	GO DOOR: AT 1 GOTO 5 DESC;
+	GO FRONT: AT 1 GOTO 4 DESC;
+	GO LEFT: AT 1 GOTO 3 DESC;
+	GO RIGHT: AT 1 GOTO 2 DESC;
+	GO CENTE: AT 1 MESSAGE 16 DONE;
+	GO CENTE: NOTAT 0 GOTO 1 DESC DONE;
+	GO BACK: AT 1 MESSAGE 16 DONE;
+	GO BACK: NOTAT 0 GOTO 1 DESC DONE;
+	GO AWAY: AT 1 MESSAGE 16 DONE;
+	GO AWAY: NOTAT 0 GOTO 1 DESC DONE;
+	SPIN WHEEL: AT 4 CLEAR 60 PROCESS 14 NOTZERO 60 DONE;
+	USE HOBNA: CARRIED 2 CLEAR 60 PROCESS 4 NOTZERO 60 DONE;
+	USE MILK: AT 1 CARRIED 3 MESSAGE 31 ANYKEY MESSAGE 32 LET 69 1 DESTROY 3 DONE;
+	USE WHEEL: AT 4 CLEAR 60 PROCESS 15 NOTZERO 60 DONE;
+	LOAD _: LOAD;
+	SAVE _: SAVE;
+	QUIT _: QUIT END;
+	EXAM PAPER: PRESENT 1 NOTCARR 1 MESSAGE 6 DONE;
+	EXAM PAPER: CARRIED 1 MESSAGE 6 DONE;
+	EXAM CAGE: NOTAT 0 MESSAGE 4 DONE;
+	EXAM HOBNA: PRESENT 2 NOTCARR 2 MESSAGE 7 DONE;
+	EXAM MILK: AT 2 MESSAGE 8 DONE;
+	EXAM FEEDE: NOTAT 0 MESSAGE 0 DONE;
+	EXAM BOWL: NOTAT 0 MESSAGE 1 DONE;
+	EXAM WHEEL: NOTAT 0 MESSAGE 2 DONE;
+	EXAM RUNNI: NOTAT 0 MESSAGE 2 DONE;
+	EXAM DOOR: NOTAT 0 MESSAGE 5 DONE;
+	EXAM PIECE: PRESENT 1 NOTCARR 1 MESSAGE 6 DONE;
+	EXAM PIECE: CARRIED 1 MESSAGE 6 DONE;
+	EXAM CAT: EQ 69 5 MESSAGE 9 DONE;
+	EXAM CAT: NOTAT 0 MESSAGE 10 DONE;
+	EXAM _: SYSMESS 63 DONE;
+	_ BIB: NOUN2 MILK AT 2 MESSAGE 28 ANYKEY MESSAGE 29 BORDER 2 BEEP 20 42 BEEP 20 35 BEEP 20 28 END DONE;
+}
+
+PROCESS 1
+{
+	* *: ZERO 70 LET 66 255 LET 70 255 LET 37 200;
+	* *: CLEAR 60;
+	* *: AT 0 ZERO 75 SET 76 SET 75 CLS PROCESS 10 SET 71 COPYFF 38 72 DESC;
+	* *: PROCESS 11;
+	* *: NOTAT 1 NOTAT 0 SET 67;
+	* *: AT 1 PROCESS 6 NOTZERO 60 PROCESS 11 DONE;
+	* *: AT 3 PROCESS 7 NOTZERO 60 PROCESS 11 DONE;
+	* *: AT 2 PROCESS 8 NOTZERO 60 PROCESS 11 DONE;
+	* *: AT 4 PROCESS 9 NOTZERO 60 PROCESS 11 DONE;
+}
+
+PROCESS 2
+{
+}
+
+PROCESS 3
+{
+	* *: ZERO 65 MESSAGE 33 DONE;
+	* *: CARRIED 2 MESSAGE 34 DONE;
+	* *: MESSAGE 35 DONE;
+}
+
+PROCESS 4
+{
+	* *: AT 1 EQ 69 5 MESSAGE 37 DONE;
+	* *: AT 5 ZERO 65 MESSAGE 38 DONE;
+	* *: AT 5 NOTZERO 65 CLS MESSAGE 39 ANYKEY MESSAGE 40 ANYKEY MESSAGE 41 ANYKEY MESSAGE 42 BORDER 4 BEEP 20 28 BEEP 20 35 BEEP 20 42 END DONE;
+	* *: MESSAGE 43 DONE;
+}
+
+PROCESS 5
+{
+	* *: AT 1 EQ 69 5 MESSAGE 37 DONE;
+	* *: AT 5 ZERO 65 MESSAGE 38 DONE;
+	* *: AT 5 NOTZERO 65 CLS MESSAGE 39 ANYKEY MESSAGE 40 ANYKEY MESSAGE 41 ANYKEY MESSAGE 42 BORDER 4 BEEP 20 28 BEEP 20 35 BEEP 20 42 END DONE;
+	* *: MESSAGE 43 DONE;
+}
+
+PROCESS 6
+{
+	* *: EQ 69 5 MESSAGE 44 DONE;
+	* *: NOTZERO 66 MESSAGE 45 CLEAR 66 DONE;
+	* *: ZERO 67 MESSAGE 46 DONE;
+}
+
+PROCESS 7
+{
+	* *: ZERO 73 MESSAGE 47;
+	* *: ZERO 68 MESSAGE 48 SET 68 DONE;
+}
+
+PROCESS 8
+{
+	* *: ZERO 74 MESSAGE 49 DONE;
+}
+
+PROCESS 9
+{
+	* *: EQ 69 0 MESSAGE 50 LET 69 5 DONE;
+	* *: EQ 69 1 MESSAGE 51 DONE;
+	* *: EQ 69 5 MESSAGE 52 DONE;
+}
+
+PROCESS 10
+{
+	* *: PAUSE 50 MESSAGE 53 MESSAGE 54 MESSAGE 55 MESSAGE 56 MESSAGE 55 BEEP 20 35 BEEP 20 42 BEEP 20 50 BEEP 20 57 BEEP 20 50 BEEP 20 42 BEEP 20 35 ANYKEY CLS MESSAGE 57 ANYKEY MESSAGE 58 ANYKEY MESSAGE 59 ANYKEY;
+}
+
+PROCESS 11
+{
+	* _: ZERO 0 ABSENT 0 LISTOBJ;
+	* _: PRESENT 0 LISTOBJ;
+	* _: ZERO 53 NEWLINE;
+}
+
+PROCESS 12
+{
+	* *: NOTCARR 1 MESSAGE 20 BORDER 2 BEEP 20 42 BEEP 20 35 BEEP 20 28 END DONE;
+	* *: MESSAGE 21 DESTROY 1 DONE;
+}
+
+PROCESS 13
+{
+	* *: EQ 69 5 MESSAGE 22 ANYKEY MESSAGE 23 ANYKEY MESSAGE 24 ANYKEY MESSAGE 25 BORDER 2 BEEP 20 42 BEEP 20 35 BEEP 20 28 END DONE;
+	* *: ZERO 65 MESSAGE 26 SET 65 DONE;
+	* *: MESSAGE 27 DONE;
+}
+
+PROCESS 14
+{
+	* *: EQ 69 5 MESSAGE 22 ANYKEY MESSAGE 23 ANYKEY MESSAGE 24 ANYKEY MESSAGE 25 BORDER 2 BEEP 20 42 BEEP 20 35 BEEP 20 28 END DONE;
+	* *: ZERO 65 MESSAGE 26 SET 65 DONE;
+	* *: MESSAGE 27 DONE;
+}
+
+PROCESS 15
+{
+	* *: EQ 69 5 MESSAGE 22 ANYKEY MESSAGE 23 ANYKEY MESSAGE 24 ANYKEY MESSAGE 25 BORDER 2 BEEP 20 42 BEEP 20 35 BEEP 20 28 END DONE;
+	* *: ZERO 65 MESSAGE 26 SET 65 DONE;
+	* *: MESSAGE 27 DONE;
+}
+
+PROCESS 16
+{
+	* *: ZERO 65 MESSAGE 33 DONE;
+	* *: CARRIED 2 MESSAGE 34 DONE;
+	* *: MESSAGE 35 DONE;
+}
+

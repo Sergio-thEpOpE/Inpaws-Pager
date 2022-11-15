@@ -1,0 +1,125 @@
+********************
+* Inpawspager 1.3b *
+*    by thEpOpE    *
+********************
+
+InpawsPager es una herramienta, que usada juntamente con Inpaws, permite crear bases de datos para aventuras conversacionales de Spectrum en el Paws. Mientras que Inpaws permite crear aventuras para Spectrum 48kb, Inpawspager permite crear aventuras para 128kb.
+
+InpawsPager principalmente opera sobre una archivo preprocesado y generado por Inpaws. Por tanto es necesario Inpaws para usar InpawsPager, ya que Inpaws proporciona un formato de salida que es el que intepreta InpawsPager para generar la base de datos.
+
+Aunque se ha provisto de un comando directo desde el propio InpawsPager, para que sea lo más transparente para el usuario. Sin embargo existe la posibilidad de generar un archivo preprocesado desde Inpaws (con el comando cp del mismo) para revisarlo posteriormente y después compilarlo desde el InpawsPager (con el mismo comando cp).
+
+Sintaxis: inpawspager.exe comando input_file <opciones>
+
+Comandos:
+c : compila directamente una aventura, en formato Inpaws, al formato TAP. Este comando hace internamente una llamada a inpaws.exe
+cp : compila un archivo que haya sido preprocesado por Inpaws al formato TAP (este comando no llama a inpaws.exe)
+e : extrae la base de datos de una aventura en el formato de código fuente de Inpaws, tanto de 48kb como de 128kb. El fichero de entrada ha de ser un snapshot en formato SNA o un fichero TAP con que contenga la base de datos.
+eg : extrae los gráficos y atributos de color por defecto de las localidades de una aventura. También en aquellas que son de 128k
+ec : extrae la definicion de udgs, shades, y sets de caracteres que tenga la aventura
+egfx : extrae tanto los graficos de las localidades como los udgs, shades y sets de caracteres
+
+Opciones:
+-o fichero_de_salida : permite indicar el archivo de salida
+-m structured | smart : el modo smart es por defecto, e intenta optimizar la distribucion de la base de datos. El modo structured genera siempre un archivo paginado, dejando la pagina RAM 0 solo con la BD estricta, y pasando mensajes y localidades a paginas de RAM superiores.
+-v : Verbose. Imprime más información técnica respecto lo que se va cargando.
+-dbg : Debug. Imprime la información respecto a las tablas y punteros creados.
+
+
+Ejemplos:
+InpawsPager c aventura.paw -o nombre.tap :
+InpawsPager llamará a Inpaws para que preprocese aventura.paw, y desde el archivo preprocesado generará nombre.tap en modo smart. Si cabe en 48 kb será una aventura de 48kb, de otro modo la generará para 128kb.
+
+InpawsPager c aventura.paw -m structured -o nombre.tap :
+InpawsPager llamará a Inpaws para que preprocese aventura.paw, y desde el archivo preprocesado generará nombre.tap. La aventura tendrá formato de 128kb, permitiendo su edicion posterios para añadir procesos, o más datos en la aventura.
+
+Inpaws cp aventura.paw -o nombre.ppr :
+Esto prepropcesa el archivo aventura.paw, generando nombre.ppr. Este ultimo archivo es editable antes de ser procesador por InpawsPager
+InpawsPager cp nombre.ppr -o nombre.tap :
+Compila el archivo preprocesado por Inpaws (nombre.ppr) generando la aventura en modo optimizado en el archivo nombre.tap.
+
+
+********************************
+*  Desarrollo de una aventura  *
+* y distribucion de la memoria *
+********************************
+
+Tal y como están configurados los algoritmos del InpawsPager, a la hora de desarrollar una aventura es mejor no preocuparse del espacio, ya que el propio algoritmo distribuye la base de datos del mejor modo posible y coherente para el Paws. La dificultad aparece especialmente con los gráficos, ya que InpawsPager debe incluir los gráficos de una localidad en la misma pagina de memoria donde se ubica esa localidad.
+
+Para ello si se desea hacer una aventura con gráficos la mejor opción es seguir los pasos siguientes:
+1 - Crear una base de datos vacía, que contenga tantas localidades como tenga nuestra aventura. Esta base de datos la usaremos solamente para editar los gráficos.
+2 - Dejar las descripciones de las localidades vacías, y cargar los Sets de caracteres necesario (udgs, sombreados, y fonts).
+3 - Realizar los gráficos y los atributos desde el PAWS. Si los gráficos son muy extensos en espacio hay que distribuir el numero de localidades en las diversas páginas. Por ejemplo, si tenemos 47 localidades, podemos distribuir:
+		localidades 0 a 8 en la pagina 0
+		localidades 9 a 17 en la página 1
+		localidades 18 a 26 en la pagina 3
+		localdidades 27 a 35 en la pagina 4
+		localidades 36 a 44 en la pagina 6
+		localidades 45 a 46 en la pagina 7
+
+4 - Sobre esta base de datos realizaremos los graficos de cada localidad. Y una vez la tengamos, extraeremos de ella los gráficos usando InpawsPager (para que podamos extraer todas las páginas)
+5 - Pondremos esa sección "GRAPHICS" en nuestro fichero fuente de Inpaws.
+
+6 - Compilaremos todo el fichero fuente, y ya InpawsPager ajustará y organizará las localidades según el algoritmo elegido con la opción -m
+
+TIPS: Es recomandable que la localidad 0 no tenga asignado una gráfico que sea excesivamente extenso en memoria, ya que esta localidad debe ir siempre en la página 0; y esa página debe quedar lo más libre posible para los Procesos, Vocabulario, Mensajes de Sistema, y Sets de Caractéres
+
+Según el espacio final que quede en cada página será el margen que dispondremos cuando editemos la base de datos desde el Paws para corregir los gráficos. No obstante la corrección de los atributos (colores por defecto de la localidad) no modifica la cantidad de memoria disponible.
+
+
+************************
+* Structured vs. Smart *
+************************
+
+El manual del Paws explica que cuando vamos a crear una aventura de 128k, es una buena práctica dejar solamente en la página 0 la localidad 0 y el mensaje 0. En el modo Structured se fuerza esta misma situación. Esto provoca que pueda quedar espacio vacío en la página 0 para editar procesos, etc; pero también que la aventura necesariamente sea de 128k.
+
+Las páginas 2 y 5 no se usan para albergar la base de datos, ya que están paginadas también en zonas bajas comunes para los 48 y para la memoria de video.
+
+El algoritmo Structured opera así:
+Página 0: toda la base de datos esencial, más localidad 0 y mensaje 0
+Página 1: se añade localidad 1, y se meten todos los mensajes posibles; si no caben, se continúa en la página siguiente.
+..
+Página Z: localidad Z; y mensajes hasta el último
+Pagina Z+1: localidades Z+1 y siguientes
+Página Z+2 : si fuera necesario distribuir localidades en varias páginas
+
+Supongamos una base de datos que tenga X mensajes, e Y localidades. Y que los mensajes no quepan en una sola página, y que las localidades tmapoco quepan en una sola página. Se estructuraría del modo siguiente:
+
+   Página 0          Página 1          Página 3          Página 4          Página 6
++--------------+  +--------------+  +--------------+  +--------------+  +--------------+
+|Base de datos |  |localidad 1   |  |localidad 2   |  |localidad 3..M|  |locali. M+1..Y|
+|  principal   |  |mensaje 0..N  |  |mensaje N+1..X|  |              |  |              |
+| localidad 0  |  |              |  |              |  |              |  +--------------+
+| mensaje 0    |  |              |  +--------------+  +--------------+  |              |
++--------------+  |              |  |              |  |espacio libre |  |espacio libre |
+|              |  +--------------+  |espacio libre |  +--------------+  |              |
+|espacio libre |  |espacio libre |  |              |  |              |  +--------------+
++--------------+  +--------------+  +--------------+  |              |  |              |
+|grafico 0     |  |grafico 1     |  |grafico 2     |  |grafico 3..M  |  |grafico M+1..Y|
++--------------+  +--------------+  +--------------+  +--------------+  +--------------+
+
+Si fuera necesario, se avanzaría hasta ocupar la página 7.
+
+
+
+El algoritmo Smart opera del modo siguiente:
+
+Intenta colocar el máximo posible de mensajes y localidades en la página 0; y cuando esta se llena continúa haciendo lo mismo en la página siguiente.. y así sucesivamente hasta que distribuye toda la base de datos. Para optimizar, intenta primero colocar todos los mensajes, y después distribuir las localidades.
+
+Si solo fuera necesaria la pagina 0, la aventura es válida para 48kb.
+
+
+   Página 0         Página 1         Página 3
++--------------+  +--------------+  +--------------+
+|Base de datos |  |locali. M+1..P|  |locali. P+1..Y|
+|  principal   |  |mensaje N..X  |  |              |
+|              |  |              |  |              |
+|localidad 0..M|  |              |  +--------------+
+| mensaje 0..N |  +--------------+  |              |
++--------------+  |espacio libre |  |espacio libre |
+|espacio libre |  +--------------+  |              |
++--------------+  |              |  +--------------+
+|grafico 0..M  |  |grafico M+1..P|  |grafico P+1..Y|
++--------------+  +--------------+  +--------------+
+
+Lo mismo que en el modo Structured, si fuera necesario se van ocupando el resto de páginas

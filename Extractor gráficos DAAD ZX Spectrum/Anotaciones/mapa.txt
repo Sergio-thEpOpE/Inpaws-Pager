@@ -1,0 +1,56 @@
+﻿65535 #FFFF - #00 (siempre a 0)
+65534 #FFFE - #00 (siempre a 0)
+65533 #FFFD - Byte con nº de gráficos
+65532 #FFFC - #FF (siempre a 255)
+65531 #FFFB - #FF (siempre a 255)
+
+65530 #FFFA - | #FF
+65529 #FFF9 - | #E4 Puntero a comienzo de la tabla de colores (siempre #FFE4)
+65528 #FFF8 - | #F7
+65527 #FFF7 - | #E4 Puntero a comienzo del juego de caractéres y shades (siempre #F7E4)
+65526 #FFF6 - | #F7
+65525 #FFF5 - | #E3 Puntero a la posición final de la tabla de ventanas (siempre #F7E3)
+
+-El contenido del byte final de la tabla de ventanas es siempre un 255.
+-A partir de aquí los punteros ya no indican direcciones constantes, pues todo depende de cuántos gráficos haya y de cuánto ocupen.
+
+65524 #FFF4 - |
+65523 #FFF3 - | Puntero a comienzo de la tabla de ventanas.
+65522 #FFF2 - |
+65521 #FFF1 - | Puntero a comienzo de latabla de punteros.
+65520 #FFF0 - |
+65519 #FFEF - | Puntero a gráfico 0 o comienzo de la base de datos de gráficos.
+65518 #FFEE - | 
+65517 #FFED - | Valor actual de SPARE.
+
+65516 #FFEC - |
+---         - | Tabla de colores (9 bytes).     
+65508 #FFE4 - |
+
+65507 #FFE3 - |
+---         - | Juego de caracteres y shades (2048 bytes).
+63460 #F7E4 - |
+
+63459 #F7E3 - | #FF (siempre a 255)
+---         - |                     Tabla de ventanas.
+XXXXX #XXXX - |
+
+-El final de la tabla de ventanas se apunta desde #FFF5 y es siempre un #FF.
+-El comienzo de la tabla de ventanas se apunta desde #FFF3.
+-El byte final de la tabla de ventanas es siempre un #FF.
+
+XXXXX #XXXX - | #FF
+XXXXX #XXXX - | #FF
+XXXXX #XXXX - |                     Tabla de punteros.
+XXXXX #XXXX - | Puntero al puntero 0.
+---         - |
+XXXXX #XXXX - | Puntero 0 (apunta al comienzo del gráfico 0 o inicio de la base de datos, igual que #FFEF)
+
+-El final de la tabla de punteros son siempre 2 bytes #FF y un puntero al puntero 0 (inicio de la tabla)
+
+XXXXX #XXXX - |
+---         - | Tabla con los sucesivos comandos gráficos.
+XXXXX #XXXX - |
+
+-En esta tabla, la posición de inicio de cada gráfico está señalada en los punteros de la tabla anterior.
+-Cada gráfico termina con un byte 7

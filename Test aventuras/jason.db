@@ -1,0 +1,5829 @@
+
+PAW Database : jason48_.sna
+
+Extracted by UNPAWS32 v2.1
+
+General data
+------------
+
+Locations                           37
+Objects                             15
+Messages                           196
+System messages                     55
+Processes                           16
+Character sets                       2
+Default character set                1
+Default ink color                    7
+Default paper color                  0
+Default flash state                  0
+Default bright state                 0
+Default inverse state                0
+Default over state                   0
+Default border color                 0
+Database version                     1
+Database compressed
+Snapshot type          SNA 48K Basic48
+
+--------------------------------------------------------------------------
+
+Vocabulary
+----------
+*        1 RESERVED
+S        2 Noun
+SUR      2 Noun
+E        3 Noun
+ESTE     3 Noun
+O        4 Noun
+OESTE    4 Noun
+NE       5 Noun
+NORES    5 Noun
+NO       6 Noun
+NOROE    6 Noun
+SE       7 Noun
+SURES    7 Noun
+SO       8 Noun
+SUROE    8 Noun
+SUBO     9 Verb
+SUBE     9 Verb
+ARRIB    9 Verb
+SUBIR    9 Verb
+BAJO    10 Verb
+BAJA    10 Verb
+ABAJO   10 Verb
+BAJAR   10 Verb
+ENTRA   11 Verb
+ENTRO   11 Verb
+SAL     12 Verb
+SALIR   12 Verb
+SALGO   12 Verb
+N       13 Noun
+NORTE   13 Noun
+I       14 Noun
+INVEN   14 Noun
+AYUDA   15 Verb
+MEDEA   16 Noun
+SAMOT   17 Noun
+INDIG   17 Noun
+ARGON   18 Noun
+ABRO    19 Verb
+ABRE    19 Verb
+ABRIR   19 Verb
+ABREL   19 Verb
+CERRA   20 Verb
+CIERR   20 Verb
+COJO    21 Verb
+COGE    21 Verb
+COGER   21 Verb
+COGEL   21 Verb
+DEJO    22 Verb
+DEJA    22 Verb
+DEJAR   22 Verb
+DEJAL   22 Verb
+TODO    23 Noun
+X       24 Verb
+SALID   24 Verb
+MATO    25 Verb
+LUCHA   25 Verb
+MATAR   25 Verb
+MATAD   25 Verb
+LUCHO   25 Verb
+SAVE    26 Verb
+GRABA   26 Verb
+LOAD    27 Verb
+CARGA   27 Verb
+RSAVE   28 Verb
+RAMSA   28 Verb
+RLOAD   29 Verb
+RAMLO   29 Verb
+EX      30 Verb
+EXAMI   30 Verb
+COJE    31 Verb
+COJER   31 Verb
+DI      32 Verb
+DIGO    32 Verb
+DECIR   32 Verb
+SACO    33 Verb
+SACA    33 Verb
+SACAR   33 Verb
+SACAL   33 Verb
+METO    34 Verb
+METE    34 Verb
+METER   34 Verb
+METEL   34 Verb
+Y       35 Conjunction
+ENTON   35 Conjunction
+LUEGO   35 Conjunction
+DEPUE   35 Conjunction
+LLENO   36 Verb
+LLENA   36 Verb
+LEO     37 Verb
+LEE     37 Verb
+LEER    37 Verb
+LEERL   37 Verb
+COMO    38 Verb
+BEBE    38 Verb
+BEBO    38 Verb
+COME    38 Verb
+COMER   38 Verb
+BEBER   38 Verb
+OLER    39 Verb
+OLERL   39 Verb
+HUELO   39 Verb
+HUELE   39 Verb
+OIR     40 Verb
+OYE     40 Verb
+OIGO    40 Verb
+ESCUC   40 Verb
+TIRO    41 Verb
+TIRA    41 Verb
+LANZA   41 Verb
+LANZO   41 Verb
+TIRAR   41 Verb
+ARROJ   41 Verb
+MOVER   42 Verb
+MUEVO   42 Verb
+MUEVE   42 Verb
+EMPUJ   42 Verb
+ACERC   43 Verb
+IMITO   44 Verb
+IMITA   44 Verb
+SALTA   45 Verb
+GRITA   45 Verb
+BAILA   45 Verb
+SALTO   45 Verb
+GRITO   45 Verb
+BAILO   45 Verb
+CHILL   45 Verb
+HIJO    46 Verb
+OJIH    46 Verb
+CERDO   46 Verb
+CABRO   46 Verb
+MARIC   46 Verb
+GILIP   46 Verb
+NORBA   46 Verb
+NOCIR   46 Verb
+ODREC   46 Verb
+M       47 Verb
+D       47 Verb
+MIRA    47 Verb
+MIRO    47 Verb
+MIRAR   47 Verb
+DESCR   47 Verb
+MAGIA   48 Verb
+HOLA    49 Verb
+HACES   50 Verb
+ERES    51 Verb
+LLAMA   51 Verb
+PASA    52 Verb
+ADIOS   53 Verb
+DA      54 Verb
+DAR     54 Verb
+DOI     54 Verb
+IR      55 Verb
+VOY     55 Verb
+VETE    55 Verb
+CORRE   56 Verb
+CORRO   56 Verb
+STOP    57 Verb
+PAUSA   57 Verb
+PAUSE   57 Verb
+PUNTU   58 Verb
+PUNTO   58 Verb
+TURNO   59 Verb
+JUGAD   59 Verb
+PULGA   60 Noun
+MOSCA   61 Noun
+ARA\A   62 Noun
+ARANA   62 Noun
+CANTI   63 Noun
+FLOR    64 Noun
+FLORE   64 Noun
+CUERD   65 Noun
+CORDE   65 Noun
+NUEZ    66 Noun
+GUSAN   67 Noun
+MURCI   68 Noun
+ALA     69 Noun
+CUERN   70 Noun
+TELA    71 Noun
+PEDAZ   71 Noun
+SENDE   72 Noun
+MONTE   73 Noun
+MONTA   73 Noun
+AGUA    74 Noun
+MANAN   75 Noun
+LOSA    76 Noun
+AMULE   77 Noun
+HAMST   78 Noun
+ANIMA   78 Noun
+ARBOL   79 Noun
+NOGAL   79 Noun
+ARDIL   80 Noun
+MARIP   81 Noun
+SUELO   82 Noun
+CAMIN   82 Noun
+SETO    83 Noun
+ARBUS   83 Noun
+MONTO   84 Noun
+BUHO    85 Noun
+LECHU   85 Noun
+JASON   86 Noun
+NOSAJ   86 Noun
+INSCR   88 Noun
+LETRE   88 Noun
+TUCAN   89 Noun
+CIELO   89 Noun
+PAJAR   90 Noun
+DRAGO   91 Noun
+MURO    92 Noun
+ROCA    93 Noun
+PIEDR   93 Noun
+GRUTA   94 Noun
+VELLO   95 Noun
+TORO    96 Noun
+TOROS   96 Noun
+LIEBR   97 Noun
+CONEJ   97 Noun
+PON    100 Verb
+PONGO  100 Verb
+PONER  100 Verb
+PONTE  100 Verb
+QUITO  101 Verb
+QUITA  101 Verb
+FIN    103 Verb
+ABAND  103 Verb
+USO    104 Verb
+USA    104 Verb
+USAR   104 Verb
+ENSEN  105 Verb
+MOSTR  105 Verb
+MUEST  105 Verb
+ENSE\  105 Verb
+NEGRA  109 Adjective
+NEGRO  109 Adjective
+VACIA  110 Adjective
+AZUL   112 Adjective
+VERDE  113 Adjective
+PEDRE  114 Adjective
+PELOT  115 Adjective
+EXTRA  116 Adjective
+GRAN   117 Adjective
+GRAND  117 Adjective
+ORO    118 Adjective
+IGNIV  119 Adjective
+VELOZ  120 Adjective
+RAPID  120 Adjective
+A      121 Preposition
+DE     121 Preposition
+EN     121 Preposition
+CON    121 Preposition
+ELLA   130 Pronoun
+ELLO   130 Pronoun
+ESTA   130 Pronoun
+ESTO   130 Pronoun
+ESCAR  150 Noun
+EXCRE  151 Noun
+MIERD  151 Noun
+CARAJ  151 Noun
+JODO   152 Verb
+JODE   152 Verb
+JODER  152 Verb
+TIENE  153 Verb
+POSEE  153 Verb
+LLEVA  153 Verb
+TENGO  153 Verb
+POSEO  153 Verb
+LLEVO  153 Verb
+DAME   154 Verb
+DAMEL  154 Verb
+SERGI  160 Noun
+PATRI  161 Noun
+CESAR  162 Noun
+SOY    163 Verb
+YOS    163 Verb
+OMALL  163 Verb
+LLAMO  163 Verb
+SAICA  164 Verb
+GRACI  165 Verb
+ZETA   166 Verb
+ALOH   200 Verb
+SERE   201 Verb
+SAMAL  201 Verb
+SEREI  202 Verb
+NEV    203 Verb
+EMEUG  203 Verb
+SOIDA  205 Verb
+VEN    250 Verb
+SIGUE  250 Verb
+ASAP   253 Verb
+QUIER  254 Verb
+_      255 RESERVED
+
+--------------------------------------------------------------------------
+
+MESSAGES
+--------
+Message   0  
+
+
+Message   1  
+{16}{4}{147}{148}{149}{150}{151}
+
+Message   2  
+{2}PROGRAMA:{1}       {16}{6}{19}{1}{154}{155}{156}^{7}                {157}{158}{159}
+
+Message   3  
+{16}{6}{154}{155}{156}        {16}{7}{1}{19}{1},{19}{0}                    {16}{6}{157}{158}{159}:      {16}{7}{19}{1}CESAR  LLATA PE\A^{7}^{7}          SERGIO LLATA PE\A
+
+Message   4  
+          {19}{1}PATRICIA LLATA P.
+
+Message   5  
+{2}GRACIAS:{1}  {19}{1}GERARDO OPORTO J.^{7}           PABLO MARTINEZ
+
+Message   6  
+{19}{1}{17}{6}{16}{1}{2} {127} 1992  S.O.S. Ltd.       {1}ARCE 
+
+Message   7  
+ Una liebre corre velozmente ante tus desorbitados ojos.
+
+Message   8  
+ Puedes ver una ara|a en un @rbol tejiendo su tela.
+
+Message   9  
+ Un ind$gena te saluda y se dirige a ti dici#ndote:  "{16}{6}{2}Aloh.Odinevneib{1}{16}{7}".
+
+Message  10  
+ El ind$gena est@ aqu$.
+
+Message  11  
+ S@mot est@ aqu$.
+
+Message  12  
+ Un buho solitario se posa en un @rbol muy alto y poco frondoso.
+
+Message  13  
+ Tras el seto hay una peque|a gruta abierta en el muro.
+
+Message  14  
+ Una ardilla corretea por una rama del @rbol.
+
+Message  15  
+ Acabas de pisar un charco fangoso.
+
+Message  16  
+ Un murci#lago asustadizo sale volando sin rumbo fijo.
+
+Message  17  
+ El drag%n se ha despertado.
+
+Message  18  
+ Un escarabajo cruza por delante tuyo.
+
+Message  19  
+ Tambi#n puedes ver un pedazo de tela junto a las cuerdas.
+
+Message  20  
+ Medea y los argonautas est@n aqu$.
+
+Message  21  
+ Medea est@ aqu$.
+
+Message  22  
+ Los argonautas est@n aqu$.
+
+Message  23  
+ Al drag%n le perturba la conciencia vuestra presencia. Os lanza una llamarada y os mata.
+
+Message  24  
+ El ind$gena comienza a bostezar y a estirarse.
+
+Message  25  
+ S@mot comienza a bostezar y a estirarse.
+
+Message  26  
+ Medea comienza a aburrirse.
+
+Message  27  
+ Medea acaba de irse.
+
+Message  28  
+ Medea acaba de llegar.
+
+Message  29  
+ Es negra y peluda.
+
+Message  30  
+ Tiene zonas abruptas y piedras sueltas.
+
+Message  31  
+ [Sale agua!
+
+Message  32  
+ Es muy fresca y cristalina.
+
+Message  33  
+ Tiene el pelo largo. Del cuello le pende un extra|o amuleto.
+
+Message  34  
+ Es similar al que venera la tribu.
+
+Message  35  
+ Tiene los ojos muy grandes y hace: "{16}{5}{2}BUH-BUH-BUH{1}{16}{7}".
+
+Message  36  
+ Puedes ver una cuerda verde.
+
+Message  37  
+ Es un mont%n de cuerdas corriente y vulgar.
+
+Message  38  
+ Parece un nogal.
+
+Message  39  
+ Parece que hay algo detr@s.
+
+Message  40  
+ La ardilla sale corriendo y deja una nuez.
+
+Message  41  
+ Es una nuez corriente y vulgar. Tiene un gusano sabros%n.
+
+Message  42  
+ Son muy coloridas.
+
+Message  43  
+ Se parece a un hamster, pero su pelo es rizado y largo.
+
+Message  44  
+ Tienen colores muy llamativos.
+
+Message  45  
+ Hay un excremento con muchas moscas a su alrededor.
+
+Message  46  
+ Son azuladas, y muy gordas. El plato ideal para una rana.
+
+Message  47  
+ A su izquierda tiene una extra|a inscripci%n.
+
+Message  48  
+ En la inscripci%n dice: "{16}{3}{2}La Orol Noc Le Ogeuf{1}{16}{7}".
+
+Message  49  
+ Es muy dura, grande, y brillante.
+
+Message  50  
+ Es azul.
+
+Message  51  
+ Es negro.
+
+Message  52  
+ Est@ dormido. Le sale humo por sus orificios nasales.
+
+Message  53  
+ Est@ despierto, y os observa con una profunda mirada.
+
+Message  54  
+ [Uf! Casi la coges.
+
+Message  55  
+ Los argonautas no te siguen al ver que se desprenden algunas piedras.
+
+Message  56  
+ Al mover el seto aparece una entrada secreta.
+
+Message  57  
+ Intentas subir, pero resbalas por el tronco del @rbol y vas a parar al fr$o suelo.
+
+Message  58  
+ El susurro parece decir: "{16}{5}{2}La Sever{1}{16}{7}".
+
+Message  59  
+ El susurro es muy leve para entenderlo.
+
+Message  60  
+ Es un olor muy peculiar, pero no recuerdas de qu# se trata.
+
+Message  61  
+ Huele...huele... [Huele a {2}MIERDA{1}!
+
+Message  62  
+ Es una buena forma de eliminar tensiones.
+
+Message  63  
+ Est@ muy fresca, y te quitar@ la sed por un tiempo.
+
+Message  64  
+ Te bebes todo el agua de la cantimplora.
+
+Message  65  
+ En la cantimplora s%lo hay aire, y eso no sacia la sed que tienes.
+
+Message  66  
+ Pero... [si no hay nada para llenar el est%mago!
+
+Message  67  
+ Te comes la nuez, pero tambi#n el gusano. Comienzas a sentirte mal...
+
+Message  68  
+ El gusano estaba bueno de sabor, pero no de salud. Comienzas a sentirte mal...
+
+Message  69  
+ Son muy peque|as y escurridizas.
+
+Message  70  
+ Est@ vac$a.
+
+Message  71  
+ Est@ llena.
+
+Message  72  
+ Tiene p#talos de diferentes tonalidades azules.
+
+Message  73  
+ Es de color verde.
+
+Message  74  
+ Tiene un agujero. Tiene pintas de haber vivido un bicho en su interior.
+
+Message  75  
+ Tiene una pinta genial para las gallinas.
+
+Message  76  
+ Tiene restos de sangre vampiresca.
+
+Message  77  
+ Es muy peque|o y ligero
+
+Message  78  
+ Es pelotero y no es-cararriba.
+
+Message  79  
+ Es de cachemir.
+
+Message  80  
+ Son fuertes y numerosos. Van armados.
+
+Message  81  
+ Es muy guapa. Los argonautas la respetan como maga que es.
+
+Message  82  
+ No est@ aqu$.
+
+Message  83  
+ No sab$a que te gustaba hablar s%lo.
+
+Message  84  
+ Los argonautas dicen: "{16}{6}{2}Expresate mejor, analfaburro.{1}{16}{7}"
+
+Message  85  
+ Los argonautas te dicen: "{16}{6}{2}Hola, se|or Jason.{1}{16}{7}"
+
+Message  86  
+ Los argonautas dicen: "{16}{6}{2}Aqui no hay ningun dragon,[imbecil!{1}{16}{7}"
+
+Message  87  
+ Los argonautas gritan: "{2}{16}{6}[AL ATAQUE!{1}{16}{7}" y luchan duramente contra el drag%n.
+
+Message  88  
+ Tras una larga lucha el drag%n lanza una llamarada y os abrasa a todos.
+
+Message  89  
+ Los argonautas te dicen al un$sono: "{16}{6}{2}Mamon, aqui no hay toros.{1}{16}{7}"
+
+Message  90  
+ Los argonautas luchan contra los toros, estos lanzan unas llamaradas, pero los argonautas consiguen acabar con ellos.
+
+Message  91  
+ No te entiedo ni ~{2}jota{1}~.
+
+Message  92  
+ Medea no est@ aqu$.
+
+Message  93  
+ Medea dice: 
+
+Message  94  
+ "{16}{6}{2}Hola Jason.{1}{16}{7}"
+
+Message  95  
+ "{16}{6}{2}Ayudarte.{1}{16}{7}"
+
+Message  96  
+ "{16}{6}{2}Medea, tu mujer.{1}{16}{7}"
+
+Message  97  
+ "{16}{6}{2}Adios{1}{16}{7}".
+
+Message  98  
+ "{16}{6}{2}Vale, te seguire.{1}{16}{7}"
+
+Message  99  
+ "{16}{6}{2}A mi nada.{1}{16}{7}"
+
+Message 100  
+ "{16}{6}{2}]Que hay de nuevo ~palillo~?. [Me encanta tu aventura!.{1}{16}{7}"
+
+Message 101  
+ "{16}{6}{2}[Hombre Patri!, ]Que tal aquellas partiditas del Jabato?{1}{16}{7}"
+
+Message 102  
+ "{16}{6}{2}]Que tal van los spaghetti?{1}{16}{7}"
+
+Message 103  
+ Los argonautas te dicen: "{16}{6}{2}Eso lo sera tu padre.{1}{16}{7}"
+
+Message 104  
+ "{16}{6}{2}Eso tu padre. [Olvidame!{1}{16}{7}"
+
+Message 105  
+ Medea pasa de ti ol$mpicamente.
+
+Message 106  
+ Aqu$ no est@ el ind$gena.
+
+Message 107  
+ S@mot no est@ aqu$.
+
+Message 108  
+ El ind$gena te saluda cort#smente.
+
+Message 109  
+ El ind$gena te dice: 
+
+Message 110  
+ "{16}{6}{2}Em Omall Samot.{1}{16}{7}"
+
+Message 111  
+ "{16}{6}{2}Odatnacne.{1}{16}{7}"
+
+Message 112  
+ "{16}{6}{2}Ay ol es.{1}{16}{7}"
+
+Message 113  
+ "{16}{6}{2}Ose ut erdap.{1}{16}{7}"
+
+Message 114  
+ "{16}{6}{2}Ognet des.{1}{16}{7}"
+
+Message 115  
+ "{16}{6}{2}Ognet des.{1}{16}{7}"
+
+Message 116  
+ "{16}{6}{2}Soida.{1}{16}{7}"
+
+Message 117  
+No es el mejor momento para esos placeres.
+
+Message 118  
+{2}COGER{1} es con ~{2}g{1}~.
+
+Message 119  
+Al intentar bajar resbalas y caes al vacio. Al llegar al suelo sientes que tu alma se eleva m@s y m@s...
+
+Message 120  
+]Qu# te crees? ]Qu# vas ha provocar? ]Un terremoto?
+
+Message 121  
+La cantimplora se llena hasta rebosar.
+
+Message 122  
+Pero...[Si ya est@ llena!
+
+Message 123  
+Pero...[Si no lo tienes!
+
+Message 124  
+Llenar ]qu#?
+
+Message 125  
+Arrojas la cuerda.
+
+Message 126  
+Bajas sujet@ndote a la cuerda.
+
+Message 127  
+ Los argonautas suben ayud@ndose con la cuerda.
+
+Message 128  
+ Medea sube ayud@ndose de la cuerda.
+
+Message 129  
+No tienes la cuerda.
+
+Message 130  
+ "{2}{16}{6}Saicarg{16}{7}{1}"
+
+Message 131  
+"{16}{6}{2}Saicarg, ainet ahcum des. Amot otse omoc otneimicedarga.{16}{7}{1}"
+
+Message 132  
+S@mot te da el amuleto.
+
+Message 133  
+ Das todo a Medea.
+
+Message 134  
+ ]A qui#n?
+
+Message 135  
+ El animal hace se|as para que te acerques a #l.
+
+Message 136  
+ El animal te dice: "{16}{6}{2}Sol sojabaracse nos solam.{16}{7}{1}"
+
+Message 137  
+Te acercas al animal.
+
+Message 138  
+Est@ muy alto.
+
+Message 139  
+ Sacas el gusano de la nuez.
+
+Message 140  
+ Tienes la nuez, pero #sta no tiene el gusano.
+
+Message 141  
+ Lo intentas, pero una extra|a fuerza lo impide.
+
+Message 142  
+ Lo intentas, pero lo &nico que consigues es el cuerno de una.
+
+Message 143  
+ Lo intentas varias veces, pero siempre se te escurre.
+
+Message 144  
+ Tras varios intentos logras coger tres moscas.
+
+Message 145  
+ Es muy grande.
+
+Message 146  
+ Habilidosamente lo consigues coger.
+
+Message 147  
+ Quitas un ala al murci#lago, y este desaparece sin dejar rastro.
+
+Message 148  
+ La utilidad se la has de encontrar t&.
+
+Message 149  
+ El drag%n se ha despertado.
+
+Message 150  
+ El animal te da dos pulgas.
+
+Message 151  
+ El animal te dice: "{16}{6}{2}[Eidan et ah odatnugerp adan!{16}{7}{1}"
+
+Message 152  
+ Medea, mediante una serie de conjuros consigue hacer desaparecer al drag%n.
+
+Message 153  
+ Tras el drag%n se encontraba el vellocino de oro, que ahora ya est@ a vuestro alcance.
+
+Message 154  
+ Ya podeis regresar a casa tranquilos, pues habeis cumplido con vuestra misi%n.^{7}^{7}^{7}      {2}[ENHORABUENA {147}{148}{149}{150}{151}!{1}
+
+Message 155  
+ "{16}{6}{2}Lo siento, con esto no puedo{1}{16}{7}"
+
+Message 156  
+ Comienzas a sentir sed.
+
+Message 157  
+ La sed se hace tan intensa que comienzas a desvanecerte...
+
+Message 158  
+~Quien mucho corre pronto para.~
+
+Message 159  
+A quien insulta, el Spectrum catapulta... al inicio.
+
+Message 160  
+ Vale, pero ]qu# hay que leer?
+
+Message 161  
+Has dejado todo.
+
+Message 162  
+Medea te da _.
+
+Message 163  
+ "{16}{6}{2}No tengo nada, Jason.{1}{16}{7}"
+
+Message 164  
+Tengo 
+
+Message 165  
+Tienes 
+
+Message 166  
+Tienes puesto 
+
+Message 167  
+No tienes nada.
+
+Message 168  
+Puedes ir al Norte, al Sur, al Este, Y al Oeste.
+
+Message 169  
+Puedes ir al Este y al Sur.
+
+Message 170  
+Puedes Subir e ir al Norte.
+
+Message 171  
+S%lo puedes ir al Norte.
+
+Message 172  
+Pueder Bajar, o ir al Este.
+
+Message 173  
+Puedes ir al Oeste y Subir.
+
+Message 174  
+Puedes ir al Norte, y al Sur.
+
+Message 175  
+Puedes ir al Este, y al Oeste.
+
+Message 176  
+Puedes ir al Oeste y al Sur.
+
+Message 177  
+Puedes ir al Norte, al Este, y al Oeste.
+
+Message 178  
+Puedes ir al Norte y al Oeste.
+
+Message 179  
+Puedes Entrar, ir al Este, o ir al Oeste.
+
+Message 180  
+Pudes Salir, ir al Norte, al Este, al Sur, y al Oeste.
+
+Message 181  
+No hay salidas visibles
+
+Message 182  
+Hazte un buen mapa.
+
+Message 183  
+No creo necesario ayudarte.
+
+Message 184  
+El drag%n queda totalmente hipnotizado.
+
+Message 185  
+Al ver el amuleto los toros se enfurezen y os lanzan llamaradas a diestro y siniestro, hasta acabar matandoos a todos.
+
+Message 186  
+Pero...[Si no tienes el amuleto!
+
+Message 187  
+Intentas matar al drag%n, pero lo &nico que consigues es que #l se revele contra todos vosotros.
+
+Message 188  
+El drag%n os lanza una gran llamarada y os mata a todos.
+
+Message 189  
+Te lanzas contra los toros, pero estos te lanzan una gran llamarada que acaba contigo.
+
+Message 190  
+Aqu$ ya no hay toros.
+
+Message 191  
+Un drag%n duerme frente al vellocino.
+
+Message 192  
+Un drag%n vela por el vellocino frente a #l.
+
+Message 193  
+Dos toros ign$vomos os vigilan todos vuestros movimientos.
+
+Message 194  
+La &nica salida visible es al Sur.
+
+Message 195  
+El ind{gena te mira con cara de "pekin#s con lombrices".
+
+
+--------------------------------------------------------------------------
+
+SYSTEM MESSAGES
+---------------
+System Message   0  
+
+
+System Message   1  
+ Tambi#n alcanzas a ver: 
+
+System Message   2  
+
+
+System Message   3  
+
+
+System Message   4  
+
+
+System Message   5  
+
+
+System Message   6  
+Usa otras palabras, no te entiendo.^{7}
+
+System Message   7  
+Por ah$ no llegar@s muy lejos.^{7}
+
+System Message   8  
+No puedes hacer eso.^{7}
+
+System Message   9  
+Llevas: 
+
+System Message  10  
+
+
+System Message  11  
+ Nada.
+
+System Message  12  
+]Seguro? 
+
+System Message  13  
+^{7}  {16}{4}{2}]QUIRES ECHAR OTRA PARTIDA?{1}{16}{7}^{7}
+
+System Message  14  
+Ciao...
+
+System Message  15  
+Vale.
+
+System Message  16  
+
+
+System Message  17  
+Has hecho 
+
+System Message  18  
+ movida
+
+System Message  19  
+s
+
+System Message  20  
+.^{7}
+
+System Message  21  
+Has conseguido un 
+
+System Message  22  
+{2}%{1} del juego.^{7}
+
+System Message  23  
+No llevas eso puesto.^{7}
+
+System Message  24  
+No puedes. Llevas puesto _.^{7}
+
+System Message  25  
+Ya tienes _.^{7}
+
+System Message  26  
+Aqu$ no hay eso.^{7}
+
+System Message  27  
+No puedes llevar m@s cosas.^{7}
+
+System Message  28  
+No lo tienes.^{7}
+
+System Message  29  
+Ya llevas puesto _.^{7}
+
+System Message  30  
+S
+
+System Message  31  
+N
+
+System Message  32  
+
+
+System Message  33  
+{16}{6}{96}{16}{7}
+
+System Message  34  
+{16}{6}{94}{16}{7}
+
+System Message  35  
+El tiempo es oro...
+
+System Message  36  
+Has cogido _.^{7}
+
+System Message  37  
+Te has puesto _.^{7}
+
+System Message  38  
+Te has quitado _.^{7}
+
+System Message  39  
+Has dejado _.^{7}
+
+System Message  40  
+No puedes ponerte _.^{7}
+
+System Message  41  
+No puedes quitarte _.^{7}
+
+System Message  42  
+No puedes quitarte _. Tienes las manos llenas.^{7}
+
+System Message  43  
+_ pesa demasiado.^{7}
+
+System Message  44  
+Tienes _ en 
+
+System Message  45  
+No tienes _ en 
+
+System Message  46  
+, 
+
+System Message  47  
+ y 
+
+System Message  48  
+.^{7}
+
+System Message  49  
+No tienes _.^{7}
+
+System Message  50  
+No llevas puesto _.^{7}
+
+System Message  51  
+.^{7}
+
+System Message  52  
+No hay eso en el  
+
+System Message  53  
+nada.^{7}
+
+System Message  54  
+{2}Teclea el nombre del fichero:{1}^{7}{16}{4}
+
+
+--------------------------------------------------------------------------
+
+LOCATIONS
+---------
+Location   0  
+
+
+Location   1  
+Una gran cadena monta|osa se ex tiende desde aqu$  hasta C%lqui da, entre el Mar Negro y el Mar Caspio.
+
+Location   2  
+Est@s en una llanura, en la cum bre de un monte desde el que no se ve el fondo del valle.
+
+Location   3  
+Te encuentras en un sendero que parece no tener fin.
+
+Location   4  
+Te encuentras en un sendero que parece no tener fin.
+
+Location   5  
+Al sur, a lo lejos, ves  un mon te pedregoso que se  alza hasta donde tu vista no puede alcazar a ver.
+
+Location   6  
+En el aire hay un olor muy pecu liar. El viento no deja oir con claridad una especie de susurro suave.
+
+Location   7  
+Te encuentras en un sendero que parece no tener fin.
+
+Location   8  
+Te encuentras en un sendero que parece no tener fin.
+
+Location   9  
+Ante tus mismas narices  puedes ver c%mo  una gran losa pedegro sa parece que  quiere agradecer a Zeus su omnipresencia.
+
+Location  10  
+Por fin! Aqu$ est@ el manantial que parece decir: "{16}{5}{5}{2}bebeme{1}{16}{7}".Oyes un susurro, pero el ruido del a gua que cae no te deja entender lo.
+
+Location  11  
+Est@s en el poblado de los Hawk una tribu que venera a un extra |o amuleto.
+
+Location  12  
+Te encuentras en un sendero que parece no tener fin.
+
+Location  13  
+Acabas de llegar a Ponto Euxino donde hay una  fant@stica vista del mar. Un  mont%n de  cuerdas est@ en el centro de la calle.
+
+Location  14  
+Te encuentras al lado de lo que parece ser un  @rbol legendario por su  tama|o. Al este un gran muro de piedra. Un seto, parece que rompe con la  monoton$a del lugar.
+
+Location  15  
+Desde este @rbol puedes ver una toma genial del lugar, al oeste Ponto Euxino, y al este una gru ta en un muro de piedra.
+
+Location  16  
+Aqu$ todo cambia de apariencia, y  todo  parece tener vida. Los @rboles, las flores...
+
+Location  17  
+A partir de aqu$ todo es alegre y nada parece ser triste.Puedes ver un animal extra|o que te ha ce muecas.
+
+Location  18  
+Te encuentras  al oeste  de C%l quida,aqu$ s%lo hay un grupo de mariposas revoloteando.
+
+Location  19  
+Felicidades! Acabas de penetrar en la regi%n de C%lquida, donde se encuentra el  preciado vello cino de oro.
+
+Location  20  
+Acabas de llegar a la zona este de la regi%n.Adem@s huele mal.
+
+Location  21  
+Ante ti se encuentra la entrada de una gruta. A la izquierda de la entrada hay  una extra|a ins cripci%n.
+
+Location  22  
+Aqu$ no hay nada  que contarte, salvo la presencia de  una gran roca.
+
+Location  23  
+Puedes ver una flor azul,el cie lo azul,un tuc@n azul,y un paja rraco negro?!! Vaya, se  me fas tidi% el chiste.
+
+Location  24  
+En esta pu|etera gruta s%lo hay soledad. El brillo de  las pare des ilumina lo  suficiente para ver.
+
+Location  25  
+En esta pu|etera gruta s%lo hay soledad. El brillo de  las pare des ilumina lo  suficiente para ver.
+
+Location  26  
+En esta pu|etera gruta s%lo hay soledad. El brillo de  las pare des ilumina lo  suficiente para ver.
+
+Location  27  
+En esta pu|etera gruta s%lo hay soledad. El brillo de  las pare des ilumina lo  suficiente para ver.
+
+Location  28  
+En esta pu|etera gruta s%lo hay soledad. El brillo de  las pare des ilumina lo  suficiente para ver.
+
+Location  29  
+En esta pu|etera gruta s%lo hay soledad. El brillo de  las pare des ilumina lo  suficiente para ver.
+
+Location  30  
+En esta pu|etera gruta s%lo hay soledad. El brillo de  las pare des ilumina lo  suficiente para ver.
+
+Location  31  
+En esta pu|etera gruta s%lo hay soledad. El brillo de  las pare des ilumina lo  suficiente para ver.
+
+Location  32  
+Ante ti se encuentra el velloci no de oro, tendido sobre el sue lo.
+
+Location  33  
+
+
+Location  34  
+
+
+Location  35  
+
+
+Location  36  
+
+
+
+--------------------------------------------------------------------------
+
+CONNECTIONS
+-----------
+Location   1:  S     2
+
+Location   2:  N     1
+               S     6
+
+Location   3:  N     3
+               S     6
+               E     8
+               O     4
+
+Location   4:  N     11
+               S     8
+               E     3
+               O     4
+
+Location   5:  S     9
+               E     6
+
+Location   6:  N     2
+               S     10
+               E     7
+               O     5
+
+Location   7:  N     3
+               S     7
+               E     12
+               O     8
+
+Location   8:  N     12
+               S     8
+               E     7
+               O     12
+
+Location   9:  N     5
+               SUBO  13
+
+Location  10:  N     6
+
+Location  11:  N     7
+               S     3
+               E     12
+               O     12
+
+Location  12:  N     12
+               S     4
+               E     12
+               O     8
+
+Location  13:  BAJO  9
+               E     14
+
+Location  14:  SUBO  15
+               O     13
+
+Location  15:  BAJO  14
+               E     16
+
+Location  16:  E     17
+               O     14
+
+Location  17:  S     19
+               O     16
+
+Location  18:  S     21
+               E     19
+
+Location  19:  N     17
+               S     22
+               E     20
+               O     18
+
+Location  20:  S     23
+               O     19
+
+Location  21:  N     18
+               E     22
+               ENTRA 25
+
+Location  22:  N     19
+               E     23
+               O     21
+
+Location  23:  N     20
+               O     22
+
+Location  24:  N     25
+               S     27
+               E     24
+               O     24
+
+Location  25:  SAL   21
+               S     25
+               E     25
+               O     24
+
+Location  26:  N     25
+               S     26
+               E     28
+               O     26
+
+Location  27:  N     26
+               S     29
+               E     27
+               O     27
+
+Location  28:  N     28
+               S     29
+               E     26
+               O     28
+
+Location  29:  N     29
+               S     29
+               E     30
+               O     27
+
+Location  30:  N     28
+               S     30
+               E     31
+               O     30
+
+Location  31:  N     30
+               S     25
+               E     32
+               O     30
+
+Location  32:  N     25
+               S     29
+               E     25
+               O     30
+
+--------------------------------------------------------------------------
+
+OBJECT NAMES
+------------
+Object   0  
+ dos pulgas
+
+Object   1  
+ tres moscas
+
+Object   2  
+ la ara|a negra
+
+Object   3  
+ una cantimplora vac$a
+
+Object   4  
+ una cantimplora llena
+
+Object   5  
+ la flor azul
+
+Object   6  
+ la cuerda
+
+Object   7  
+ la nuez
+
+Object   8  
+ el gusano
+
+Object   9  
+ el murcielago
+
+Object  10  
+ el ala de murcielago
+
+Object  11  
+ el cuerno de mariposa
+
+Object  12  
+ el escarabajo
+
+Object  13  
+ el pedazo de tela
+
+Object  14  
+ el amuleto
+
+
+--------------------------------------------------------------------------
+
+OBJECT WORDS
+------------
+Object   0    PULGA 60 _    
+Object   1    MOSCA 61 _    
+Object   2    ARA\A 62 NEGRA 109
+Object   3    CANTI 63 VACIA 110
+Object   4    CANTI 63 _    
+Object   5    FLOR  64 AZUL  112
+Object   6    CUERD 65 VERDE 113
+Object   7    NUEZ  66 _    
+Object   8    GUSAN 67 _    
+Object   9    MURCI 68 _    
+Object  10    ALA   69 _    
+Object  11    CUERN 70 _    
+Object  12    ESCAR 150 PELOT 115
+Object  13    TELA  71 _    
+Object  14    AMULE 77 EXTRA 116
+
+--------------------------------------------------------------------------
+
+INITIALLY AT
+------------
+Object   0    NC
+Object   1    NC
+Object   2    NC
+Object   3    C
+Object   4    NC
+Object   5    23
+Object   6    NC
+Object   7    NC
+Object   8    NC
+Object   9    NC
+Object  10    NC
+Object  11    NC
+Object  12    2
+Object  13    11
+Object  14    NC
+
+--------------------------------------------------------------------------
+
+OBJECT WEIGHT AND TYPE
+----------------------
+Object   0:  weights   0                     
+Object   1:  weights   0                     
+Object   2:  weights   1                     
+Object   3:  weights   2                     
+Object   4:  weights   3                     
+Object   5:  weights   0                     
+Object   6:  weights   5                     
+Object   7:  weights   1                     
+Object   8:  weights   0                     
+Object   9:  weights   1                     
+Object  10:  weights   0                     
+Object  11:  weights   0                     
+Object  12:  weights   1                     
+Object  13:  weights   1                     
+Object  14:  weights   3               W
+
+--------------------------------------------------------------------------
+
+RESPONSE TABLE
+--------------
+E     _          AT            14
+                 NOTZERO       16
+                 PLUS          30   4
+                 GOTO          16
+                 DESC        
+
+SUBO  _          AT             9
+                 ZERO          17
+                 MES           55
+                 ANYKEY      
+                 GOTO          13
+                 DESC        
+
+SUBO  _          AT            14
+                 ZERO           1
+                 PLUS          30  15
+                 GOTO          15
+                 DESC        
+
+SUBO  _          AT            14
+                 NOTZERO        1
+                 PLUS          63   1
+                 MINUS         30   5
+                 MESSAGE       57
+                 DONE        
+
+BAJO  _          AT            13
+                 ZERO          17
+                 MES          119
+                 ANYKEY      
+                 PROCESS        4
+
+BAJO  _          AT            13
+                 NOTZERO       17
+                 MESSAGE      126
+                 ANYKEY      
+                 PLUS          30   5
+                 GOTO           9
+                 DESC        
+
+ENTRA _          AT            14
+                 NOTZERO       16
+                 GOTO          16
+                 DESC        
+
+I     *          CLEAR         44
+                 PROCESS       14
+                 NOTZERO        1
+                 MES          165
+                 LISTAT       254
+
+I     *          NOTZERO       71
+                 MES          166
+                 LISTAT       253
+
+I     _          ZERO           1
+                 ZERO          71
+                 MESSAGE      167
+
+I     _          DONE        
+
+AYUDA _          ATGT          23
+                 MESSAGE      182
+                 DONE        
+
+AYUDA _          MESSAGE      183
+                 DONE        
+
+MEDEA _          PROCESS        8
+                 DONE        
+
+SAMOT _          PROCESS        9
+                 DONE        
+
+ARGON _          PROCESS        7
+                 DONE        
+
+COJO  LIEBR      AT             5
+                 NOTZERO       18
+                 MES           54
+                 DONE        
+
+COJO  _          PROCESS       11
+                 DONE        
+
+DEJO  TODO       DROPALL     
+                 MESSAGE      161
+                 DONE        
+
+DEJO  _          AUTOD       
+                 DONE        
+
+X     *          PROCESS       15
+
+MATO  DRAGO      AT            32
+                 MESSAGE      187
+                 ANYKEY      
+                 MESSAGE      188
+                 PROCESS        4
+
+MATO  TORO       AT            32
+                 ZERO          66
+                 MESSAGE      189
+                 PROCESS        4
+
+MATO  TORO       AT            32
+                 NOTZERO       66
+                 MESSAGE      190
+                 DONE        
+
+SAVE  _          SAVE        
+                 DONE        
+
+LOAD  _          LOAD        
+                 DONE        
+
+RSAVE _          RAMSAVE     
+                 SYSMESS       15
+                 PAUSE         50
+                 DESC        
+
+RLOAD _          COPYFF        30 255
+                 RAMLOAD      254
+                 COPYFF       255  30
+                 SYSMESS       15
+                 ANYKEY      
+                 DESC        
+
+EX    _          PROCESS        6
+                 DONE        
+
+COJE  _          MESSAGE      118
+                 DONE        
+
+DI    MEDEA      PROCESS        8
+                 DONE        
+
+DI    SAMOT      PROCESS        9
+                 DONE        
+
+DI    ARGON      PROCESS        7
+                 DONE        
+
+DI    _          PROCESS       10
+
+LLENO CANTI      PRESENT        3
+                 AT            10
+                 MESSAGE      121
+                 SWAP           3   4
+                 PLUS          30  10
+                 DONE        
+
+LLENO CANTI      PRESENT        4
+                 AT            10
+                 MESSAGE      122
+                 DONE        
+
+LLENO CANTI      ABSENT         3
+                 ABSENT         4
+                 MESSAGE      123
+                 DONE        
+
+LLENO _          MES          124
+                 DONE        
+
+LEO   INSCR      AT            21
+                 MESSAGE       48
+                 DONE        
+
+LEO   _          MESSAGE      160
+                 DONE        
+
+COMO  NUEZ       PRESENT        7
+                 MES           67
+                 PROCESS        4
+
+COMO  GUSAN      PRESENT        8
+                 MES           68
+                 PROCESS        4
+
+COMO  _          AT            10
+                 MESSAGE       63
+                 SET           64
+                 PLUS          30   2
+                 DONE        
+
+COMO  _          PRESENT        4
+                 DESTROY        4
+                 PLACE          3 254
+                 MESSAGE       64
+                 MINUS         30  10
+                 DONE        
+
+COMO  _          PRESENT        3
+                 MESSAGE       65
+                 DONE        
+
+COMO  _          ABSENT         3
+                 ABSENT         4
+                 ABSENT         7
+                 ABSENT         8
+                 NOTAT         10
+                 MESSAGE       66
+                 DONE        
+
+OLER  _          AT             6
+                 MES           60
+
+OLER  _          AT            20
+                 MES           61
+
+OIR   _          AT            10
+                 MES           58
+
+OIR   _          AT             6
+                 MES           59
+
+TIRO  CUERD      CARRIED        6
+                 AT            13
+                 SET           17
+                 PLACE          6  33
+                 MES          125
+                 PLUS          30  10
+                 COPYFF        38  13
+                 MES          127
+                 EQ            11   9
+                 COPYFF        38  11
+                 MES          128
+                 ANYKEY      
+                 DESC        
+
+TIRO  CUERD      NOTCARR        6
+                 AT            13
+                 MESSAGE      129
+                 DONE        
+
+TIRO  _          AUTOD       
+                 DONE        
+
+MOVER SETO       AT            14
+                 ZERO          16
+                 MES           56
+                 SET           16
+                 PICTURE       15
+
+ACERC _          AT            17
+                 NOTZERO       68
+                 MESSAGE      136
+                 SET           69
+                 DONE        
+
+ACERC _          AT            17
+                 ZERO          68
+                 MESSAGE      137
+                 DONE        
+
+ACERC _          OK          
+
+IMITO _          AT            17
+                 MESSAGE      135
+                 SET           68
+                 PLUS          30   5
+                 DONE        
+
+SALTA _          MESSAGE       62
+                 DONE        
+
+HIJO  _          MES          159
+                 ANYKEY      
+                 END         
+
+M     _          DESC        
+
+DA    TODO       NOUN2         16
+                 COPYFF        38  67
+                 LET           38  35
+                 DROPALL     
+                 COPYFF        67  38
+                 MESSAGE      133
+                 DONE        
+
+DA    TODO       MESSAGE      134
+                 DONE        
+
+DA    CANTI      AT            11
+                 CARRIED        3
+                 MESSAGE      109
+                 MESSAGE      130
+                 DESTROY        3
+                 DONE        
+
+DA    CANTI      AT            11
+                 CARRIED        4
+                 MESSAGE      109
+                 MESSAGE      131
+                 MESSAGE      132
+                 PLACE         14 254
+                 DESTROY        4
+                 PLUS          30   8
+                 DONE        
+
+DA    _          NOUN2         16
+                 WHATO       
+                 PUTO          35
+                 OK          
+                 DONE        
+
+CORRE _          MESSAGE      158
+                 DONE        
+
+STOP  _          ANYKEY      
+                 DONE        
+
+PUNTU _          SCORE       
+                 DONE        
+
+TURNO _          TURNS       
+                 DONE        
+
+PON   _          AUTOW       
+                 DONE        
+
+QUITO ALA        CARRIED        9
+                 MESSAGE      147
+                 PLACE         10 254
+                 DESTROY        9
+                 PLUS          30   7
+                 DONE        
+
+QUITO _          AUTOR       
+                 DONE        
+
+FIN   _          QUIT        
+                 TURNS       
+                 SCORE       
+                 END         
+
+USO   _          MESSAGE      148
+                 DONE        
+
+ENSEN AMULE      AT            32
+                 NOTZERO       66
+                 PRESENT       14
+                 MESSAGE      184
+                 SET           74
+                 DONE        
+
+ENSEN AMULE      AT            32
+                 ZERO          66
+                 PRESENT       14
+                 MESSAGE      185
+                 PROCESS        4
+
+ENSEN AMULE      AT            32
+                 ABSENT        14
+                 MESSAGE      186
+
+ENSEN AMULE      PRESENT       14
+                 NOTAT         32
+                 OK          
+
+JODO  _          MESSAGE      117
+
+ZETA  *          PLACE          0  35
+                 PLACE          1  35
+                 PLACE          2  35
+                 PLACE          5  35
+                 PLACE          8  35
+                 PLACE         10  35
+                 PLACE         11  35
+                 SET           14
+                 PLACE         12   2
+                 PLACE         14 253
+                 LET           11  32
+                 LET           13  32
+                 GOTO          32
+                 DESC        
+
+_     _          EQ            63   4
+                 PROCESS        4
+
+
+--------------------------------------------------------------------------
+
+PROCESS   1
+-----------
+*     *          AT             0
+                 EXTERN         0
+
+*     *          AT             0
+                 PRINTAT        0  12
+                 MESSAGE        1
+                 PRINTAT        4   0
+                 MESSAGE        2
+                 PRINTAT        7   0
+                 MESSAGE        3
+                 PRINTAT       12   0
+                 MESSAGE        4
+                 PRINTAT       15   0
+                 MESSAGE        5
+                 PRINTAT       20   0
+                 MESSAGE        6
+                 LET            0   0
+                 LET           29  64
+                 LET           40   3
+                 LET           41  12
+                 LET           39  12
+                 ABILITY        7  10
+                 TIME          20   3
+                 LET           11   1
+                 LET           13   1
+                 LET           53  64
+                 INPUT          1
+                 PROCESS        3
+
+*     *          AT             0
+                 ANYKEY      
+                 EXTERN       200
+                 GOTO           1
+                 DESC        
+                 DONE        
+
+*     *          GT            38  12
+                 NOTZERO       17
+                 COPYFF        38  13
+
+*     *          NOTZERO       14
+                 LT            38  13
+                 COPYFF        38  11
+
+*     *          NOTZERO       14
+                 GT            38  12
+                 NOTZERO       17
+                 COPYFF        38  11
+
+*     *          LT            38  13
+                 COPYFF        38  13
+
+*     _          AT             5
+                 CHANCE        30
+                 MES            7
+                 SET           18
+
+*     _          AT             8
+                 ISAT           2 252
+                 CHANCE        80
+                 MESSAGE        8
+                 SET           19
+                 CREATE         2
+                 DONE        
+
+*     _          AT             8
+                 NOTZERO       19
+                 ISAT           2   8
+                 MESSAGE        8
+                 DONE        
+
+*     _          AT            11
+                 LISTOBJ     
+
+*     _          AT            11
+                 ZERO          20
+                 MES            9
+                 SET           20
+                 DONE        
+
+*     _          AT            11
+                 NOTZERO       22
+                 MES           11
+                 DONE        
+
+*     _          AT            11
+                 MES           10
+                 DONE        
+
+*     _          AT            12
+                 CLEAR         23
+                 CHANCE        20
+                 SET           23
+                 MES           12
+
+*     _          AT            14
+                 NOTZERO       16
+                 MES           13
+                 PICTURE       15
+
+*     _          AT            15
+                 ZERO          60
+                 CLEAR         24
+                 CHANCE        90
+                 SET           24
+                 MES           14
+
+*     _          AT            18
+                 CHANCE        10
+                 MESSAGE       15
+                 DONE        
+
+*     _          AT            28
+                 ZERO          25
+                 MESSAGE       16
+                 CREATE         9
+                 DONE        
+
+*     _          AT            32
+                 NOTZERO       26
+                 MESSAGE       17
+                 DONE        
+
+*     _          AT             2
+                 ISAT          12   2
+                 MESSAGE       18
+                 DONE        
+
+*     _          AT            11
+                 ISAT          13  11
+                 MESSAGE        9
+                 DONE        
+
+*     _          AT            32
+                 ZERO          26
+                 MES          191
+
+*     _          AT            32
+                 NOTZERO       26
+                 MES          192
+
+*     _          AT            32
+                 ZERO          66
+                 MES          193
+
+_     _          SAME          11  38
+                 SAME          13  38
+                 MES           20
+
+_     _          SAME          11  38
+                 NOTSAME       13  38
+                 MES           21
+
+_     _          SAME          13  38
+                 NOTSAME       11  38
+                 MES           22
+
+_     _          LISTOBJ     
+                 NEWLINE     
+
+
+--------------------------------------------------------------------------
+
+PROCESS   2
+-----------
+*     *          NOTAT         15
+                 LT            30  10
+                 SAVEAT      
+                 PRINTAT        5   3
+                 PRINT         30
+                 PRINTAT        5  30
+                 PRINT         30
+                 BACKAT      
+
+*     *          NOTAT         15
+                 GT            30   9
+                 LT            30 100
+                 SAVEAT      
+                 PRINTAT        5   2
+                 PRINT         30
+                 PRINTAT        5  29
+                 PRINT         30
+                 BACKAT      
+
+*     *          NOTAT         15
+                 GT            30  99
+                 SAVEAT      
+                 PRINTAT        5   1
+                 PRINT         30
+                 PRINTAT        5  28
+                 PRINT         30
+                 BACKAT      
+
+*     _          SAME          27  38
+                 PLUS          28   1
+
+*     _          NOTSAME       27  38
+                 LET           28   0
+
+*     _          AT            32
+                 GT            28   4
+                 NOTZERO       26
+                 ZERO          74
+                 MES           23
+                 PROCESS        4
+
+*     _          AT            11
+                 GT            28  10
+                 ZERO          22
+                 MES           24
+
+*     _          AT            11
+                 GT            28  10
+                 NOTZERO       22
+                 MES           25
+
+*     _          GT            28  10
+                 NOTZERO       14
+                 SAME          11  28
+                 MES           26
+                 CLEAR         14
+                 DONE        
+
+*     _          ZERO          14
+                 CHANCE        25
+                 LET           33   2
+                 PROCESS        5
+                 DONE        
+
+*     _          ZERO          14
+                 CHANCE        25
+                 LET           33  13
+                 PROCESS        5
+                 DONE        
+
+*     _          ZERO          14
+                 CHANCE        25
+                 LET           33   3
+                 PROCESS        5
+                 DONE        
+
+*     _          ZERO          14
+                 CHANCE        25
+                 LET           33   4
+                 PROCESS        5
+                 DONE        
+
+*     _          ZERO          14
+                 CHANCE        40
+                 LET           33   9
+                 PROCESS        5
+                 DONE        
+
+*     _          ZERO          14
+                 CHANCE        40
+                 LET           33  10
+                 PROCESS        5
+                 DONE        
+
+*     _          ZERO          14
+                 CHANCE        40
+                 LET           33  11
+                 PROCESS        5
+                 DONE        
+
+*     _          ZERO          14
+                 CHANCE        40
+                 LET           33  12
+                 PROCESS        5
+                 DONE        
+
+_     _          COPYFF        38  27
+
+_     _          ZERO          64
+                 EQ            31  75
+                 MESSAGE      156
+                 DONE        
+
+_     _          ZERO          64
+                 EQ            31 125
+                 MESSAGE      157
+                 DONE        
+
+_     _          NEWLINE     
+
+_     _          ZERO          64
+                 EQ            31 127
+                 PROCESS        4
+
+
+--------------------------------------------------------------------------
+
+PROCESS   3
+-----------
+*     *          BEEP          12 128
+                 BEEP          12 128
+                 BEEP          12 128
+                 BEEP          25 128
+                 BEEP          12 118
+                 BEEP          12 136
+                 BEEP          12 136
+                 BEEP          12 136
+                 BEEP          25 136
+                 BEEP          12 128
+                 BEEP          12 142
+                 BEEP          12 142
+                 BEEP          12 142
+                 BEEP          25 142
+                 BEEP          12 146
+                 BEEP          60 142
+
+*     *          BORDER         7
+                 PAUSE          3
+                 BORDER         6
+                 PAUSE          3
+                 BORDER         5
+                 PAUSE          3
+                 BORDER         4
+                 PAUSE          3
+                 BORDER         3
+                 PAUSE          3
+                 BORDER         2
+                 PAUSE          3
+                 BORDER         1
+                 PAUSE          3
+                 BORDER         0
+
+*     *          DONE        
+
+
+--------------------------------------------------------------------------
+
+PROCESS   4
+-----------
+*     *          ANYKEY      
+                 CLS         
+                 PICTURE       35
+                 ANYKEY      
+                 CLS         
+                 TURNS       
+                 SCORE       
+                 END         
+
+
+--------------------------------------------------------------------------
+
+PROCESS   5
+-----------
+*     *          COPYFF        11  12
+                 MOVE          11
+
+*     *          EQ            11  13
+                 ZERO          17
+                 COPYFF        12  11
+
+*     _          NOTSAME       11  38
+                 SAME          12  38
+                 MES           27
+
+*     _          SAME          11  38
+                 NOTSAME       12  38
+                 MES           28
+
+_     _          NEWLINE     
+                 DONE        
+
+
+--------------------------------------------------------------------------
+
+PROCESS   6
+-----------
+*     MEDEA      SAME          11  38
+                 MESSAGE       81
+                 DONE        
+
+*     MEDEA      NOTSAME       11  38
+                 MESSAGE       82
+                 DONE        
+
+*     SAMOT      AT            11
+                 MESSAGE       33
+                 DONE        
+
+*     ARGON      SAME          13  38
+                 MESSAGE       80
+                 DONE        
+
+*     ARGON      NOTSAME       13  38
+                 MESSAGE       82
+                 DONE        
+
+*     PULGA      PRESENT        0
+                 MESSAGE       69
+                 DONE        
+
+*     MOSCA      AT            20
+                 MESSAGE       46
+                 DONE        
+
+*     MOSCA      PRESENT        1
+                 MESSAGE       46
+                 DONE        
+
+*     ARA\A      PRESENT        2
+                 MESSAGE       29
+                 DONE        
+
+*     CANTI      PRESENT        3
+                 MESSAGE       70
+                 DONE        
+
+*     CANTI      PRESENT        4
+                 MESSAGE       71
+                 DONE        
+
+*     FLOR       AT            16
+                 MESSAGE       42
+                 DONE        
+
+*     FLOR       AT            23
+                 MESSAGE       50
+                 DONE        
+
+*     FLOR       PRESENT        5
+                 MESSAGE       72
+                 DONE        
+
+*     CUERD      PRESENT        6
+                 MESSAGE       73
+                 DONE        
+
+*     NUEZ       PRESENT        7
+                 ZERO          65
+                 MESSAGE       41
+                 DONE        
+
+*     NUEZ       PRESENT        7
+                 NOTZERO       65
+                 MESSAGE       74
+                 DONE        
+
+*     GUSAN      PRESENT        8
+                 MESSAGE       75
+                 DONE        
+
+*     MURCI      PRESENT        9
+                 MESSAGE       51
+                 DONE        
+
+*     ALA        PRESENT       10
+                 MESSAGE       76
+                 DONE        
+
+*     CUERN      PRESENT       11
+                 MESSAGE       77
+                 DONE        
+
+*     TELA       PRESENT       13
+                 MESSAGE       79
+                 DONE        
+
+*     AGUA       AT            10
+                 MESSAGE       32
+                 DONE        
+
+*     MANAN      AT            10
+                 MESSAGE       31
+                 DONE        
+
+*     LOSA       AT             9
+                 MESSAGE       30
+                 DONE        
+
+*     AMULE      PRESENT       14
+                 MESSAGE       34
+                 DONE        
+
+*     HAMST      AT            17
+                 MESSAGE       43
+                 DONE        
+
+*     ARBOL      AT            14
+                 MESSAGE       38
+                 DONE        
+
+*     ARBOL      AT            16
+                 MESSAGE       42
+                 DONE        
+
+*     ARDIL      AT            15
+                 NOTZERO       24
+                 MESSAGE       40
+                 CLEAR         24
+                 SET           60
+                 CREATE         7
+                 PLUS          30   9
+                 DONE        
+
+*     MARIP      AT            18
+                 MES           44
+
+*     SUELO      AT            20
+                 MESSAGE       45
+                 DONE        
+
+*     SETO       AT            14
+                 MESSAGE       39
+                 DONE        
+
+*     MONTO      AT            13
+                 ISAT           6 252
+                 CREATE         6
+                 MESSAGE       36
+                 PLUS          30   4
+                 DONE        
+
+*     MONTO      AT            13
+                 ISAT           6  13
+                 MESSAGE       36
+                 DONE        
+
+*     MONTO      AT            13
+                 ISNOTAT        6  13
+                 MESSAGE       37
+                 DONE        
+
+*     BUHO       AT            12
+                 NOTZERO       23
+                 MESSAGE       35
+                 DONE        
+
+*     INSCR      AT            21
+                 MESSAGE       48
+                 DONE        
+
+*     TUCAN      AT            23
+                 MESSAGE       50
+                 DONE        
+
+*     PAJAR      AT            23
+                 MESSAGE       51
+                 DONE        
+
+*     DRAGO      AT            32
+                 ZERO          26
+                 MESSAGE       52
+                 DONE        
+
+*     DRAGO      AT            32
+                 NOTZERO       26
+                 MESSAGE       53
+                 DONE        
+
+*     ROCA       AT            22
+                 MESSAGE       49
+                 DONE        
+
+*     ESCAR      PRESENT       12
+                 MESSAGE       78
+                 DONE        
+
+_     _          SYSMESS        6
+                 DONE        
+
+
+--------------------------------------------------------------------------
+
+PROCESS   7
+-----------
+*     *          AT            32
+                 ZERO          26
+                 SET           26
+                 MES          149
+
+*     *          PARSE       
+                 MESSAGE       84
+                 DONE        
+
+*     *          NOTSAME       13  38
+                 MESSAGE       83
+                 DONE        
+
+MATO  DRAGO      NOTAT         32
+                 MESSAGE       85
+                 DONE        
+
+MATO  DRAGO      AT            32
+                 MESSAGE       87
+                 ANYKEY      
+                 MESSAGE       88
+                 PROCESS        4
+
+MATO  TORO       NOTAT         32
+                 MESSAGE       89
+                 DONE        
+
+MATO  _          AT            32
+                 MESSAGE       90
+                 SET           66
+                 DONE        
+
+HIJO  _          MESSAGE      103
+                 MINUS         30  10
+                 DONE        
+
+HOLA  _          MESSAGE       85
+                 DONE        
+
+_     _          MESSAGE       84
+                 DONE        
+
+
+--------------------------------------------------------------------------
+
+PROCESS   8
+-----------
+*     *          AT            32
+                 ZERO          26
+                 SET           26
+                 MES          149
+
+*     *          PARSE       
+                 MESSAGE       91
+                 DONE        
+
+*     *          NOTSAME       11  38
+                 MESSAGE       92
+                 DONE        
+
+HIJO  _          MESSAGE       93
+                 MESSAGE      104
+                 CLEAR         14
+                 MINUS         30   5
+                 DONE        
+
+MAGIA _          AT            32
+                 PROCESS       12
+                 DONE        
+
+HOLA  _          MESSAGE       93
+                 MESSAGE       94
+                 DONE        
+
+ERES  _          MESSAGE       93
+                 MESSAGE       96
+                 DONE        
+
+PASA  _          MESSAGE       93
+                 MESSAGE       99
+                 DONE        
+
+ADIOS _          MESSAGE       93
+                 MESSAGE       97
+                 CLEAR         14
+                 DONE        
+
+TIENE _          PROCESS       13
+                 DONE        
+
+DAME  _          WHATO       
+                 PUTO         254
+                 MESSAGE      162
+                 DONE        
+
+SOY   SERGI      MESSAGE       93
+                 MESSAGE      100
+                 DONE        
+
+SOY   PATRI      MESSAGE       93
+                 MESSAGE      101
+                 DONE        
+
+SOY   CESAR      MESSAGE       93
+                 MESSAGE      102
+                 DONE        
+
+VEN   _          MESSAGE       93
+                 MESSAGE       98
+                 SET           14
+                 PLUS          30   2
+                 DONE        
+
+QUIER _          MESSAGE       93
+                 MESSAGE       95
+                 DONE        
+
+_     _          MESSAGE      105
+                 DONE        
+
+
+--------------------------------------------------------------------------
+
+PROCESS   9
+-----------
+*     *          PARSE       
+                 MESSAGE       91
+                 DONE        
+
+*     *          NOTAT         11
+                 ZERO          22
+                 MESSAGE      106
+                 DONE        
+
+*     *          NOTAT         11
+                 NOTZERO       22
+                 MESSAGE      107
+                 DONE        
+
+HIJO  _          MESSAGE      109
+                 MESSAGE      113
+                 MINUS         30   5
+                 DONE        
+
+SOY   JASON      ZERO          21
+                 MESSAGE      109
+                 MESSAGE      111
+                 SET           21
+                 DONE        
+
+SOY   JASON      NOTZERO       21
+                 MESSAGE      109
+                 MESSAGE      112
+                 DONE        
+
+ALOH  _          MESSAGE      108
+                 DONE        
+
+SERE  _          MESSAGE      109
+                 MESSAGE      110
+                 SET           22
+                 DONE        
+
+SEREI _          MESSAGE      109
+                 MESSAGE      114
+                 PLUS          30   7
+                 DONE        
+
+SOIDA _          MESSAGE      109
+                 MESSAGE      116
+                 DONE        
+
+ASAP  _          MESSAGE      109
+                 MESSAGE      115
+                 DONE        
+
+_     _          MESSAGE      195
+                 DONE        
+
+
+--------------------------------------------------------------------------
+
+PROCESS  10
+-----------
+*     *          AT            32
+                 ZERO          26
+                 SET           26
+                 MES          149
+
+*     *          PARSE       
+                 MESSAGE       91
+                 DONE        
+
+SAICA _          AT            17
+                 NOTZERO       69
+                 MESSAGE      150
+                 PLACE          0 254
+                 DONE        
+
+_     _          AT            17
+                 ZERO          69
+                 MESSAGE      151
+                 DONE        
+
+_     _          MESSAGE       83
+                 DONE        
+
+
+--------------------------------------------------------------------------
+
+PROCESS  11
+-----------
+*     MOSCA      AT            20
+                 ISAT           1 252
+                 MESSAGE      144
+                 PLACE          1 254
+                 DONE        
+
+*     MOSCA      AT            20
+                 ISNOTAT        1 252
+                 MESSAGE      141
+                 DONE        
+
+*     FLOR       AT            16
+                 MESSAGE      141
+                 DONE        
+
+*     GUSAN      PRESENT        7
+                 ABSENT         8
+                 NOTZERO       65
+                 MESSAGE      140
+                 DONE        
+
+*     GUSAN      PRESENT        7
+                 ZERO          65
+                 MESSAGE      139
+                 PLACE          8 254
+                 SET           65
+                 DONE        
+
+*     MURCI      AT            28
+                 ZERO          25
+                 MESSAGE      146
+                 PLACE          9 254
+                 SET           25
+                 DONE        
+
+*     HAMST      AT            17
+                 MESSAGE      143
+                 DONE        
+
+*     MARIP      AT            18
+                 ISAT          11 252
+                 MESSAGE      142
+                 PLACE         11 254
+                 PLUS          30   3
+                 DONE        
+
+*     MARIP      AT            18
+                 ISNOTAT       11 252
+                 MESSAGE      141
+                 DONE        
+
+*     BUHO       AT            12
+                 NOTZERO       23
+                 MESSAGE      138
+                 DONE        
+
+*     ROCA       AT            22
+                 MESSAGE      145
+                 DONE        
+
+*     _          AUTOG       
+
+
+--------------------------------------------------------------------------
+
+PROCESS  12
+-----------
+*     *          ISAT           0  35
+                 ISAT           1  35
+                 ISAT           2  35
+                 ISAT           5  35
+                 ISAT           8  35
+                 ISAT          10  35
+                 ISAT          11  35
+                 ISNOTAT       12  35
+                 NOTZERO       74
+                 NOTZERO       26
+                 SET           70
+                 LET           30 100
+                 MESSAGE      152
+                 ANYKEY      
+                 MESSAGE      153
+                 ANYKEY      
+                 CLS         
+                 INK            0
+                 PICTURE       33
+                 ANYKEY      
+                 CLS         
+                 INK            7
+                 MESSAGE      154
+                 TURNS       
+                 SCORE       
+
+*     *          NOTZERO       70
+                 ANYKEY      
+                 CLS         
+                 INK            0
+                 PICTURE        1
+                 PAUSE         50
+                 CLS         
+                 PICTURE       11
+                 PAUSE         50
+                 CLS         
+                 PICTURE       10
+                 PAUSE         50
+                 CLS         
+                 PICTURE       13
+                 PAUSE         50
+                 CLS         
+                 PICTURE       19
+                 PAUSE         50
+                 CLS         
+                 PICTURE       32
+                 PAUSE         50
+                 CLS         
+                 PICTURE       33
+                 PAUSE        100
+                 CLS         
+                 INK            7
+
+*     *          NOTZERO       70
+                 PICTURE       36
+                 ANYKEY      
+                 CLS         
+                 END         
+
+_     _          MESSAGE       93
+                 MES          155
+                 DONE        
+
+
+--------------------------------------------------------------------------
+
+PROCESS  13
+-----------
+*     *          PROCESS       14
+
+*     _          ZERO          71
+                 MESSAGE       93
+                 MESSAGE      163
+                 DONE        
+
+*     _          MESSAGE       93
+                 INK            6
+                 CHARSET        2
+                 MES          164
+                 LISTAT        35
+                 CHARSET        1
+                 INK            7
+                 DONE        
+
+
+--------------------------------------------------------------------------
+
+PROCESS  14
+-----------
+I     *          CLEAR         71
+                 DOALL        253
+
+I     _          PLUS          71   1
+
+TIENE *          CLEAR         71
+                 DOALL         35
+                 PLUS          71   1
+                 DONE        
+
+
+--------------------------------------------------------------------------
+
+PROCESS  15
+-----------
+*     *          ATGT          23
+                 NOTAT         25
+                 MESSAGE      168
+                 DONE        
+
+*     *          AT            19
+                 MESSAGE      168
+                 DONE        
+
+*     *          ATGT           2
+                 ATLT           5
+                 MESSAGE      168
+                 DONE        
+
+*     *          ATGT           5
+                 ATLT           9
+                 MESSAGE      168
+                 DONE        
+
+*     *          AT             5
+                 MESSAGE      169
+                 DONE        
+
+*     *          AT             9
+                 MESSAGE      170
+                 DONE        
+
+*     *          AT            10
+                 MESSAGE      171
+                 DONE        
+
+*     *          ATGT          10
+                 ATLT          13
+                 MESSAGE      168
+                 DONE        
+
+*     *          AT            13
+                 MESSAGE      172
+                 DONE        
+
+*     *          AT            14
+                 MESSAGE      173
+                 DONE        
+
+*     *          AT            15
+                 MESSAGE      172
+                 DONE        
+
+*     *          AT            16
+                 MESSAGE      175
+                 DONE        
+
+*     *          AT            17
+                 MESSAGE      176
+                 DONE        
+
+*     *          AT            18
+                 MESSAGE      169
+                 DONE        
+
+*     *          AT            20
+                 MESSAGE      176
+                 DONE        
+
+*     *          AT            22
+                 MESSAGE      177
+                 DONE        
+
+*     *          AT            23
+                 MESSAGE      178
+                 DONE        
+
+*     *          AT            21
+                 MESSAGE      179
+                 DONE        
+
+*     *          AT            25
+                 MESSAGE      180
+                 DONE        
+
+*     *          AT             2
+                 MESSAGE      174
+                 DONE        
+
+*     *          AT             1
+                 MESSAGE      194
+                 DONE        
+
+_     _          MESSAGE      181
+                 DONE        
+
+
+--------------------------------------------------------------------------
+
+GRAPHICS DATA
+-------------
+Location   0 graphics flags: Subroutine. Ink=7 Paper=1 Bit6=0
+     PLOT        007  136 
+     LINE    o   025  000 
+     LINE    o   000 -009 
+     LINE    o  -025  000 
+     LINE    o   000  009 
+     PLOT        223  136 
+     LINE        025  000 
+     LINE        000 -009 
+     LINE       -025  000 
+     LINE        000  009 
+     PLOT        047  167 
+     LINE       -008 -001 
+     LINE       -011 -001 
+     LINE       -007 -002 
+     LINE       -003 -002 
+     LINE       -005 -003 
+     LINE       -007 -006 
+     LINE       -003 -008 
+     LINE       -002 -009 
+     LINE       -001 -010 
+     LINE        000 -005 
+     LINE        001 -007 
+     LINE        001 -004 
+     LINE        002 -003 
+     LINE        004 -001 
+     LINE        015 -001 
+     LINE        007  001 
+     LINE        007  002 
+     LINE        005  004 
+     LINE        002  005 
+     LINE        001  012 
+     LINE       -001  010 
+     LINE       -001  004 
+     LINE       -003  002 
+     LINE       -011  002 
+     LINE       -013 -001 
+     LINE       -007 -002 
+     LINE       -002 -003 
+     LINE       -001 -004 
+     PLOT        026  104 
+     LINE        021  000 
+     LINE        000  062 
+     PLOT        208  167 
+     LINE        007 -001 
+     LINE        012 -001 
+     LINE        007 -002 
+     LINE        004 -003 
+     LINE        003 -003 
+     LINE        003 -002 
+     LINE        002 -003 
+     LINE        002 -004 
+     LINE        002 -003 
+     LINE        001 -004 
+     LINE        003 -011 
+     LINE        000 -009 
+     LINE       -002 -007 
+     LINE       -002 -004 
+     LINE       -002 -003 
+     LINE       -002 -002 
+     LINE       -019 -001 
+     LINE       -007  001 
+     LINE       -004  002 
+     LINE       -003  005 
+     LINE       -002  004 
+     LINE       -001  006 
+     LINE       -001  010 
+     LINE        001  007 
+     LINE        003  003 
+     LINE        004  002 
+     LINE        015  001 
+     LINE        006 -001 
+     LINE        005 -001 
+     LINE        002 -002 
+     LINE        002 -004 
+     PLOT        234  104 
+     LINE       -026  000 
+     LINE        000  063 
+     SHADE      -176 -008  000 
+     SHADE       016 -008  000 
+     SHADE       008 -032  000 
+     SHADE      -172 -031  000 
+     SHADE       004 -061  000 
+     PLOT        047  103 
+     LINE        000 -001 
+     LINE        161  000 
+     LINE        000  067 
+     LINE       -161  000 
+     LINE        000 -003 
+     INK         007
+     TEXT        001  048  001  005 
+     TEXT        001  048  002  005 
+     TEXT        001  048  003  005 
+     TEXT        001  048  028  005 
+     TEXT        001  048  029  005 
+     TEXT        001  048  030  005 
+     END
+
+Location   1 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     REL MOVE    047  168 
+     LINE        161  000 
+     LINE        000 -065 
+     LINE       -161  000 
+     LINE        000  065 
+     LINE        000  000 
+     REL MOVE    001 -065 
+     INK         000
+     LINE        007  005 
+     LINE        002  003 
+     LINE        007  002 
+     LINE        012  002 
+     LINE        002  003 
+     LINE        009  002 
+     LINE        016  006 
+     LINE        003  004 
+     LINE        009  001 
+     LINE        007  002 
+     LINE        010  002 
+     LINE        024  000 
+     LINE        008 -002 
+     LINE        003 -004 
+     LINE       -003 -004 
+     LINE        001 -003 
+     LINE        005 -001 
+     LINE        007 -001 
+     LINE       -003 -016 
+     PLOT        150  104 
+     LINE       -002  009 
+     LINE       -001  007 
+     LINE        000  006 
+     LINE        001  004 
+     LINE        001  004 
+     LINE       -005 -004 
+     LINE       -005 -002 
+     LINE       -002 -003 
+     LINE       -002 -004 
+     LINE       -006 -002 
+     LINE       -002 -004 
+     LINE       -010 -004 
+     LINE       -006 -007 
+     REL MOVE    018  031 
+     REL MOVE    042 -014 
+     LINE       -004  008 
+     REL MOVE    010 -009 
+     LINE        004 -001 
+     LINE        004 -016 
+     REL MOVE   -080  027 
+     LINE       -003 -004 
+     LINE       -010  001 
+     LINE       -004 -001 
+     LINE        000 -006 
+     REL MOVE   -008 -001 
+     LINE       -016 -001 
+     LINE       -001 -006 
+     REL MOVE   -006 -001 
+     LINE       -009 -001 
+     REL MOVE    072  023 
+     LINE        003  017 
+     LINE        003  013 
+     LINE        003  005 
+     LINE        040 -001 
+     LINE        009 -007 
+     LINE        007 -003 
+     LINE        003 -004 
+     LINE        002 -005 
+     LINE       -001 -005 
+     LINE        003 -007 
+     LINE        002 -015 
+     LINE        002 -006 
+     LINE        005 -007 
+     LINE        002 -004 
+     REL MOVE   -011  032 
+     LINE        007  005 
+     LINE        003  004 
+     LINE        006  009 
+     REL MOVE   -081  010 
+     LINE       -010 -009 
+     LINE       -001 -003 
+     LINE       -002 -008 
+     LINE       -002 -003 
+     LINE       -002 -004 
+     LINE       -002 -007 
+     REL MOVE   -038 -024 
+     LINE        008 -001 
+     LINE        006  001 
+     LINE       -001  005 
+     LINE       -002  002 
+     LINE       -004 -001 
+     LINE       -003  001 
+     LINE       -003 -003 
+     LINE        002 -002 
+     LINE       -002 -002 
+     LINE       -002  001 
+     LINE        002  004 
+     REL MOVE    064  057 
+     LINE        010 -004 
+     LINE        006 -001 
+     LINE        004 -006 
+     LINE        003 -003 
+     LINE        005 -001 
+     LINE        002 -007 
+     LINE        003 -008 
+     LINE        004 -003 
+     LINE        005 -005 
+     LINE        002 -006 
+     LINE        002 -005 
+     PLOT        113  143 
+     LINE       -009 -008 
+     LINE       -004 -001 
+     LINE       -003 -003 
+     LINE       -002 -003 
+     FILL        032 -016 
+     SHADE      -001 -003  017 
+     SHADE      -028 -012  034 
+     SHADE      -046 -022  000 
+     SHADE       071 -003  017 
+     SHADE       085 -016  034 
+     REL MOVE    035  025 
+     LINE        004 -001 
+     LINE        008 -005 
+     REL MOVE    007  005 
+     LINE        001 -004 
+     REL MOVE    024  008 
+     LINE        008 -003 
+     REL MOVE   -008 -008 
+     LINE        002 -005 
+     LINE        003 -001 
+     ABS MOVE    058  147 
+     ABS MOVE    090  148 
+     LINE       -040 -002 
+     LINE        024 -004 
+     LINE        025  003 
+     LINE       -010  002 
+     FILL       -008 -002 
+     REL MOVE    007 -016 
+     LINE        000  004 
+     LINE        006  000 
+     REL MOVE    002  001 
+     LINE        000  007 
+     LINE        008  000 
+     LINE        000  024 
+     LINE        015  000 
+     REL MOVE    041  000 
+     FILL        023 -008 
+     FILL       -048 -006 
+     FILL       -062 -026 
+     FILL       -071 -033 
+     REL MOVE   -120  000 
+     PAPER       006
+     BLOCK       007  019  006  001 
+     INK         007
+     PAPER       005
+     BLOCK       002  007  006  001 
+     REL MOVE    055 -024 
+     BLOCK       000  006  006  004 
+     REL MOVE   -050 -013 
+     BLOCK       000  005  006  005 
+     REL MOVE    028 -008 
+     INK         000
+     BLOCK       000  004  006  006 
+     REL MOVE   -032 -008 
+     BLOCK       000  001  006  007 
+     PAPER       006
+     INK         005
+     ABS MOVE    098  134 
+     ABS MOVE    105  140 
+     REL MOVE    008  008 
+     BLOCK       002  001  014  001 
+     REL MOVE    062  017 
+     BLOCK       003  004  021  001 
+     INK         000
+     ABS MOVE    172  154 
+     BLOCK       002  001  021  002 
+     REL MOVE    027 -029 
+     LINE        003  002 
+     LINE        002  003 
+     REL MOVE    000 -016 
+     LINE       -002  001 
+     LINE       -002  003 
+     LINE       -002  002 
+     SHADE      -120 -011  017 
+     INK         006
+     PAPER       000
+     GOSUB    sc=000  000 
+     END
+
+Location   2 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     PLOT        047  168 
+     LINE        161  000 
+     LINE        000 -065 
+     LINE       -161  000 
+     LINE        000  065 
+     PLOT        047  136 
+     LINE        048 -001 
+     LINE        090  001 
+     LINE        022 -001 
+     REL MOVE   -024  001 
+     LINE       -002  024 
+     LINE       -002  004 
+     LINE       -007  004 
+     LINE        022 -005 
+     LINE        002 -002 
+     LINE       -001 -004 
+     LINE       -001 -004 
+     LINE        001 -002 
+     LINE        001 -008 
+     LINE        002 -007 
+     PLOT        080  136 
+     LINE        001  011 
+     LINE        001  003 
+     LINE        003  002 
+     LINE        001  004 
+     LINE       -001  005 
+     LINE        001  003 
+     LINE        003  003 
+     LINE       -005 -001 
+     LINE       -005 -002 
+     LINE       -001 -008 
+     LINE       -004 -002 
+     LINE       -007 -004 
+     LINE       -002 -002 
+     LINE       -001 -004 
+     LINE       -003 -006 
+     LINE       -003 -001 
+     REL MOVE    019  018 
+     LINE       -001 -003 
+     LINE       -001 -004 
+     LINE       -002 -002 
+     REL MOVE    040 -010 
+     LINE        002  017 
+     LINE        002  005 
+     REL MOVE    024  008 
+     LINE        001 -009 
+     REL MOVE    016 -008 
+     LINE        001 -007 
+     REL MOVE   -073 -039 
+     LINE        009  007 
+     LINE        011  006 
+     LINE        013  003 
+     LINE        004  002 
+     LINE       -002  003 
+     LINE       -006  001 
+     LINE       -001  002 
+     LINE        011  008 
+     LINE       -001 -007 
+     LINE        005 -001 
+     LINE        010 -001 
+     LINE        006 -002 
+     LINE        001 -004 
+     LINE       -001 -007 
+     LINE        003 -010 
+     REL MOVE   -016  016 
+     LINE       -007 -004 
+     LINE       -001 -003 
+     LINE        008  000 
+     LINE        001  003 
+     LINE       -001  002 
+     LINE        003 -002 
+     LINE        001 -004 
+     LINE       -003  000 
+     REL MOVE   -068  052 
+     LINE       -018  002 
+     REL MOVE    000 -008 
+     LINE        017  003 
+     LINE        004  002 
+     LINE       -003  001 
+     FILL       -015 -002 
+     FILL        048 -056 
+     SHADE       064 -049  000 
+     SHADE      -008 -040  068 
+     SHADE       096 -040  068 
+     REL MOVE    000 -040 
+     LINE        017 -001 
+     REL MOVE    016  008 
+     LINE        006 -001 
+     REL MOVE    064 -016 
+     LINE        023 -001 
+     REL MOVE   -008  016 
+     LINE       -009 -001 
+     REL MOVE    025  008 
+     LINE        000  032 
+     LINE       -024  000 
+     FILL        022 -002 
+     REL MOVE   -088  000 
+     LINE       -015  000 
+     LINE        000 -008 
+     LINE       -008  000 
+     LINE        000 -008 
+     LINE       -008  000 
+     LINE        000 -015 
+     FILL        004  008 
+     REL MOVE    044  027 
+     LINE       -002 -008 
+     REL MOVE    064  008 
+     LINE        014 -002 
+     REL MOVE    031 -057 
+     PAPER       006
+     BLOCK       007  019  006  001 
+     REL MOVE   -156  036 
+     PAPER       005
+     BLOCK       001  000  006  003 
+     REL MOVE    152  024 
+     BLOCK       003  000  025  001 
+     INK         007
+     REL MOVE   -135  001 
+     BLOCK       000  002  006  001 
+     REL MOVE   -016 -008 
+     BLOCK       000  001  006  002 
+     INK         005
+     PAPER       006
+     REL MOVE    008 -016 
+     BLOCK       001  000  007  003 
+     REL MOVE    008  016 
+     BLOCK       000  001  008  002 
+     ABS MOVE    076  165 
+     ABS MOVE    084  167 
+     REL MOVE    096  000 
+     BLOCK       000  002  022  001 
+     ABS MOVE    196  159 
+     BLOCK       002  000  024  002 
+     ABS MOVE    172  166 
+     ABS MOVE    084  166 
+     ABS MOVE    068  150 
+     PAPER       000
+     INK         006
+     GOSUB    sc=000  000 
+     END
+
+Location   3 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     PLOT        047  168 
+     LINE        161  000 
+     LINE        000 -065 
+     LINE       -161  000 
+     LINE        000  065 
+     PLOT        063  104 
+     LINE       -001  030 
+     LINE        002  011 
+     LINE        005  008 
+     LINE        006  002 
+     LINE        005  005 
+     LINE        009  005 
+     LINE        002  002 
+     PLOT        086  167 
+     LINE       -010 -003 
+     LINE        001  003 
+     PLOT        073  167 
+     LINE       -002 -008 
+     LINE       -007 -001 
+     LINE        002  009 
+     PLOT        061  167 
+     LINE       -001 -008 
+     LINE       -003  004 
+     LINE       -001  004 
+     PLOT        048  167 
+     LINE        003 -003 
+     LINE       -003 -002 
+     FILL        011 -008 
+     SHADE       000  002  000 
+     SHADE       011  003  000 
+     SHADE       021  000  000 
+     SHADE       032  004  000 
+     PLOT        175  104 
+     LINE        001  028 
+     LINE       -003  019 
+     LINE       -005  004 
+     LINE       -002  004 
+     LINE       -001  005 
+     LINE       -002  003 
+     LINE       -004  001 
+     PLOT        167  168 
+     LINE        002 -003 
+     LINE        003  002 
+     PLOT        176  167 
+     LINE       -003 -008 
+     LINE        007 -001 
+     LINE       -002  007 
+     LINE        001  003 
+     LINE        003  000 
+     LINE       -001 -003 
+     LINE        003 -006 
+     LINE        004 -003 
+     LINE        004  002 
+     LINE       -001  008 
+     LINE       -002  002 
+     PLOT        193  168 
+     LINE        002 -003 
+     LINE        003  003 
+     PLOT        204  168 
+     LINE       -004 -004 
+     LINE        007 -002 
+     PLOT        207  157 
+     LINE       -007  001 
+     LINE       -002 -005 
+     LINE       -005 -003 
+     LINE        002 -020 
+     LINE        003 -017 
+     LINE        003 -010 
+     FILL       -016  032 
+     SHADE       005  061  000 
+     SHADE      -005  062  000 
+     SHADE      -016  056  000 
+     SHADE      -026  057  000 
+     PLOT        109  167 
+     LINE        011 -003 
+     LINE        002 -004 
+     LINE        000  006 
+     LINE       -005  001 
+     PLOT        141  167 
+     LINE       -013 -003 
+     LINE       -004 -006 
+     LINE        005  002 
+     LINE        004  002 
+     LINE        012  002 
+     LINE        004  003 
+     FILL       -008 -002 
+     FILL       -034  000 
+     PLOT        063  119 
+     PLOT        087  117 
+     LINE        012 -001 
+     LINE       -001  017 
+     LINE       -001  008 
+     LINE        002  008 
+     LINE       -003  000 
+     LINE       -002 -004 
+     LINE       -003  004 
+     LINE       -003 -003 
+     LINE        002 -004 
+     LINE       -004  001 
+     LINE       -001  003 
+     LINE       -004 -003 
+     LINE        003 -002 
+     LINE        002 -004 
+     LINE       -002 -021 
+     LINE        007  001 
+     PLOT        155  117 
+     LINE       -001  027 
+     LINE        004  006 
+     LINE       -004  001 
+     LINE       -001 -003 
+     LINE    o  -002  002 
+     LINE    o  -002 -003 
+     LINE    o   001 -002 
+     LINE       -003 -001 
+     LINE       -001  004 
+     LINE       -003  001 
+     LINE        001 -007 
+     LINE       -002 -016 
+     LINE       -001 -006 
+     LINE        006  001 
+     LINE        004 -002 
+     LINE        003  000 
+     SHADE      -008  008  034 
+     SHADE      -056  000  034 
+     PLOT        098  143 
+     LINE        008 -001 
+     LINE        005  003 
+     LINE        001  005 
+     LINE        001  006 
+     LINE        001  006 
+     LINE       -002  006 
+     REL MOVE   -040 -010 
+     LINE       -001 -008 
+     LINE        004 -006 
+     LINE        006 -001 
+     PLOT        098  139 
+     LINE        007  002 
+     PLOT        145  141 
+     LINE       -009  001 
+     LINE       -006  001 
+     LINE       -003  003 
+     LINE       -001  003 
+     LINE       -001  007 
+     LINE        002  010 
+     PLOT        155  142 
+     LINE        010  001 
+     LINE        003  003 
+     LINE        001  007 
+     PLOT        143  145 
+     LINE       -004  001 
+     LINE       -002  002 
+     LINE       -002  002 
+     LINE       -003  001 
+     LINE       -002  001 
+     LINE       -002  006 
+     PLOT        141  158 
+     LINE        002 -004 
+     REL MOVE    008  008 
+     LINE        002 -001 
+     REL MOVE    006 -006 
+     LINE        003 -003 
+     REL MOVE   -053 -002 
+     LINE        001  007 
+     REL MOVE   -013  008 
+     LINE       -004 -003 
+     REL MOVE   -008 -008 
+     LINE       -001 -004 
+     REL MOVE    016  008 
+     LINE       -001 -005 
+     PLOT        084  132 
+     SHADE      -005  014  017 
+     SHADE       024  016  017 
+     SHADE       065  032  017 
+     SHADE       048  016  083 
+     SHADE       056  010  017 
+     SHADE       064  008  017 
+     PLOT        109  134 
+     LINE        008  001 
+     LINE       -001  010 
+     LINE       -001  004 
+     LINE        001 -004 
+     LINE        004  003 
+     LINE        001  007 
+     LINE       -003  010 
+     REL MOVE   -008 -032 
+     LINE        001  010 
+     REL MOVE    026 -001 
+     LINE        000 -007 
+     LINE       -006  001 
+     LINE        001  006 
+     SHADE      -001  023  017 
+     SHADE    i -018 -001  051 
+     SHADE    i  001 -004  051 
+     SHADE    i -014  012  068 
+     PLOT        063  126 
+     LINE        022  003 
+     REL MOVE    014  005 
+     LINE        010  001 
+     REL MOVE    008  002 
+     LINE        027 -001 
+     PLOT        154  133 
+     LINE        053 -006 
+     LINE       -051 -004 
+     PLOT        140  124 
+     LINE       -040 -001 
+     PLOT        084  122 
+     LINE       -023 -001 
+     PLOT        063  110 
+     LINE        144 -004 
+     PLOT        207  114 
+     LINE       -107  005 
+     PLOT        099  134 
+     SHADE       002  002  240 
+     SHADE      -024  000  240 
+     SHADE       024  008  240 
+     SHADE       040  004  240 
+     SHADE       072  001  240 
+     SHADE       104  008  240 
+     SHADE       000 -027  051 
+     SHADE       104 -030  051 
+     SHADE      -009 -018  050 
+     SHADE      -031 -017  050 
+     SHADE       009 -016  050 
+     SHADE       104 -024  050 
+     SHADE       024 -012  063 
+     SHADE       072 -016  063 
+     SHADE       104 -016  063 
+     SHADE      -024 -008  000 
+     SHADE       024 -002  000 
+     SHADE       072 -006  000 
+     PAPER       004
+     ABS MOVE    051  166 
+     BLOCK       007  019  006  001 
+     PAPER       000
+     INK         006
+     GOSUB    sc=000  000 
+     END
+
+Location   4 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     GOSUB    sc=000  003 
+     END
+
+Location   5 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     REL MOVE    047  168 
+     LINE        160  000 
+     LINE        000 -065 
+     LINE       -160  000 
+     LINE        000  065 
+     REL MOVE    000 -040 
+     LINE        160 -001 
+     REL MOVE   -058  000 
+     LINE        011 -003 
+     LINE        002 -002 
+     LINE        001 -005 
+     LINE        001 -005 
+     LINE        002 -008 
+     REL MOVE   -049 -001 
+     LINE        024  016 
+     LINE        001  003 
+     LINE       -001  004 
+     REL MOVE    035  001 
+     LINE       -001  033 
+     LINE       -001  004 
+     LINE       -003  001 
+     LINE       -003  002 
+     LINE        001 -040 
+     REL MOVE   -090  001 
+     LINE        001  020 
+     LINE        000  009 
+     LINE        001  011 
+     REL MOVE   -001 -012 
+     LINE       -027 -001 
+     LINE       -002 -001 
+     LINE        015 -003 
+     LINE        010 -001 
+     LINE        003  001 
+     REL MOVE    009 -022 
+     LINE       -001  024 
+     LINE        002  014 
+     REL MOVE    016 -008 
+     LINE        001 -024 
+     REL MOVE    030  029 
+     LINE       -001 -016 
+     REL MOVE    022 -021 
+     LINE        001  006 
+     LINE        003  001 
+     LINE        003 -001 
+     LINE        002 -006 
+     REL MOVE   -016  000 
+     LINE        002  006 
+     LINE        006  001 
+     REL MOVE   -064 -006 
+     LINE        001  011 
+     LINE        003  002 
+     REL MOVE   -008  001 
+     LINE        005 -007 
+     FILL        048 -024 
+     FILL       -024  019 
+     REL MOVE    073  025 
+     LINE        006  000 
+     FILL       -002  002 
+     SHADE      -013 -029  000 
+     SHADE      -021 -030  034 
+     REL MOVE   -090 -003 
+     LINE       -001 -008 
+     REL MOVE   -035  018 
+     PAPER       006
+     BLOCK       007  019  006  001 
+     PAPER       005
+     BLOCK       000  003  006  001 
+     REL MOVE    003 -025 
+     BLOCK       001  003  006  004 
+     REL MOVE    131 -009 
+     BLOCK       004  003  022  001 
+     INK         007
+     REL MOVE   -129  024 
+     BLOCK       001  003  006  002 
+     INK         006
+     ABS MOVE    172  164 
+     PAPER       006
+     INK         008
+     SHADE       000 -048  068 
+     SHADE      -040 -040  068 
+     PAPER       000
+     INK         006
+     GOSUB    sc=000  000 
+     END
+
+Location   6 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     REL MOVE    047  168 
+     LINE        161  000 
+     LINE        000 -065 
+     LINE       -161  000 
+     LINE        000  065 
+     REL MOVE    040  000 
+     LINE        001 -040 
+     REL MOVE   -041  000 
+     LINE        160 -001 
+     REL MOVE   -064  000 
+     LINE        008 -009 
+     LINE        008  005 
+     LINE        014  003 
+     REL MOVE    006  001 
+     LINE       -008 -005 
+     LINE       -003 -004 
+     LINE       -002 -007 
+     LINE        003 -007 
+     REL MOVE   -048 -001 
+     LINE        005  014 
+     LINE       -002  003 
+     LINE       -004  005 
+     LINE       -007  002 
+     REL MOVE    007  001 
+     LINE        006 -002 
+     LINE        005 -002 
+     LINE        004  002 
+     REL MOVE    018  001 
+     LINE       -005  006 
+     LINE       -005  002 
+     LINE       -002  002 
+     LINE       -005  001 
+     LINE       -002 -004 
+     LINE       -004 -002 
+     LINE       -002 -004 
+     REL MOVE    033 -011 
+     LINE        003 -001 
+     LINE        001  002 
+     LINE       -003  001 
+     LINE        000 -001 
+     FILL       -008 -008 
+     FILL       -024  015 
+     REL MOVE   -088  011 
+     LINE       -001  023 
+     LINE       -002  013 
+     REL MOVE    007 -003 
+     LINE       -001 -017 
+     REL MOVE   -028  006 
+     LINE        002 -010 
+     LINE        001  012 
+     REL MOVE    133 -026 
+     LINE        000  003 
+     LINE       -002  000 
+     LINE       -001  001 
+     LINE        000  002 
+     LINE        004  001 
+     LINE        004 -001 
+     LINE        007  001 
+     LINE        004 -001 
+     LINE        006  001 
+     FILL       -017 -005 
+     SHADE      -113 -023  068 
+     SHADE      -008 -016  068 
+     SHADE      -057 -009  051 
+     REL MOVE   -158  032 
+     PAPER       006
+     BLOCK       007  019  006  001 
+     PAPER       005
+     REL MOVE    044 -005 
+     BLOCK       004  014  011  001 
+     REL MOVE    112 -028 
+     INK         004
+     BLOCK       000  003  022  005 
+     REL MOVE   -004 -006 
+     PAPER       000
+     INK         006
+     GOSUB    sc=000  000 
+     END
+
+Location   7 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     GOSUB    sc=000  003 
+     END
+
+Location   8 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     GOSUB    sc=000  003 
+     END
+
+Location   9 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     REL MOVE    047  168 
+     LINE        160  000 
+     LINE        000 -065 
+     LINE       -160  000 
+     LINE        000  065 
+     REL MOVE    016 -065 
+     LINE        001  040 
+     LINE        001  016 
+     PLOT        190  159 
+     LINE        001 -017 
+     LINE        001 -039 
+     REL MOVE   -104  048 
+     LINE       -002 -040 
+     REL MOVE    072  024 
+     LINE        002 -017 
+     REL MOVE   -041  031 
+     LINE        003 -024 
+     REL MOVE    016 -016 
+     LINE       -002  016 
+     REL MOVE    007 -001 
+     LINE       -005 -004 
+     REL MOVE   -081  048 
+     LINE       -005 -002 
+     LINE       -001 -003 
+     LINE        008 -001 
+     LINE        006 -002 
+     LINE        015 -002 
+     LINE        024  001 
+     LINE        056 -002 
+     LINE        027  003 
+     LINE        008  000 
+     LINE        006  002 
+     LINE        001  002 
+     LINE       -009  003 
+     LINE       -056 -001 
+     LINE       -056  001 
+     FILL       -016 -001 
+     REL MOVE    032 -007 
+     LINE     i -013  001 
+     REL MOVE   -024  005 
+     LINE     i  013 -001 
+     REL MOVE    042 -004 
+     LINE     i  024  001 
+     REL MOVE    050 -056 
+     PAPER       006
+     BLOCK       007  019  006  001 
+     PAPER       005
+     BLOCK       006  001  024  002 
+     REL MOVE   -152  048 
+     BLOCK       006  001  006  002 
+     INK         007
+     REL MOVE   -004  008 
+     BLOCK       000  001  006  001 
+     REL MOVE    155  002 
+     BLOCK       000  001  024  001 
+     PAPER       006
+     REL MOVE   -017  000 
+     BLOCK       000  015  008  001 
+     REL MOVE   -112 -007 
+     BLOCK       000  013  009  002 
+     INK         008
+     REL MOVE    024 -016 
+     LINE        003 -024 
+     REL MOVE    072  024 
+     LINE        003 -032 
+     REL MOVE   -103 -001 
+     LINE       -001  032 
+     REL MOVE    113  001 
+     LINE       -001 -032 
+     REL MOVE   -080 -006 
+     LINE       -001  007 
+     REL MOVE    020 -001 
+     LINE       -003 -005 
+     REL MOVE    040  032 
+     LINE       -001 -008 
+     PAPER       000
+     INK         006
+     GOSUB    sc=000  000 
+     END
+
+Location  10 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     REL MOVE    047  168 
+     LINE        161  000 
+     LINE        000 -065 
+     LINE       -161  000 
+     LINE        000  065 
+     REL MOVE    066 -024 
+     LINE       -002 -003 
+     LINE       -002 -032 
+     REL MOVE    024 -001 
+     LINE       -003  032 
+     LINE       -002  003 
+     LINE       -016  000 
+     PLOT        108  109 
+     LINE       -002  003 
+     LINE       -003  001 
+     LINE       -002 -001 
+     LINE        003 -002 
+     LINE       -004 -001 
+     LINE        002 -003 
+     LINE       -003 -002 
+     PLOT        139  104 
+     LINE        001  002 
+     LINE       -003  000 
+     LINE        002  003 
+     LINE       -004 -001 
+     LINE        002  004 
+     LINE       -004 -002 
+     FILL       -016  024 
+     FILL       -027  000 
+     REL MOVE   -009  033 
+     LINE     i  002 -022 
+     REL MOVE   -008 -004 
+     LINE     i  001  024 
+     REL MOVE   -005 -001 
+     LINE     i -001 -025 
+     REL MOVE    016  001 
+     LINE     i -001  024 
+     REL MOVE   -007 -013 
+     LINE     i  001 -016 
+     REL MOVE   -008 -007 
+     LINE     i -003  002 
+     REL MOVE    005  001 
+     LINE     i  001 -002 
+     PLOT     i  125  104 
+     LINE     i  001  003 
+     PLOT     i  129  108 
+     LINE     i  001 -003 
+     REL MOVE   -009  003 
+     LINE     i -001 -003 
+     PLOT     i  099  146 
+     LINE        014 -002 
+     LINE        036  001 
+     REL MOVE   -048  006 
+     LINE        016 -001 
+     REL MOVE    025  002 
+     LINE       -016 -001 
+     REL MOVE   -040 -008 
+     LINE        002 -024 
+     REL MOVE    096  032 
+     LINE       -002 -032 
+     REL MOVE   -032 -008 
+     LINE        001  027 
+     REL MOVE   -088  016 
+     LINE       -002 -032 
+     REL MOVE    042  000 
+     LINE       -008 -003 
+     LINE       -006 -008 
+     REL MOVE    052  008 
+     LINE        005 -001 
+     LINE        002 -008 
+     REL MOVE   -096  056 
+     SHADE       000  000  000 
+     PAPER       006
+     INK         000
+     BLOCK       007  019  006  001 
+     INK         001
+     BLOCK       004  005  012  004 
+     INK         000
+     BLOCK       002  000  017  004 
+     ABS MOVE    100  140 
+     BLOCK       003  000  012  004 
+     REL MOVE   -032 -030 
+     LINE        002  008 
+     LINE        002  016 
+     LINE        001  016 
+     REL MOVE    096  008 
+     LINE        001 -016 
+     LINE       -001 -032 
+     REL MOVE    032  000 
+     LINE       -002  016 
+     LINE        001  024 
+     PAPER       000
+     INK         006
+     GOSUB    sc=000  000 
+     END
+
+Location  11 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     LINE        000  000 
+     REL MOVE    047  168 
+     LINE        161  000 
+     LINE        000 -065 
+     LINE       -161  000 
+     LINE        000  065 
+     REL MOVE    000 -016 
+     LINE        008 -002 
+     LINE        000 -003 
+     LINE        008  003 
+     LINE       -001 -005 
+     LINE        008  003 
+     LINE        008  007 
+     LINE       -001 -005 
+     LINE        010  004 
+     LINE        007  005 
+     LINE       -001 -005 
+     LINE        006  003 
+     LINE       -001 -003 
+     LINE        008  003 
+     LINE        006 -001 
+     LINE        004 -003 
+     LINE        001  003 
+     LINE        007 -005 
+     LINE        000 -032 
+     LINE       -064 -016 
+     LINE        001  021 
+     LINE        002  004 
+     LINE        005  002 
+     LINE        003  000 
+     LINE        002 -001 
+     LINE        002 -011 
+     LINE        000 -010 
+     LINE       -003  000 
+     LINE       -001  016 
+     LINE       -001  003 
+     LINE       -005  001 
+     FILL        000 -005 
+     REL MOVE    038  001 
+     LINE        008  001 
+     LINE        000  007 
+     LINE       -007 -001 
+     LINE        000 -006 
+     REL MOVE    020  022 
+     LINE       -001  005 
+     LINE        003 -001 
+     LINE       -003  004 
+     LINE       -005  002 
+     LINE        004  001 
+     LINE       -009  002 
+     LINE        001  002 
+     REL MOVE    044 -064 
+     LINE        002  039 
+     LINE       -008 -002 
+     LINE        003  004 
+     LINE       -002  001 
+     LINE        005  003 
+     LINE        000  002 
+     LINE        006  002 
+     LINE        001  003 
+     LINE        009  001 
+     LINE        002  006 
+     LINE        010  001 
+     LINE        006  003 
+     LINE        008  001 
+     REL MOVE   -039 -024 
+     LINE        001 -003 
+     LINE        003  004 
+     LINE        000 -007 
+     LINE        004  003 
+     LINE        003 -001 
+     LINE        001  005 
+     LINE        004 -003 
+     LINE        003  001 
+     LINE        002 -003 
+     LINE        014  001 
+     LINE        012  002 
+     REL MOVE   -041 -039 
+     LINE        001  004 
+     LINE        002  003 
+     LINE        006  001 
+     LINE        004 -001 
+     LINE        002 -006 
+     REL MOVE   -011 -001 
+     LINE        002  008 
+     FILL        002 -003 
+     REL MOVE   -049  021 
+     LINE        024  002 
+     LINE        012 -001 
+     REL MOVE   -036  010 
+     LINE        006 -002 
+     LINE        006  001 
+     LINE        005 -001 
+     LINE        007 -001 
+     LINE        004  001 
+     SHADE      -055 -024  000 
+     SHADE      -096 -024  000 
+     SHADE      -043 -008  017 
+     SHADE       024 -016  034 
+     SHADE    i -016  008  253 
+     SHADE    i -016 -005  255 
+     REL MOVE   -017 -007 
+     LINE       -001  006 
+     REL MOVE   -004  000 
+     LINE       -001 -007 
+     REL MOVE    008  007 
+     LINE        000 -005 
+     REL MOVE    010  006 
+     LINE        000 -006 
+     PLOT        155  140 
+     LINE        000 -007 
+     PLOT        138  147 
+     LINE        002  008 
+     PLOT        148  163 
+     LINE       -002 -013 
+     PLOT        154  150 
+     LINE        002  009 
+     REL MOVE   -029  004 
+     LINE        002 -016 
+     PLOT        161  163 
+     LINE       -031 -001 
+     LINE        016 -008 
+     PLOT        058  162 
+     LINE        016 -001 
+     REL MOVE    016  004 
+     LINE        008 -001 
+     REL MOVE    011  001 
+     LINE        003 -005 
+     REL MOVE   -033  005 
+     LINE        008 -002 
+     REL MOVE    112  000 
+     LINE       -018 -003 
+     REL MOVE   -001 -008 
+     LINE        004  002 
+     REL MOVE    018  000 
+     LINE       -002 -004 
+     REL MOVE   -008 -001 
+     LINE       -002 -006 
+     PAPER       006
+     REL MOVE   -137  023 
+     BLOCK       007  019  006  001 
+     PAPER       004
+     REL MOVE    072  000 
+     BLOCK       001  005  015  001 
+     ABS MOVE    133  150 
+     BLOCK       001  002  016  003 
+     ABS MOVE    174  164 
+     PAPER       000
+     INK         006
+     GOSUB    sc=000  000 
+     END
+
+Location  12 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     GOSUB    sc=000  003 
+     END
+
+Location  13 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     REL MOVE    047  168 
+     LINE        161  000 
+     LINE        000 -065 
+     LINE       -161  000 
+     LINE        000  065 
+     REL MOVE    032  000 
+     LINE        011 -004 
+     LINE       -005 -002 
+     LINE        007 -001 
+     LINE       -002 -004 
+     LINE        009 -001 
+     LINE       -002 -005 
+     LINE        009 -001 
+     LINE        003 -006 
+     LINE       -006  001 
+     LINE       -011 -003 
+     LINE       -007  001 
+     LINE       -013  002 
+     LINE        002 -004 
+     LINE       -012  002 
+     LINE       -006  003 
+     LINE       -001 -003 
+     LINE       -008  002 
+     REL MOVE    056  000 
+     LINE        001 -042 
+     REL MOVE   -040  000 
+     LINE        000  009 
+     LINE        018  001 
+     LINE        000 -010 
+     REL MOVE   -005  000 
+     LINE        000  009 
+     FILL       -008 -006 
+     REL MOVE    082 -009 
+     LINE        001  040 
+     LINE       -003 -002 
+     LINE        001  007 
+     LINE        004  002 
+     LINE        002  005 
+     LINE        003 -002 
+     LINE        008  003 
+     LINE        008  001 
+     LINE       -005  002 
+     LINE        007  002 
+     LINE        007  002 
+     LINE        001  003 
+     LINE        003  001 
+     REL MOVE   -036 -024 
+     LINE        008 -001 
+     LINE        003 -002 
+     LINE        001  003 
+     LINE        008 -001 
+     LINE        001  004 
+     LINE        008 -005 
+     LINE        003  002 
+     LINE        003 -004 
+     LINE        004  002 
+     LINE        009  002 
+     REL MOVE   -049 -029 
+     LINE        006 -002 
+     LINE        005  000 
+     LINE        000 -009 
+     FILL       -003  002 
+     REL MOVE    022  016 
+     LINE        000  009 
+     LINE       -009  000 
+     LINE        000 -009 
+     LINE        009  000 
+     REL MOVE   -007  008 
+     LINE        005 -001 
+     REL MOVE   -005 -006 
+     LINE        007  001 
+     REL MOVE   -089  007 
+     LINE        041 -001 
+     LINE        016  001 
+     REL MOVE   -046  008 
+     LINE        024 -001 
+     REL MOVE    013  004 
+     LINE       -016  001 
+     REL MOVE   -003 -010 
+     LINE        016  001 
+     REL MOVE   -045  008 
+     LINE        008  000 
+     REL MOVE    049 -005 
+     LINE       -005  000 
+     REL MOVE   -057  011 
+     LINE       -002  000 
+     LINE        000  007 
+     LINE       -016  000 
+     LINE        000  016 
+     FILL        003 -010 
+     FILL        023 -021 
+     REL MOVE    083 -024 
+     LINE        004  000 
+     LINE        000  008 
+     LINE        032  000 
+     LINE        000  016 
+     FILL       -004 -008 
+     FILL       -035 -021 
+     REL MOVE   -048 -048 
+     LINE       -016 -001 
+     REL MOVE   -004 -009 
+     LINE        008 -001 
+     REL MOVE   -032  008 
+     LINE        011 -001 
+     SHADE      -048  008  017 
+     SHADE       072  019  034 
+     SHADE      -038 -009  000 
+     SHADE       070  008  255 
+     REL MOVE   -069  050 
+     PAPER       006
+     BLOCK       007  019  006  001 
+     PAPER       001
+     INK         007
+     REL MOVE    057 -034 
+     BLOCK       001  006  013  004 
+     PAPER       005
+     INK         006
+     ABS MOVE    082  164 
+     BLOCK       001  014  010  001 
+     ABS MOVE    162  148 
+     BLOCK       000  008  012  003 
+     INK         001
+     ABS MOVE    186  124 
+     ABS MOVE    186  124 
+     INK         000
+     REL MOVE   -071  038 
+     LINE        002 -003 
+     LINE        002  003 
+     REL MOVE    003  002 
+     LINE        001 -002 
+     LINE        002  001 
+     PLOT        123  158 
+     LINE        002 -002 
+     LINE        001  003 
+     PLOT        130  162 
+     LINE        001 -002 
+     LINE        002  003 
+     PAPER       000
+     INK         006
+     GOSUB    sc=000  000 
+     END
+
+Location  14 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     REL MOVE    047  168 
+     LINE        161  000 
+     LINE        000 -065 
+     LINE    o  -161  000 
+     LINE    o   000  065 
+     REL MOVE    016 -065 
+     LINE    o   001  032 
+     LINE       -001  016 
+     LINE        002  008 
+     LINE        008  002 
+     LINE        008  003 
+     LINE        008  003 
+     REL MOVE   -016  001 
+     LINE       -007 -002 
+     LINE       -005 -002 
+     LINE       -001  003 
+     FILL        000 -016 
+     REL MOVE    004 -047 
+     LINE        088 -001 
+     LINE        032  001 
+     LINE        024 -001 
+     PLOT        072  121 
+     LINE       -001  039 
+     PLOT        126  120 
+     LINE       -003  001 
+     LINE       -002  003 
+     LINE       -001  003 
+     LINE        000  007 
+     LINE        002  005 
+     LINE        005  001 
+     LINE        008 -001 
+     LINE        005  002 
+     LINE        002 -001 
+     LINE        001 -004 
+     LINE        003  001 
+     LINE        004  001 
+     LINE        008  001 
+     LINE        005 -001 
+     LINE        002 -001 
+     LINE        001 -005 
+     LINE       -001 -008 
+     LINE       -001 -003 
+     LINE       -003 -001 
+     FILL       -024  008 
+     REL MOVE   -072  040 
+     LINE       -001 -010 
+     REL MOVE    024  008 
+     LINE        001 -016 
+     REL MOVE    064  016 
+     LINE        002 -017 
+     REL MOVE    024  016 
+     LINE       -001 -032 
+     REL MOVE   -056  032 
+     LINE       -001 -008 
+     REL MOVE   -048 -008 
+     LINE       -001 -016 
+     REL MOVE    032 -002 
+     LINE     i -001  008 
+     REL MOVE    008  002 
+     LINE     i -001 -008 
+     REL MOVE    024 -003 
+     LINE     i  002  009 
+     REL MOVE   -012  002 
+     LINE     i  001 -010 
+     REL MOVE   -008  000 
+     LINE     i -001  008 
+     REL MOVE    015  004 
+     LINE     i -001 -008 
+     SHADE      -016 -021  067 
+     REL MOVE    049 -019 
+     PAPER       006
+     BLOCK       007  019  006  001 
+     PAPER       005
+     ABS MOVE    051  164 
+     BLOCK       005  002  006  001 
+     PAPER       006
+     INK         004
+     ABS MOVE    163  140 
+     BLOCK       002  005  015  004 
+     ABS MOVE    115  124 
+     ABS MOVE    115  132 
+     PAPER       000
+     INK         006
+     GOSUB    sc=000  000 
+     END
+
+Location  15 graphics flags: Subroutine. Ink=7 Paper=1 Bit6=0
+     PAPER       006
+     INK         000
+     PLOT        120  120 
+     LINE        000  016 
+     LINE        001  002 
+     LINE        002  002 
+     LINE        006  001 
+     LINE        008  001 
+     LINE        017  001 
+     LINE        008 -001 
+     LINE        003 -002 
+     LINE        002 -004 
+     LINE       -001 -016 
+     LINE       -046  000 
+     FILL        008  008 
+     PLOT     i  123  120 
+     LINE     i  000  015 
+     LINE     i  003  002 
+     LINE     i  012  002 
+     LINE     i  025  002 
+     LINE     i -029 -001 
+     LINE     i -007  000 
+     LINE     i -004 -002 
+     LINE     i -002 -004 
+     LINE     i  000 -014 
+     PLOT     i  122  120 
+     LINE     i  000  017 
+     LINE     i  009  002 
+     LINE     i  003  000 
+     ABS MOVE    132  132 
+     BLOCK       000  004  016  005 
+     END
+
+Location  16 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     REL MOVE    047  168 
+     LINE        161  000 
+     LINE        000 -065 
+     LINE       -161  000 
+     LINE        000  065 
+     REL MOVE    000 -040 
+     LINE        128 -001 
+     LINE        032  001 
+     REL MOVE   -046 -025 
+     LINE       -009  013 
+     LINE       -001  005 
+     LINE        023  005 
+     REL MOVE   -010  001 
+     LINE       -023 -002 
+     LINE       -004 -002 
+     LINE       -002 -005 
+     LINE       -005 -009 
+     LINE       -005 -005 
+     FILL        016  008 
+     REL MOVE    056  023 
+     LINE        006  005 
+     LINE        003  006 
+     LINE        004  003 
+     LINE        005  003 
+     LINE        009  001 
+     FILL       -009 -009 
+     REL MOVE   -128  016 
+     LINE        048 -002 
+     LINE       -016 -003 
+     LINE       -016 -001 
+     LINE       -010  001 
+     LINE       -012 -001 
+     LINE       -008  002 
+     LINE        014  003 
+     FILL        008 -001 
+     PLOT        057  128 
+     LINE        000  007 
+     LINE        004  000 
+     LINE        001 -006 
+     PLOT        065  129 
+     LINE        000  006 
+     LINE        003  000 
+     LINE        000 -006 
+     PLOT        055  129 
+     LINE        000  006 
+     LINE       -003  000 
+     LINE       -001 -006 
+     FILL        002  002 
+     FILL        008  001 
+     FILL        016  002 
+     PLOT        051  136 
+     LINE       -001  002 
+     LINE        001  007 
+     LINE        002  002 
+     LINE        005 -001 
+     LINE        003  001 
+     LINE        002 -001 
+     LINE        004  002 
+     LINE        002 -001 
+     LINE        002 -004 
+     LINE        001 -004 
+     LINE       -002 -003 
+     LINE       -016  000 
+     FILL        000  008 
+     SHADE       000 -016  067 
+     SHADE       120 -024  067 
+     REL MOVE    000  026 
+     PAPER       004
+     BLOCK       007  019  006  001 
+     PAPER       005
+     BLOCK       004  019  006  001 
+     INK         007
+     BLOCK       001  010  006  001 
+     REL MOVE   -003 -014 
+     INK         002
+     BLOCK       002  003  006  003 
+     INK         004
+     BLOCK       001  003  006  003 
+     PAPER       000
+     INK         006
+     GOSUB    sc=000  000 
+     END
+
+Location  17 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     GOSUB    sc=000  016 
+     PAPER       005
+     INK         005
+     TEXT        001  032  006  004 
+     TEXT        001  032  007  004 
+     TEXT        001  032  008  004 
+     TEXT        001  095  008  005 
+     TEXT        001  095  007  005 
+     TEXT        001  095  006  005 
+     TEXT        001  032  006  003 
+     TEXT        001  032  007  003 
+     TEXT        001  032  008  003 
+     INK         005
+     TEXT        001  032  012  001 
+     TEXT        001  095  011  001 
+     END
+
+Location  18 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     REL MOVE    047  168 
+     LINE        161  000 
+     LINE        000 -065 
+     LINE       -161  000 
+     LINE        000  065 
+     REL MOVE    000 -041 
+     LINE        160  001 
+     LINE       -160 -008 
+     REL MOVE    000 -012 
+     LINE        160 -002 
+     REL MOVE   -137  048 
+     LINE        016  002 
+     LINE        006 -001 
+     LINE       -001 -003 
+     LINE       -009 -002 
+     LINE       -011 -001 
+     LINE       -003  001 
+     LINE        002  004 
+     FILL        008 -002 
+     REL MOVE    088 -008 
+     LINE        016  002 
+     LINE        008 -001 
+     LINE        003 -002 
+     LINE        001 -001 
+     LINE       -004 -003 
+     LINE       -009 -001 
+     LINE       -009  001 
+     LINE       -005  001 
+     LINE       -003  002 
+     LINE        003  002 
+     FILL        008 -002 
+     REL MOVE    022 -031 
+     LINE       -002  002 
+     LINE        001  002 
+     LINE        002 -003 
+     LINE        003  003 
+     LINE        002 -002 
+     LINE       -004 -003 
+     LINE       -003  001 
+     FILL        004  001 
+     FILL        000  002 
+     REL MOVE    011  002 
+     LINE       -001  003 
+     LINE        002  001 
+     LINE        001 -002 
+     LINE        003  002 
+     LINE        001 -002 
+     LINE       -005 -002 
+     FILL       -001  003 
+     FILL        002  002 
+     REL MOVE   -006 -006 
+     LINE        001 -003 
+     LINE        005  002 
+     LINE       -002  002 
+     LINE       -002 -001 
+     LINE       -002  002 
+     LINE       -002 -002 
+     LINE        002  000 
+     FILL        002 -001 
+     FILL        000  001 
+     SHADE      -128  013  017 
+     SHADE      -032 -006  034 
+     SHADE      -024  008  000 
+     SHADE       016  001  000 
+     REL MOVE   -136  052 
+     PAPER       004
+     BLOCK       007  019  006  001 
+     PAPER       005
+     BLOCK       004  019  006  001 
+     INK         007
+     BLOCK       003  019  006  001 
+     PAPER       000
+     INK         006
+     GOSUB    sc=000  000 
+     END
+
+Location  19 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     GOSUB    sc=000  018 
+     INK         005
+     PAPER       005
+     BLOCK       002  007  006  001 
+     PAPER       004
+     INK         000
+     TEXT        000  161  022  007 
+     TEXT        000  161  023  007 
+     TEXT        000  161  023  008 
+     TEXT        000  161  024  007 
+     TEXT        000  161  024  006 
+     TEXT        000  161  023  006 
+     TEXT        000  161  024  008 
+     TEXT        000  161  025  008 
+     END
+
+Location  20 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     GOSUB    sc=000  018 
+     REL MOVE    152 -024 
+     INK         005
+     PAPER       005
+     BLOCK       002  007  018  002 
+     PAPER       004
+     INK         000
+     TEXT        000  161  006  008 
+     TEXT        000  161  007  008 
+     TEXT        000  161  008  008 
+     TEXT        000  161  009  008 
+     TEXT        000  161  010  008 
+     TEXT        000  161  011  008 
+     TEXT        000  161  012  008 
+     TEXT        000  161  013  008 
+     TEXT        000  161  014  008 
+     TEXT        000  161  015  008 
+     TEXT        000  161  016  008 
+     TEXT        000  161  017  008 
+     TEXT        000  161  018  008 
+     TEXT        000  161  019  008 
+     TEXT        000  161  020  008 
+     TEXT        000  161  021  008 
+     TEXT        000  161  022  008 
+     TEXT        000  161  023  008 
+     TEXT        000  161  024  008 
+     TEXT        000  161  025  008 
+     TEXT        000  161  022  007 
+     TEXT        000  161  023  007 
+     TEXT        000  161  024  007 
+     TEXT        000  161  024  006 
+     TEXT        000  161  023  006 
+     END
+
+Location  21 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     REL MOVE    047  168 
+     LINE        161  000 
+     LINE        000 -065 
+     LINE       -161  000 
+     LINE        000  065 
+     REL MOVE    000 -048 
+     LINE        112 -001 
+     LINE        049  001 
+     REL MOVE   -090 -001 
+     LINE        001  014 
+     LINE        003  004 
+     LINE        009  001 
+     LINE        011 -002 
+     LINE        005  001 
+     LINE        005 -002 
+     LINE        002 -015 
+     LINE       -006  001 
+     LINE       -001  011 
+     LINE       -005  003 
+     FILL       -008 -008 
+     SHADE       007 -002  000 
+     REL MOVE   -040  000 
+     LINE        012 -001 
+     REL MOVE    000 -005 
+     LINE       -012  001 
+     REL MOVE    000  004 
+     LINE        000 -002 
+     PLOT        105  132 
+     PLOT        108  133 
+     PLOT        110  132 
+     PLOT        113  131 
+     LINE        000  002 
+     REL MOVE   -056  024 
+     LINE    o   003 -032 
+     REL MOVE    016  001 
+     LINE    o   002  024 
+     REL MOVE    040  004 
+     LINE    o   002 -008 
+     PLOT    o   145  133 
+     LINE    o   008  001 
+     LINE        003  005 
+     LINE       -004 -001 
+     REL MOVE   -008  016 
+     LINE       -001 -008 
+     REL MOVE    056  016 
+     LINE    o  -001 -024 
+     REL MOVE   -024  016 
+     LINE       -002 -025 
+     REL MOVE   -068  008 
+     LINE       -002  008 
+     LINE       -002 -003 
+     REL MOVE    008  025 
+     LINE       -001 -008 
+     REL MOVE   -024  009 
+     LINE       -002 -008 
+     REL MOVE   -012 -010 
+     LINE       -002 -008 
+     REL MOVE    120  008 
+     LINE       -002 -008 
+     REL MOVE    020 -036 
+     SHADE      -072  061  034 
+     SHADE      -128  056  034 
+     SHADE      -008  000  067 
+     PAPER       006
+     BLOCK       007  019  006  001 
+     PAPER       004
+     BLOCK       001  019  006  007 
+     PAPER       000
+     INK         006
+     GOSUB    sc=000  000 
+     END
+
+Location  22 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     GOSUB    sc=000  034 
+     REL MOVE   -014  014 
+     PAPER       004
+     BLOCK       007  019  006  001 
+     PAPER       005
+     BLOCK       004  019  006  001 
+     INK         007
+     BLOCK       002  005  006  001 
+     PAPER       004
+     INK         000
+     SHADE       016 -042  067 
+     SHADE       132 -048  067 
+     PAPER       000
+     INK         006
+     GOSUB    sc=000  000 
+     END
+
+Location  23 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     GOSUB    sc=000  034 
+     TEXT        001  032  007  007 
+     TEXT        001  032  008  007 
+     TEXT        000  144  007  005 
+     TEXT        000  144  008  005 
+     TEXT        000  144  009  005 
+     TEXT        000  144  010  005 
+     TEXT        000  144  011  005 
+     TEXT        000  144  012  005 
+     TEXT        000  032  012  004 
+     TEXT        000  032  010  004 
+     TEXT        000  032  009  004 
+     TEXT        000  032  021  005 
+     TEXT        000  144  022  005 
+     TEXT        000  144  023  005 
+     PLOT        168  134 
+     LINE        006 -001 
+     LINE       -006 -002 
+     LINE        000  003 
+     FILL        001 -001 
+     SHADE      -096 -016  068 
+     PLOT        176  127 
+     LINE       -008  000 
+     SHADE       008 -008  068 
+     REL MOVE   -116  038 
+     PAPER       004
+     BLOCK       007  019  006  001 
+     PAPER       005
+     BLOCK       004  019  006  001 
+     INK         005
+     BLOCK       002  005  006  001 
+     INK         007
+     ABS MOVE    172  130 
+     PAPER       000
+     INK         006
+     GOSUB    sc=000  000 
+     END
+
+Location  24 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     PLOT        047  168 
+     LINE        161  000 
+     LINE        000 -065 
+     LINE       -161  000 
+     LINE        000  064 
+     LINE        024 -004 
+     LINE        025 -001 
+     LINE        019 -002 
+     LINE        012 -001 
+     LINE        024  001 
+     LINE        040  001 
+     LINE        016 -001 
+     PLOT        167  104 
+     LINE       -010  003 
+     LINE       -001  003 
+     LINE       -003  004 
+     LINE       -008  003 
+     LINE       -008  002 
+     LINE       -002  013 
+     LINE       -002  004 
+     LINE       -007  002 
+     LINE       -009 -001 
+     LINE       -002 -007 
+     LINE       -001 -010 
+     LINE       -003 -003 
+     LINE       -001 -005 
+     LINE       -005 -003 
+     LINE       -003 -005 
+     REL MOVE    012  016 
+     LINE        008  002 
+     LINE        014 -001 
+     FILL       -008  008 
+     REL MOVE   -066  032 
+     LINE        002 -024 
+     LINE        004 -006 
+     LINE        003 -012 
+     LINE        002 -007 
+     REL MOVE    008  024 
+     LINE        002 -011 
+     LINE        004 -003 
+     LINE        003 -003 
+     LINE        002 -004 
+     REL MOVE    000  024 
+     LINE        002 -007 
+     LINE        003 -001 
+     LINE        003 -002 
+     LINE        001 -006 
+     REL MOVE    026  016 
+     LINE        001  009 
+     LINE        001  006 
+     REL MOVE    016 -008 
+     LINE       -001 -008 
+     LINE       -002 -007 
+     REL MOVE    040  024 
+     LINE       -002 -024 
+     LINE       -002 -008 
+     LINE        002 -009 
+     REL MOVE   -032  010 
+     LINE        002  007 
+     LINE        003  001 
+     LINE        002  004 
+     LINE        001  004 
+     REL MOVE   -048  016 
+     LINE        006 -001 
+     LINE        005 -002 
+     REL MOVE   -008 -008 
+     LINE       -005  003 
+     LINE       -005 -001 
+     REL MOVE    003  001 
+     LINE       -001  004 
+     REL MOVE    008 -025 
+     LINE        008 -001 
+     REL MOVE    016 -008 
+     LINE       -017 -001 
+     SHADE       000  056  000 
+     SHADE       007  048  017 
+     REL MOVE   -078  058 
+     PAPER       003
+     BLOCK       007  019  006  001 
+     PAPER       000
+     INK         006
+     GOSUB    sc=000  000 
+     END
+
+Location  25 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     GOSUB    sc=000  024 
+     PAPER       002
+     END
+
+Location  26 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     GOSUB    sc=000  024 
+     END
+
+Location  27 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     GOSUB    sc=000  025 
+     END
+
+Location  28 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     GOSUB    sc=000  024 
+     END
+
+Location  29 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     GOSUB    sc=000  025 
+     END
+
+Location  30 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     GOSUB    sc=000  024 
+     END
+
+Location  31 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     GOSUB    sc=000  024 
+     END
+
+Location  32 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     PLOT        047  168 
+     LINE        161  000 
+     LINE    o   000 -065 
+     LINE    o  -161  000 
+     LINE    o   000  065 
+     PLOT    o   048  104 
+     LINE    o   020  005 
+     LINE    o   007  001 
+     LINE    o   006  004 
+     LINE    o   002  004 
+     LINE    o   004  004 
+     LINE    o   003  003 
+     LINE    o   009  004 
+     LINE    o   010  001 
+     LINE    o   017  001 
+     LINE        010 -002 
+     LINE        023 -004 
+     LINE        016 -001 
+     LINE        003 -001 
+     LINE        001 -005 
+     LINE        001 -006 
+     LINE       -002 -005 
+     LINE       -012 -003 
+     REL MOVE   -012 -001 
+     LINE        000  003 
+     LINE        002  002 
+     LINE       -001  003 
+     LINE        002  004 
+     LINE        003  001 
+     LINE       -009 -003 
+     LINE       -003 -004 
+     LINE       -009 -002 
+     LINE        008 -001 
+     LINE        002 -002 
+     PLOT        069  104 
+     LINE        024  001 
+     LINE        022 -001 
+     LINE       -001  004 
+     LINE        014 -003 
+     LINE        005 -001 
+     FILL        029  018 
+     PLOT     i  140  108 
+     LINE     i -004  002 
+     LINE     i -002  004 
+     PLOT     i  121  108 
+     LINE     i -001  004 
+     PLOT     i  092  105 
+     LINE     i -004  003 
+     LINE     i -001  005 
+     PLOT     i  112  108 
+     LINE     i -008  001 
+     PLOT     i  108  110 
+     LINE     i  001  004 
+     LINE     i -001  002 
+     PLOT     i  156  105 
+     LINE     i  001  000 
+     PLOT     i  162  105 
+     LINE     i -002  000 
+     PLOT     i  158  110 
+     LINE     i  000  001 
+     LINE     i  002  001 
+     LINE     i  000 -002 
+     PLOT     i  165  110 
+     LINE     i  000  002 
+     LINE     i  001  000 
+     LINE     i  001 -002 
+     PLOT     i  162  118 
+     LINE     i  010 -001 
+     PLOT     i  170  114 
+     LINE     i  001  003 
+     LINE     i  001 -005 
+     PLOT        047  168 
+     LINE        027 -006 
+     LINE        016 -001 
+     LINE        008 -003 
+     LINE        008 -001 
+     LINE        020 -001 
+     LINE        024  001 
+     LINE        040 -001 
+     LINE        018  005 
+     SHADE      -056  000  000 
+     LINE       -007 -013 
+     LINE       -002 -016 
+     LINE       -002 -008 
+     LINE       -001 -008 
+     LINE       -003 -008 
+     LINE        013 -003 
+     PLOT        198  106 
+     LINE        002 -002 
+     PLOT        193  112 
+     LINE       -008  002 
+     PLOT        079  116 
+     LINE       -016 -002 
+     LINE       -009 -002 
+     LINE       -006 -002 
+     REL MOVE    009  035 
+     LINE        001 -017 
+     LINE        002 -014 
+     REL MOVE   -007  014 
+     LINE       -001 -008 
+     REL MOVE    032  024 
+     LINE        001 -008 
+     REL MOVE    056  016 
+     LINE       -001 -016 
+     REL MOVE    040  008 
+     LINE        001 -016 
+     REL MOVE   -065  008 
+     BLOCK       000  000  014  004 
+     LINE       -001  007 
+     REL MOVE   -065  022 
+     PAPER       006
+     BLOCK       007  019  006  001 
+     INK         004
+     ABS MOVE    050  109 
+     BLOCK       000  016  006  008 
+     ABS MOVE    179  117 
+     BLOCK       001  012  010  006 
+     ABS MOVE    091  133 
+     BLOCK       000  008  011  005 
+     PAPER       000
+     INK         006
+     GOSUB    sc=000  000 
+     END
+
+Location  33 graphics flags: Picture.    Ink=0 Paper=0 Bit6=0
+     REL MOVE    176  024 
+     LINE        007  001 
+     LINE        002  005 
+     LINE       -001  003 
+     LINE        001  015 
+     LINE       -001  011 
+     LINE        002  024 
+     LINE       -001  010 
+     LINE       -001  003 
+     LINE       -002  004 
+     LINE       -005  007 
+     LINE       -003  003 
+     LINE       -008  003 
+     LINE       -013  001 
+     LINE       -040  001 
+     LINE       -009  002 
+     LINE       -002  005 
+     LINE       -005  004 
+     LINE       -002  004 
+     LINE       -006  002 
+     LINE       -011  001 
+     LINE       -008 -001 
+     LINE       -005 -003 
+     LINE       -003 -008 
+     LINE        000 -005 
+     LINE       -005  004 
+     LINE       -006  001 
+     LINE       -002 -005 
+     LINE        003  001 
+     LINE        004 -003 
+     LINE        004 -004 
+     LINE       -001 -004 
+     LINE        003 -002 
+     LINE        006 -001 
+     LINE        004  002 
+     PLOT        064  103 
+     LINE        001 -009 
+     LINE        003 -007 
+     LINE        002 -008 
+     LINE        005 -008 
+     LINE        002 -004 
+     LINE        005 -002 
+     PLOT        074  071 
+     LINE        001 -015 
+     LINE        002 -009 
+     LINE        001 -008 
+     LINE        003 -005 
+     LINE       -001 -009 
+     LINE       -001 -001 
+     LINE        005  000 
+     LINE        004  001 
+     LINE        001  006 
+     LINE        002 -002 
+     LINE        001  006 
+     LINE        002  009 
+     LINE        002 -010 
+     LINE        002 -003 
+     LINE       -002 -007 
+     LINE        007  000 
+     LINE        001  007 
+     LINE        003 -002 
+     LINE       -001  006 
+     LINE        002  003 
+     LINE        003  014 
+     LINE        001  007 
+     LINE        002  010 
+     PLOT        113  057 
+     LINE        017 -003 
+     LINE        021  001 
+     LINE        010  002 
+     LINE        001 -007 
+     LINE        004 -006 
+     LINE        006 -005 
+     LINE    o   003 -004 
+     LINE       -001 -011 
+     LINE    o   002  000 
+     PLOT        149  055 
+     LINE        002 -010 
+     LINE        003 -003 
+     LINE       -002 -010 
+     LINE        008  001 
+     LINE        001  005 
+     LINE        002 -002 
+     LINE        001  007 
+     LINE        002  001 
+     PLOT        094  048 
+     LINE       -002  015 
+     PLOT        070  092 
+     LINE       -001  006 
+     PLOT        069  131 
+     LINE       -004 -008 
+     LINE        000 -004 
+     LINE       -004 -007 
+     LINE        000 -005 
+     LINE        004  003 
+     PLOT        064  104 
+     LINE        003  002 
+     PLOT        085  130 
+     LINE        007 -003 
+     LINE        002 -006 
+     LINE        004 -001 
+     LINE        000 -003 
+     LINE       -004  000 
+     LINE        000 -004 
+     LINE       -003 -004 
+     LINE       -008 -001 
+     LINE       -004  002 
+     LINE       -001  006 
+     LINE        001  003 
+     LINE        004  001 
+     LINE        004  001 
+     LINE        006 -001 
+     PLOT        093  117 
+     LINE       -007 -001 
+     LINE       -001 -003 
+     LINE        002  002 
+     PLOT        084  121 
+     LINE       -002  001 
+     LINE        003  008 
+     PLOT        080  123 
+     LINE       -003 -001 
+     LINE        000 -002 
+     LINE        004  002 
+     REL MOVE    013 -014 
+     LINE       -003 -008 
+     LINE       -006 -007 
+     LINE       -004 -008 
+     LINE       -002 -008 
+     LINE        001 -007 
+     PLOT        080  028 
+     LINE        008  001 
+     PLOT        098  028 
+     LINE        005  001 
+     PLOT        153  037 
+     LINE        008  001 
+     PLOT        175  029 
+     LINE        009  001 
+     PLOT        155  080 
+     LINE        001 -011 
+     PLOT        117  061 
+     LINE        016 -002 
+     PLOT        084  043 
+     LINE        001 -005 
+     PLOT        098  044 
+     LINE        002 -003 
+     PLOT        172  043 
+     LINE        004 -002 
+     PLOT        056  115 
+     LINE       -005  006 
+     PLOT        089  118 
+     LINE       -005  000 
+     LINE       -003 -004 
+     LINE        001 -004 
+     PLOT        075  123 
+     LINE       -001 -003 
+     PLOT        077  112 
+     LINE       -002 -006 
+     SHADE      -016  009  034 
+     SHADE      -024  012  017 
+     SHADE       004  008  034 
+     SHADE       009  004  017 
+     SHADE       016  016  017 
+     SHADE      -012  016  017 
+     SHADE      -011  018  017 
+     PLOT        048  135 
+     LINE        143  000 
+     LINE        000 -119 
+     LINE       -143  000 
+     LINE        000  119 
+     FILL        064 -001 
+     FILL        008 -048 
+     FILL        072 -088 
+     FILL        120 -096 
+     FILL        048 -104 
+     PAPER       006
+     BLOCK       014  017  006  005 
+     REL MOVE    064 -032 
+     LINE        001 -008 
+     REL MOVE    048  008 
+     LINE        002 -003 
+     REL MOVE   -016 -032 
+     LINE       -008 -001 
+     REL MOVE   -008  024 
+     LINE        001 -008 
+     REL MOVE   -024 -016 
+     LINE       -001 -003 
+     REL MOVE   -016  024 
+     LINE       -001 -002 
+     REL MOVE   -002 -033 
+     LINE       -001 -008 
+     PLOT        084  025 
+     LINE        001  002 
+     PLOT        099  025 
+     LINE        001  001 
+     PLOT        178  025 
+     LINE        001  002 
+     PLOT        155  034 
+     LINE        001  001 
+     REL MOVE   -025  076 
+     LINE        004 -001 
+     END
+
+Location  34 graphics flags: Subroutine. Ink=7 Paper=0 Bit6=0
+     INK         000
+     REL MOVE    047  168 
+     LINE        161  000 
+     LINE        000 -065 
+     LINE       -161  000 
+     LINE        000  065 
+     REL MOVE    000 -040 
+     LINE        120 -001 
+     LINE        016  001 
+     LINE        025 -001 
+     REL MOVE   -113 -024 
+     LINE        020  008 
+     LINE        008  003 
+     LINE        007  002 
+     LINE        013  001 
+     LINE        004  001 
+     LINE        001  002 
+     LINE       -004  001 
+     LINE       -007  001 
+     LINE       -011  002 
+     LINE       -007  002 
+     PLOT        127  126 
+     LINE        016 -001 
+     LINE        012 -001 
+     LINE        008 -002 
+     LINE        003 -003 
+     LINE       -001 -008 
+     LINE        002 -007 
+     FILL       -008  001 
+     REL MOVE   -072  008 
+     PLOT        112  128 
+     LINE        003  005 
+     LINE        004  002 
+     LINE        004  003 
+     LINE        004  005 
+     LINE        005  001 
+     LINE        009  001 
+     LINE        005 -002 
+     LINE        001 -005 
+     LINE        004 -001 
+     LINE        003  002 
+     LINE        005  000 
+     LINE        002 -002 
+     LINE        002 -004 
+     LINE        004 -002 
+     LINE        005  004 
+     LINE        006  000 
+     LINE        008 -002 
+     LINE        002 -005 
+     PLOT        056  128 
+     LINE        002  005 
+     LINE        005  001 
+     LINE        005  000 
+     LINE        005  002 
+     LINE        003 -002 
+     LINE        002  002 
+     LINE        004  002 
+     LINE        003 -001 
+     LINE        002 -008 
+     LINE        003  004 
+     LINE        002  002 
+     LINE        007  001 
+     LINE        002 -001 
+     LINE        002 -006 
+     PLOT        057  112 
+     LINE        012  001 
+     LINE       -001  004 
+     LINE       -003  002 
+     LINE       -006 -001 
+     LINE       -002 -005 
+     PLOT        062  117 
+     LINE        000 -003 
+     SHADE      -002  001  034 
+     SHADE       003  002  000 
+     FILL        000  016 
+     FILL        032  016 
+     FILL        074  027 
+     FILL        096  024 
+     FILL        116  019 
+     PLOT        060  154 
+     LINE        016  003 
+     LINE        008 -001 
+     LINE       -013 -004 
+     LINE        015 -001 
+     LINE        005 -002 
+     LINE       -015 -002 
+     LINE       -017 -001 
+     LINE       -008  001 
+     LINE       -004  001 
+     REL MOVE    000  006 
+     LINE        015 -001 
+     FILL        000 -003 
+     END
+
+Location  35 graphics flags: Subroutine. Ink=7 Paper=0 Bit6=0
+     INK         000
+     PLOT        000  175 
+     LINE        255  000 
+     LINE        000 -175 
+     LINE       -255  000 
+     LINE        000  175 
+     PLOT        056  008 
+     LINE       -008  103 
+     LINE        007  032 
+     LINE        016  008 
+     LINE        003  008 
+     LINE        001  008 
+     LINE        008  004 
+     PLOT        111  008 
+     LINE        008  103 
+     LINE       -007  032 
+     LINE       -016  008 
+     LINE       -003  008 
+     LINE       -001  008 
+     LINE       -008  004 
+     PLOT        080  167 
+     LINE        007  000 
+     LINE        004 -056 
+     LINE       -006 -103 
+     PLOT        080  167 
+     LINE       -004 -055 
+     LINE        006 -104 
+     PLOT        111  028 
+     LINE       -001  083 
+     LINE        019  007 
+     LINE       -001 -003 
+     LINE       -017 -006 
+     PLOT        111  107 
+     LINE        016  006 
+     LINE       -001 -003 
+     LINE       -016 -006 
+     FILL        004  002 
+     FILL        012  005 
+     FILL        006  008 
+     FILL        013  011 
+     PLOT        058  112 
+     LINE       -002 -084 
+     LINE       -003  083 
+     LINE        005  001 
+     LINE        005 -014 
+     LINE       -001 -001 
+     LINE       -006  013 
+     PLOT        055  108 
+     LINE        006 -013 
+     LINE       -002 -002 
+     LINE       -005  014 
+     PLOT        062  099 
+     LINE       -005  011 
+     PLOT        059  097 
+     LINE       -005  009 
+     PLOT        060  092 
+     LINE        004  002 
+     LINE        002 -004 
+     LINE       -004 -003 
+     LINE       -001  005 
+     FILL        002 -001 
+     LINE        003 -008 
+     PLOT        067  085 
+     LINE       -003  003 
+     PLOT        066  091 
+     LINE        003 -004 
+     PLOT        069  085 
+     LINE       -004  005 
+     PLOT        115  105 
+     LINE       -002 -051 
+     PLOT        077  092 
+     LINE        007  001 
+     LINE        006 -001 
+     PLOT        079  146 
+     LINE        004 -001 
+     LINE        005  001 
+     PLOT        085  137 
+     LINE        000 -040 
+     LINE        003  000 
+     LINE        000  040 
+     LINE       -003  000 
+     PLOT        079  137 
+     LINE        003  000 
+     LINE        000 -040 
+     LINE       -003  000 
+     LINE        000  040 
+     FILL        004  003 
+     FILL       -002 -024 
+     FILL        011 -021 
+     PLOT        079  133 
+     LINE        011  000 
+     PLOT        090  132 
+     LINE       -012  000 
+     PLOT        079  126 
+     LINE        009  000 
+     PLOT        088  125 
+     LINE       -009  000 
+     PLOT        079  117 
+     LINE        009  000 
+     PLOT        088  116 
+     LINE       -010  000 
+     PLOT        078  108 
+     LINE        011  000 
+     PLOT        089  107 
+     LINE       -010  000 
+     PLOT        079  102 
+     LINE        009  000 
+     PLOT        088  101 
+     LINE       -010  000 
+     PLOT        081  157 
+     LINE        000 -005 
+     LINE        002 -002 
+     LINE        003  002 
+     LINE        000  005 
+     LINE       -002 -001 
+     LINE       -002  000 
+     FILL        001 -002 
+     PLOT        082  165 
+     LINE        003  000 
+     LINE        001 -006 
+     LINE       -003 -001 
+     LINE       -002  001 
+     LINE        001  005 
+     FILL        002 -003 
+     PLOT        057  008 
+     LINE        054  000 
+     SHADE      -027  160  000 
+     SHADE      -053  080  000 
+     SHADE       005  088  000 
+     PLOT        118  008 
+     LINE        017  143 
+     LINE        004  000 
+     LINE       -017 -143 
+     LINE       -004  000 
+     SHADE       001  002  034 
+     PLOT        134  153 
+     LINE        008 -001 
+     LINE        002  019 
+     LINE       -021  003 
+     PLOT        133  154 
+     LINE        000  005 
+     LINE       -014  004 
+     LINE       -023  003 
+     PLOT        071  166 
+     LINE       -009 -001 
+     LINE        009  005 
+     PLOT        096  167 
+     LINE        000  007 
+     FILL        008 -001 
+     PLOT        071  170 
+     LINE        000 -004 
+     FILL       -002  002 
+     PLOT        133  161 
+     LINE     i  001  008 
+     PLOT     i  082  155 
+     LINE     i  000  001 
+     PLOT     i  084  156 
+     LINE     i  000 -002 
+     PLOT     i  083  159 
+     LINE     i  001  000 
+     PLOT     i  084  160 
+     PLOT     i  083  160 
+     PLOT     i  082  164 
+     LINE     i  000 -001 
+     PLOT     i  085  163 
+     LINE     i  000  001 
+     REL MOVE   -081  008 
+     INK         007
+     PLOT        072  171 
+     LINE        010  003 
+     PLOT        095  167 
+     LINE       -001  000 
+     LINE       -006  004 
+     LINE       -003  001 
+     LINE       -002  001 
+     LINE       -009 -005 
+     LINE       -001 -002 
+     LINE       -001  000 
+     FILL        001  003 
+     FILL        022  007 
+     PLOT        080  174 
+     LINE        008 -004 
+     BLOCK       021  020  011  000 
+     BLOCK       021  011  000  000 
+     INK         005
+     ABS MOVE    064  171 
+     BLOCK       001  009  008  000 
+     ABS MOVE    136  159 
+     LINE        000  000 
+     TEXT        001  069  024  002 
+     TEXT        001  083  024  003 
+     TEXT        001  084  024  004 
+     TEXT        001  065  024  005 
+     TEXT        001  083  024  006 
+     TEXT        001  070  024  008 
+     TEXT        001  082  024  009 
+     TEXT        001  073  024  010 
+     TEXT        001  084  024  011 
+     TEXT        001  079  024  012 
+     INK         002
+     TEXT        001  082  022  016 
+     TEXT        001  073  024  016 
+     TEXT        001  080  026  016 
+     PLOT        176  050 
+     LINE        046  000 
+     LINE        000 -014 
+     LINE       -048 -001 
+     LINE        001  015 
+     LINE       -005 -003 
+     LINE        000 -016 
+     LINE        004  004 
+     PLOT        170  031 
+     LINE        048  000 
+     LINE    o   000  000 
+     LINE        005  005 
+     END
+
+Location  36 graphics flags: Subroutine. Ink=7 Paper=0 Bit6=0
+     PLOT        079  160 
+     LINE        161  000 
+     LINE        000 -089 
+     LINE       -225  000 
+     LINE        000  089 
+     LINE        064  000 
+     TEXT        001  085  004  003 
+     TEXT        002  110  005  003 
+     TEXT        002  115  007  003 
+     TEXT        002  097  008  003 
+     TEXT        002  108  009  003 
+     TEXT        002  117  010  003 
+     TEXT        002  100  011  003 
+     TEXT        002  111  012  003 
+     TEXT        002  100  014  003 
+     TEXT        002  101  015  003 
+     TEXT        002  058  016  003 
+     TEXT        000  154  018  003 
+     TEXT        000  155  019  003 
+     TEXT        000  156  020  003 
+     TEXT        000  157  018  004 
+     TEXT        000  158  019  004 
+     TEXT        000  159  020  004 
+     TEXT        001  080  004  008 
+     TEXT        002  097  005  008 
+     TEXT        002  114  006  008 
+     TEXT        002  097  007  008 
+     TEXT        002  116  009  008 
+     TEXT        002  111  010  008 
+     TEXT        002  100  011  008 
+     TEXT        002  111  012  008 
+     TEXT        002  115  013  008 
+     TEXT        002  108  015  008 
+     TEXT        002  111  016  008 
+     TEXT        002  115  017  008 
+     TEXT        002  117  019  008 
+     TEXT        002  115  020  008 
+     TEXT        002  117  021  008 
+     TEXT        002  097  022  008 
+     TEXT        002  114  023  008 
+     TEXT        002  105  024  008 
+     TEXT        002  111  025  008 
+     TEXT        002  115  026  008 
+     TEXT        002  100  013  010 
+     TEXT        002  101  014  010 
+     TEXT        002  108  015  010 
+     TEXT        001  080  019  010 
+     TEXT        001  065  020  010 
+     TEXT        001  087  021  010 
+     TEXT        001  083  022  010 
+     SHADE       000 -001  068 
+     PLOT        014  161 
+     LINE       -004  004 
+     PLOT        014  071 
+     LINE       -005 -005 
+     LINE        000  100 
+     PLOT        241  161 
+     LINE        005  005 
+     PLOT        241  071 
+     LINE        006 -006 
+     LINE        000  102 
+     LINE       -238  000 
+     PLOT        009  065 
+     LINE        238  000 
+     SHADE      -016  002  000 
+     SHADE      -002  016  000 
+     SHADE      -235  032  067 
+     SHADE      -016  098  067 
+     TEXT        001  078  002  015 
+     TEXT        001  111  003  015 
+     TEXT        001  116  005  015 
+     TEXT        001  101  006  015 
+     TEXT        001  112  008  015 
+     TEXT        001  105  009  015 
+     TEXT        001  101  010  015 
+     TEXT        001  114  011  015 
+     TEXT        001  100  012  015 
+     TEXT        001  097  013  015 
+     TEXT        001  115  014  015 
+     TEXT        001  110  016  015 
+     TEXT        001  117  017  015 
+     TEXT        001  101  018  015 
+     TEXT        001  115  019  015 
+     TEXT        001  116  020  015 
+     TEXT        001  114  021  015 
+     TEXT        001  097  022  015 
+     TEXT        001  097  024  015 
+     TEXT        001  118  025  015 
+     TEXT        001  101  026  015 
+     TEXT        001  110  027  015 
+     TEXT        001  116  028  015 
+     TEXT        001  117  029  015 
+     TEXT        001  045  030  015 
+     TEXT        001  114  003  017 
+     TEXT        001  097  004  017 
+     TEXT        001  058  005  017 
+     TEXT        002  087  014  017 
+     TEXT        002  079  015  017 
+     TEXT        002  079  016  017 
+     TEXT        002  070  017  017 
+     TEXT        002  033  019  017 
+     TEXT        001  089  002  019 
+     TEXT        001  101  004  019 
+     TEXT        001  108  005  019 
+     TEXT        001  106  007  019 
+     TEXT        001  117  008  019 
+     TEXT        001  101  009  019 
+     TEXT        001  103  010  019 
+     TEXT        001  111  011  019 
+     TEXT        001  059  012  019 
+     TEXT        002  067  014  019 
+     TEXT        002  079  015  019 
+     TEXT        002  076  016  019 
+     TEXT        002  085  017  019 
+     TEXT        002  077  018  019 
+     TEXT        002  078  019  019 
+     TEXT        002  065  020  019 
+     TEXT        002  045  021  019 
+     TEXT        002  068  022  019 
+     TEXT        002  079  023  019 
+     TEXT        002  083  024  019 
+     INK         003
+     BLOCK       012  029  001  001 
+     ABS MOVE    020  156 
+     INK         006
+     BLOCK       010  027  002  002 
+     REL MOVE    129 -006 
+     INK         005
+     BLOCK       001  002  018  003 
+     REL MOVE    007 -060 
+     INK         004
+     BLOCK       000  003  019  010 
+     REL MOVE   -062 -054 
+     BLOCK       000  016  011  017 
+     REL MOVE    022 -015 
+     BLOCK       000  010  014  019 
+     END
+
+
+--------------------------------------------------------------------------
+
+Charset 0
+---------
+UDG data
+--------
+static char udg_bits[] = {
+ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff,
+ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+ 0x42, 0xe7, 0x5a, 0xbd, 0x3c, 0x18, 0x18, 0x00,
+ 0x1c, 0x16, 0x16, 0x16, 0xf6, 0xb6, 0x4e, 0x3c,
+ 0x3c, 0x46, 0x56, 0x56, 0xbb, 0x83, 0xbb, 0xef,
+ 0x7c, 0xc6, 0xbe, 0xcc, 0x76, 0xf6, 0x8e, 0x7c,
+ 0x38, 0x4c, 0xb6, 0xb6, 0xb6, 0xb6, 0x4c, 0x38,
+ 0x66, 0x9b, 0x9b, 0x8b, 0xa3, 0xb3, 0xb3, 0x4e,
+ 0x00, 0x38, 0x6c, 0x38, 0x6f, 0x66, 0x3b, 0x00,
+ 0x00, 0x00, 0x00, 0x00, 0x02, 0x07, 0x02, 0x00,
+ 0x00, 0x00, 0x1f, 0x20, 0x40, 0x40, 0x47, 0x21,
+ 0x00, 0x3e, 0xf9, 0xf8, 0xfe, 0xff, 0xff, 0xff,
+ 0x00, 0x00, 0xbe, 0xc1, 0x41, 0xe1, 0xee, 0xe2,
+ 0x38, 0x40, 0x40, 0x41, 0x3e, 0x00, 0x00, 0x00,
+ 0xff, 0xff, 0xff, 0xff, 0xff, 0x3e, 0x00, 0x00,
+ 0xf1, 0xe1, 0xc1, 0xc2, 0xfc, 0x00, 0x00, 0x00,
+ 0x12, 0x0c, 0x1f, 0x1b, 0x07, 0x07, 0x03, 0x02,
+ 0xaa, 0x55, 0xaa, 0x55, 0xaa, 0x55, 0xaa, 0x55,
+ 0x00, 0x00, 0xf0, 0xf8, 0xf8, 0xf8, 0x30, 0x50};
+
+Shade data
+----------
+static char shade_bits[] = {
+ 0xaa, 0x55, 0xaa, 0x55, 0xaa, 0x55, 0xaa, 0x55,
+ 0xcc, 0x33, 0xcc, 0x33, 0xcc, 0x33, 0xcc, 0x33,
+ 0xaa, 0xaa, 0x55, 0x55, 0xaa, 0xaa, 0x55, 0x55,
+ 0x88, 0x00, 0x02, 0x00, 0x88, 0x00, 0x20, 0x00,
+ 0x00, 0x00, 0x20, 0x00, 0x00, 0x00, 0x02, 0x00,
+ 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55,
+ 0x00, 0xff, 0x00, 0xff, 0x00, 0xff, 0x00, 0xff,
+ 0x44, 0x44, 0x44, 0x44, 0x44, 0x44, 0x44, 0x44,
+ 0x00, 0xff, 0x00, 0x00, 0x00, 0xff, 0x00, 0x00,
+ 0x92, 0x49, 0x24, 0x92, 0x49, 0x24, 0x92, 0x49,
+ 0x49, 0x92, 0x24, 0x49, 0x92, 0x24, 0x49, 0x92,
+ 0x22, 0x11, 0x88, 0x44, 0x22, 0x11, 0x88, 0x44,
+ 0x44, 0x88, 0x11, 0x22, 0x44, 0x88, 0x11, 0x22,
+ 0x00, 0x00, 0x00, 0x88, 0x00, 0x00, 0x00, 0x88,
+ 0x04, 0x04, 0xff, 0x40, 0x40, 0x40, 0xff, 0x04,
+ 0x55, 0x00, 0x55, 0x00, 0x55, 0x00, 0x55, 0x00};
+
+CharSet 1
+----------
+static char font_bits_1[] = {
+ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+ 0x3c, 0x38, 0x38, 0x18, 0x18, 0x00, 0x18, 0x00,
+ 0x00, 0x36, 0x36, 0x24, 0x00, 0x00, 0x00, 0x00,
+ 0x06, 0x0c, 0x1e, 0x33, 0x3e, 0x30, 0x1e, 0x00,
+ 0x06, 0x0c, 0x1c, 0x0c, 0x0c, 0x0c, 0x1e, 0x00,
+ 0x0c, 0x18, 0x1c, 0x36, 0x22, 0x36, 0x1c, 0x00,
+ 0x0c, 0x18, 0x63, 0x63, 0x63, 0x6f, 0x3b, 0x00,
+ 0x00, 0x18, 0x18, 0x30, 0x00, 0x00, 0x00, 0x00,
+ 0x00, 0x0c, 0x18, 0x10, 0x10, 0x18, 0x0c, 0x00,
+ 0x00, 0x18, 0x0c, 0x04, 0x04, 0x0c, 0x18, 0x00,
+ 0x00, 0x2a, 0x1c, 0x3e, 0x1c, 0x2a, 0x00, 0x00,
+ 0x00, 0x0c, 0x58, 0x7c, 0x3e, 0x1a, 0x30, 0x00,
+ 0x00, 0x00, 0x00, 0x00, 0x18, 0x18, 0x30, 0x00,
+ 0x00, 0x00, 0x00, 0x00, 0x7e, 0x00, 0x00, 0x00,
+ 0x00, 0x00, 0x00, 0x00, 0x00, 0x30, 0x30, 0x00,
+ 0x00, 0x06, 0x0c, 0x18, 0x30, 0x60, 0x40, 0x00,
+ 0x1c, 0x36, 0x67, 0x6b, 0x73, 0x36, 0x1c, 0x00,
+ 0x0c, 0x1c, 0x3c, 0x0c, 0x0c, 0x0c, 0x3f, 0x00,
+ 0x3e, 0x73, 0x67, 0x0e, 0x1c, 0x39, 0x7f, 0x00,
+ 0x1e, 0x33, 0x23, 0x0e, 0x23, 0x33, 0x1e, 0x00,
+ 0x04, 0x0c, 0x18, 0x30, 0x6c, 0x7f, 0x0c, 0x00,
+ 0x7e, 0x60, 0x7e, 0x67, 0x03, 0x7b, 0x3e, 0x00,
+ 0x3c, 0x72, 0x60, 0x7c, 0x62, 0x66, 0x3c, 0x00,
+ 0x7f, 0x63, 0x43, 0x06, 0x0c, 0x18, 0x30, 0x00,
+ 0x3e, 0x63, 0x7f, 0x36, 0x63, 0x77, 0x3e, 0x00,
+ 0x3e, 0x63, 0x63, 0x3f, 0x06, 0x0c, 0x38, 0x00,
+ 0x00, 0x00, 0x18, 0x18, 0x00, 0x18, 0x18, 0x00,
+ 0x00, 0x00, 0x18, 0x18, 0x00, 0x18, 0x30, 0x00,
+ 0x00, 0x04, 0x0c, 0x1c, 0x30, 0x1c, 0x0c, 0x04,
+ 0x00, 0x00, 0x7e, 0x00, 0x7e, 0x00, 0x00, 0x00,
+ 0x00, 0x10, 0x18, 0x1c, 0x06, 0x1c, 0x18, 0x10,
+ 0x00, 0x3c, 0x66, 0x46, 0x0c, 0x18, 0x00, 0x18,
+ 0x06, 0x0c, 0x1c, 0x02, 0x1f, 0x33, 0x1d, 0x00,
+ 0x1c, 0x22, 0x06, 0x0e, 0x1a, 0x3e, 0x63, 0x00,
+ 0x7c, 0x66, 0x46, 0x7c, 0x67, 0x73, 0x5e, 0x00,
+ 0x1e, 0x73, 0x60, 0x60, 0x60, 0x73, 0x1e, 0x00,
+ 0x6e, 0x33, 0x33, 0x33, 0x33, 0x33, 0x6e, 0x00,
+ 0x7f, 0x31, 0x3c, 0x34, 0x31, 0x33, 0x7f, 0x00,
+ 0x7f, 0x31, 0x70, 0x38, 0x38, 0x30, 0x30, 0x00,
+ 0x1e, 0x37, 0x60, 0x6e, 0x67, 0x73, 0x3e, 0x00,
+ 0x41, 0x63, 0x63, 0x7b, 0x63, 0x63, 0x43, 0x00,
+ 0x06, 0x1c, 0x2c, 0x0c, 0x0c, 0x0e, 0x1c, 0x00,
+ 0x3f, 0x66, 0x36, 0x06, 0x36, 0x66, 0x3c, 0x00,
+ 0x23, 0x64, 0x6c, 0x78, 0x6c, 0x64, 0x63, 0x00,
+ 0x60, 0x30, 0x30, 0x30, 0x32, 0x61, 0x7e, 0x00,
+ 0x36, 0x7f, 0x6b, 0x49, 0x49, 0x49, 0x63, 0x00,
+ 0x22, 0x73, 0x7b, 0x6f, 0x67, 0x63, 0x61, 0x00,
+ 0x1c, 0x36, 0x63, 0x63, 0x63, 0x36, 0x1c, 0x00,
+ 0x6e, 0x7b, 0x63, 0x63, 0x7e, 0x60, 0x60, 0x70,
+ 0x1c, 0x36, 0x73, 0x63, 0x6b, 0x34, 0x1a, 0x01,
+ 0x3c, 0x76, 0x66, 0x6c, 0x6c, 0x64, 0x67, 0x00,
+ 0x3e, 0x73, 0x61, 0x3c, 0x03, 0x67, 0x3e, 0x00,
+ 0x3d, 0x5e, 0x18, 0x18, 0x18, 0x18, 0x18, 0x00,
+ 0x61, 0x33, 0x33, 0x33, 0x33, 0x39, 0x1e, 0x00,
+ 0x61, 0x21, 0x33, 0x1b, 0x1e, 0x0c, 0x08, 0x00,
+ 0x36, 0x63, 0x6b, 0x6b, 0x6b, 0x7f, 0x36, 0x00,
+ 0x77, 0x36, 0x1c, 0x14, 0x1c, 0x36, 0x77, 0x00,
+ 0x63, 0x26, 0x26, 0x3e, 0x1c, 0x4c, 0x6c, 0x38,
+ 0x3e, 0x73, 0x43, 0x06, 0x1c, 0x3e, 0x63, 0x00,
+ 0x18, 0x00, 0x18, 0x18, 0x18, 0x18, 0x18, 0x00,
+ 0x5c, 0x61, 0x63, 0x73, 0x6b, 0x67, 0x63, 0x00,
+ 0x18, 0x00, 0x18, 0x30, 0x62, 0x66, 0x3c, 0x00,
+ 0x08, 0xd8, 0xe8, 0xb0, 0xe0, 0xc0, 0xc0, 0x80,
+ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x7f,
+ 0x10, 0x1b, 0x17, 0x0d, 0x07, 0x03, 0x03, 0x01,
+ 0x00, 0x00, 0x1c, 0x02, 0x1f, 0x33, 0x1d, 0x00,
+ 0x60, 0x70, 0x3e, 0x33, 0x33, 0x73, 0x5e, 0x00,
+ 0x00, 0x00, 0x1e, 0x62, 0x60, 0x62, 0x3c, 0x00,
+ 0x03, 0x06, 0x3e, 0x66, 0x66, 0x67, 0x3d, 0x00,
+ 0x00, 0x00, 0x1e, 0x33, 0x3e, 0x30, 0x1e, 0x00,
+ 0x0c, 0x1a, 0x1b, 0x7c, 0x18, 0x18, 0x18, 0x00,
+ 0x00, 0x00, 0x0f, 0x1d, 0x19, 0x0f, 0x23, 0x1e,
+ 0x30, 0x30, 0x36, 0x3b, 0x31, 0x33, 0x32, 0x04,
+ 0x0c, 0x00, 0x1c, 0x0c, 0x0c, 0x0c, 0x1e, 0x00,
+ 0x06, 0x00, 0x0e, 0x0c, 0x0c, 0x0c, 0x4c, 0x30,
+ 0x60, 0x60, 0x6c, 0x72, 0x7c, 0x69, 0x66, 0x00,
+ 0x38, 0x18, 0x18, 0x18, 0x1a, 0x1e, 0x0c, 0x00,
+ 0x00, 0x00, 0x36, 0x6b, 0x6b, 0x63, 0x36, 0x00,
+ 0x00, 0x00, 0x6c, 0x36, 0x36, 0x36, 0x33, 0x00,
+ 0x00, 0x00, 0x1c, 0x36, 0x22, 0x36, 0x1c, 0x00,
+ 0x00, 0x00, 0x36, 0x3b, 0x33, 0x3e, 0x30, 0x60,
+ 0x00, 0x00, 0x36, 0x6e, 0x66, 0x3e, 0x06, 0x03,
+ 0x00, 0x00, 0x76, 0x39, 0x30, 0x30, 0x30, 0x00,
+ 0x00, 0x01, 0x1e, 0x34, 0x1e, 0x0b, 0x1e, 0x20,
+ 0x08, 0x18, 0x3e, 0x18, 0x18, 0x19, 0x0e, 0x00,
+ 0x00, 0x00, 0x73, 0x63, 0x63, 0x6f, 0x3b, 0x00,
+ 0x00, 0x00, 0x63, 0x33, 0x33, 0x1e, 0x0c, 0x00,
+ 0x00, 0x00, 0x36, 0x63, 0x6b, 0x6b, 0x36, 0x00,
+ 0x00, 0x00, 0x67, 0x34, 0x1c, 0x16, 0x73, 0x00,
+ 0x00, 0x00, 0x66, 0x26, 0x3c, 0x18, 0x48, 0x30,
+ 0x00, 0x00, 0x7e, 0x46, 0x0c, 0x38, 0x7e, 0x00,
+ 0x00, 0x38, 0x30, 0x70, 0x70, 0x30, 0x38, 0x00,
+ 0x3c, 0x00, 0x6c, 0x36, 0x36, 0x36, 0x33, 0x00,
+ 0x00, 0x1c, 0x0c, 0x0e, 0x0e, 0x0c, 0x1c, 0x00,
+ 0x90, 0xf8, 0x48, 0x00, 0x00, 0x00, 0x00, 0x00,
+ 0x3c, 0x66, 0xdb, 0xa3, 0xa3, 0xdb, 0x66, 0x3c};
+
+CharSet 2
+----------
+static char font_bits_2[] = {
+ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+ 0x08, 0x18, 0x18, 0x18, 0x10, 0x08, 0x10, 0x00,
+ 0x12, 0x36, 0x24, 0x00, 0x00, 0x00, 0x00, 0x00,
+ 0x12, 0x3f, 0x7e, 0x36, 0x3f, 0x7e, 0x24, 0x00,
+ 0x04, 0x1f, 0x3e, 0x3f, 0x3f, 0x1f, 0x3e, 0x08,
+ 0x31, 0x72, 0x64, 0x08, 0x13, 0x27, 0x46, 0x00,
+ 0x08, 0x14, 0x28, 0x15, 0x2a, 0x5d, 0x3a, 0x00,
+ 0x04, 0x08, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00,
+ 0x02, 0x04, 0x0c, 0x0c, 0x0c, 0x0a, 0x04, 0x00,
+ 0x10, 0x28, 0x18, 0x18, 0x18, 0x10, 0x20, 0x00,
+ 0x00, 0x0a, 0x14, 0x1f, 0x3e, 0x0a, 0x14, 0x00,
+ 0x00, 0x04, 0x0c, 0x1f, 0x3e, 0x0c, 0x08, 0x00,
+ 0x00, 0x00, 0x00, 0x00, 0x04, 0x0c, 0x08, 0x10,
+ 0x00, 0x00, 0x00, 0x1f, 0x3e, 0x00, 0x00, 0x00,
+ 0x00, 0x00, 0x00, 0x00, 0x0c, 0x1c, 0x18, 0x00,
+ 0x00, 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x00,
+ 0x1e, 0x3f, 0x67, 0x6b, 0x73, 0x7e, 0x3c, 0x00,
+ 0x0c, 0x1c, 0x2c, 0x0c, 0x0c, 0x1f, 0x3e, 0x00,
+ 0x1e, 0x3d, 0x43, 0x1e, 0x3c, 0x7f, 0x7e, 0x00,
+ 0x1e, 0x3d, 0x46, 0x0d, 0x23, 0x5e, 0x3c, 0x00,
+ 0x04, 0x0c, 0x1c, 0x2c, 0x7f, 0x7e, 0x08, 0x00,
+ 0x3f, 0x7e, 0x7e, 0x7d, 0x23, 0x5e, 0x3c, 0x00,
+ 0x1e, 0x3c, 0x7e, 0x7d, 0x63, 0x5e, 0x3c, 0x00,
+ 0x3f, 0x7f, 0x02, 0x04, 0x08, 0x18, 0x10, 0x00,
+ 0x1e, 0x3d, 0x5e, 0x3d, 0x63, 0x5e, 0x3c, 0x00,
+ 0x1e, 0x3d, 0x63, 0x5f, 0x3f, 0x1e, 0x3c, 0x00,
+ 0x00, 0x00, 0x08, 0x10, 0x00, 0x08, 0x10, 0x00,
+ 0x00, 0x08, 0x10, 0x00, 0x08, 0x18, 0x10, 0x20,
+ 0x00, 0x02, 0x04, 0x08, 0x14, 0x0a, 0x04, 0x00,
+ 0x00, 0x00, 0x1f, 0x3e, 0x1f, 0x3e, 0x00, 0x00,
+ 0x00, 0x08, 0x14, 0x0a, 0x04, 0x08, 0x10, 0x00,
+ 0x1e, 0x3d, 0x42, 0x04, 0x08, 0x04, 0x08, 0x00,
+ 0x1e, 0x3d, 0x6b, 0x77, 0x7e, 0x5e, 0x3c, 0x00,
+ 0x1e, 0x3d, 0x63, 0x7f, 0x7f, 0x63, 0x42, 0x00,
+ 0x3e, 0x7d, 0x7e, 0x7d, 0x63, 0x7e, 0x7c, 0x00,
+ 0x1e, 0x3d, 0x62, 0x60, 0x61, 0x5e, 0x3c, 0x00,
+ 0x3c, 0x7a, 0x65, 0x63, 0x62, 0x7c, 0x78, 0x00,
+ 0x3f, 0x7e, 0x7e, 0x7c, 0x60, 0x7f, 0x7e, 0x00,
+ 0x3f, 0x7e, 0x7e, 0x7c, 0x60, 0x60, 0x40, 0x00,
+ 0x1e, 0x3d, 0x62, 0x67, 0x6f, 0x5e, 0x3c, 0x00,
+ 0x21, 0x63, 0x7f, 0x7f, 0x63, 0x63, 0x42, 0x00,
+ 0x1f, 0x3e, 0x0c, 0x0c, 0x0c, 0x1f, 0x3e, 0x00,
+ 0x01, 0x03, 0x03, 0x23, 0x63, 0x5e, 0x3c, 0x00,
+ 0x22, 0x64, 0x78, 0x74, 0x6a, 0x65, 0x42, 0x00,
+ 0x20, 0x60, 0x60, 0x60, 0x60, 0x7f, 0x7e, 0x00,
+ 0x21, 0x73, 0x6f, 0x7b, 0x63, 0x63, 0x42, 0x00,
+ 0x21, 0x73, 0x6b, 0x77, 0x6b, 0x67, 0x42, 0x00,
+ 0x1e, 0x3d, 0x63, 0x63, 0x63, 0x5e, 0x3c, 0x00,
+ 0x3e, 0x7d, 0x63, 0x7e, 0x7c, 0x60, 0x40, 0x00,
+ 0x1e, 0x3d, 0x63, 0x6b, 0x77, 0x5e, 0x3c, 0x00,
+ 0x3e, 0x7d, 0x63, 0x7e, 0x7e, 0x65, 0x42, 0x00,
+ 0x1e, 0x3c, 0x5e, 0x3d, 0x23, 0x5e, 0x3c, 0x00,
+ 0x7f, 0xfe, 0x18, 0x18, 0x18, 0x18, 0x10, 0x00,
+ 0x21, 0x63, 0x63, 0x63, 0x63, 0x5e, 0x3c, 0x00,
+ 0x21, 0x63, 0x63, 0x63, 0x52, 0x2c, 0x18, 0x00,
+ 0x21, 0x63, 0x63, 0x63, 0x6f, 0x5a, 0x24, 0x00,
+ 0x21, 0x52, 0x2c, 0x1c, 0x1a, 0x25, 0x42, 0x00,
+ 0x41, 0xa2, 0x54, 0x28, 0x18, 0x18, 0x10, 0x00,
+ 0x3f, 0x7e, 0x04, 0x08, 0x10, 0x3f, 0x7e, 0x00,
+ 0x04, 0x08, 0x04, 0x0c, 0x0c, 0x0c, 0x08, 0x00,
+ 0x3e, 0x31, 0x6b, 0x77, 0x6b, 0x67, 0x42, 0x00,
+ 0x14, 0x08, 0x10, 0x20, 0x61, 0x5e, 0x3c, 0x00,
+ 0x08, 0x1c, 0x3a, 0x5c, 0x18, 0x18, 0x10, 0x00,
+ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x7f, 0xff,
+ 0x08, 0x14, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00,
+ 0x00, 0x1c, 0x3a, 0x1e, 0x3e, 0x5e, 0x3c, 0x00,
+ 0x10, 0x30, 0x3e, 0x3d, 0x33, 0x3e, 0x3c, 0x00,
+ 0x00, 0x0e, 0x1c, 0x30, 0x30, 0x2e, 0x1c, 0x00,
+ 0x02, 0x06, 0x1e, 0x3e, 0x66, 0x5e, 0x3c, 0x00,
+ 0x00, 0x1c, 0x3a, 0x7c, 0x78, 0x7e, 0x3c, 0x00,
+ 0x06, 0x0c, 0x1c, 0x18, 0x18, 0x18, 0x10, 0x00,
+ 0x00, 0x1e, 0x3e, 0x66, 0x5e, 0x3e, 0x1c, 0x38,
+ 0x20, 0x60, 0x7c, 0x7a, 0x66, 0x66, 0x44, 0x00,
+ 0x08, 0x10, 0x18, 0x38, 0x18, 0x1c, 0x38, 0x00,
+ 0x02, 0x04, 0x02, 0x06, 0x06, 0x16, 0x2c, 0x18,
+ 0x10, 0x34, 0x38, 0x38, 0x34, 0x3a, 0x24, 0x00,
+ 0x08, 0x18, 0x18, 0x18, 0x18, 0x16, 0x0c, 0x00,
+ 0x00, 0x34, 0x6a, 0x7e, 0x7e, 0x7e, 0x54, 0x00,
+ 0x00, 0x3c, 0x7a, 0x66, 0x66, 0x66, 0x44, 0x00,
+ 0x00, 0x1c, 0x3a, 0x66, 0x66, 0x5c, 0x38, 0x00,
+ 0x00, 0x3c, 0x7a, 0x66, 0x7c, 0x78, 0x60, 0x40,
+ 0x00, 0x1e, 0x3e, 0x66, 0x5e, 0x3e, 0x07, 0x06,
+ 0x00, 0x0e, 0x1c, 0x30, 0x30, 0x30, 0x20, 0x00,
+ 0x00, 0x1c, 0x38, 0x5c, 0x3a, 0x3c, 0x78, 0x00,
+ 0x08, 0x1c, 0x38, 0x18, 0x18, 0x16, 0x0c, 0x00,
+ 0x00, 0x22, 0x66, 0x66, 0x66, 0x5c, 0x38, 0x00,
+ 0x00, 0x22, 0x66, 0x54, 0x3c, 0x28, 0x10, 0x00,
+ 0x00, 0x22, 0x6e, 0x7e, 0x7e, 0x54, 0x28, 0x00,
+ 0x00, 0x22, 0x54, 0x28, 0x14, 0x2a, 0x44, 0x00,
+ 0x00, 0x22, 0x66, 0x66, 0x5e, 0x3e, 0x1c, 0x38,
+ 0x00, 0x3e, 0x7c, 0x08, 0x10, 0x3e, 0x7c, 0x00,
+ 0x22, 0x44, 0x22, 0x66, 0x66, 0x5c, 0x38, 0x00,
+ 0x3c, 0x2c, 0x7a, 0x66, 0x66, 0x66, 0x44, 0x00,
+ 0x00, 0x1e, 0x3c, 0x60, 0x64, 0x5e, 0x3c, 0x10,
+ 0x0a, 0x14, 0x28, 0x00, 0x00, 0x00, 0x00, 0x00,
+ 0x3d, 0x4e, 0xd9, 0xf1, 0xed, 0xb9, 0x5e, 0x3c};
+

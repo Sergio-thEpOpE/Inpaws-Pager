@@ -1,0 +1,104 @@
+ZX SPECTRUM
+
+CÓDIGOS de COMANDOS GRÁFICOS
+
+-PLOT (x,y)
+0
++8 si OVER está activo
++16 si INVERSE está activo
+
+-LINE (x,y)
+1 
++8 si OVER está activo
++16 si INVERSE está activo
++32 si se aplica compresión  - (x,y) se transforma en un byte mediante (16*x)+y
++64 si desplazamiento x es negativo
++128 si desplazamiento y es negativo
+
+-FILL (x,y)
+2
++64 si desplazamiento x es negativo
++128 si desplazamiento y es negativo
+INVERSE y OVER no parecen tener efecto sobre FILL
+
+-GOSUB (loc)
+03 + 8*scale
++64 si hay rotación horizontal
++128 si hay rotación vertical
+
+-TEXT (chr,x,y) (x e y son posiciones absolutas de caracteres por columna-fila)
+4
++8 si OVER está activo
++16 si INVERSE está activo
+
+-PAPER
+5 + 8*valor (0-8)
+
+-INK 
+6 + 8*valor (0-8)
+
+-BLOCK (x,y,x1,y1) (valores absolutos línea y columna)
+18
+
+-ABS MOVE (x,y) - equivale a un PLOT con INVERSE y OVER activados
+24
+
+-REL MOVE (x,y) - equivale a un LINE con INVERSE y OVER activos
+25 
+
+-SHADE (x,y,chr)
+34
++16 si INVERSE está activo
++64 si desplazamiento x es negativo
++128 si desplazamiento y es negativo
+OVER no parece tener efecto sobre SHADE
+
+-BRIGHT 
+133 + 8*valor (0,1,8)
+
+-FLASH
+134 + 8*valor (0,1,8)
+
+
+**COMPRESIÓN**
+Hasta donde está comprobado, en aquellos comandos LINE donde tanto el parámetro x como el y (desplazamiento horizontal y vertical) son menores de 16 (0-15), las últimas versiones del editor gráfico aplican automáticamente la fórmula (16*x)+y, que será siempre menor de 256 (0-255) para almacenarlos en un sólo byte.
+El editor gráfico conservado en el disco de Spectrum +3 tiene un bug justo en esa función, y en vez de 16*x+y aplica simplemente 16*y+y. Por eso es casi imposible hacer bien las líneas cortas (x e y menores de 16).
+Ésto no pasa en el editor gráfico conservado en la imagen de disco MGT, ya que éste es de una versión anterior en la que aún no se aplicaba la compresión automática. Se sabe que los ficheros gráficos de Spectrum de las primeras versiones se comprimían con la utilidad DCS.COM, que probablemente aplicaría una fórmula idéntica o similar (aunque está sin comprobar).
+
+
+GRAFICOS
+-Comienzo apuntado desde 65519.
+-El inicio del gráfico 0 es el incio de la base de datos.
+-Cada gráfico termina con un byte 7.
+
+TABLA DE PUNTEROS
+-Comienzo apuntado desde 65521.
+-Cada puntero a su vez apunta a la dirección de comienzo de los comandos de cada gráfico.
+-Termina con un puntero al puntero 0 seguido de 2 bytes 255. 
+
+TABLA DE VENTANAS
+-Comienzo apuntado desde 65523.
+-5 bytes por cada gráfico.
+-El primero es el byte del color papel-tinta:
+(8*código de color de papel)+(código de color de tinta)+(128 si NO es subrutina).
+Si es menor de 128, por tanto, se supone que es una subrutina y el resto de bytes, los otros 4, son irrelevantes.
+-los otros 4 son línea, columna, alto y ancho.
+-Tras el último gráfico, la table termina con un 255, cuya dirección está apuntada desde 65525 y en teoría sería siempre 63459.
+
+JUEGO DE CARACTÉRES Y SHADES
+-Comienzo apuntado desde 65527. En teoría sería siempre 63460.
+-Ocupa siempre exactamente 2048 bytes, es decir, acaba en 65507.
+
+TABLA DE COLORES
+-Comienzo apuntado desde 65529. En teoría sería siempre 65508.
+-Ocupa 9 bytes, 1 para el borde y 8 para cada color del ZX Spectrum.
+-En teoría acaba siempre en 65516.
+
+VALOR ACTUAL DE SPARE
+-En las posiciones 65517 y 65518 se almacena el valor actual de SPARE (a partir del que se calcula el espacio libre según se explica en el manual). 
+
+PUNTERO AL INICIO
+-En la dirección 65519 hay un puntero al gráfico 0 (comienzo de la base de datos de gráficos).
+
+
+

@@ -1,0 +1,560 @@
+Graficos Paws:
+
+$7490 -> call a la rutina que carga los atributos iniciales
+$7493 -> call a la rutina que interpreta los codigos de dibujo
+
+CODIGO: SsxIOCCC - Ss : signos para Y y X respectivamente (S signo de Y; s signo de X)
+CODIGO: ZNNNNCCC
+CODIGO: xxNNNCCC
+
+instruccion: código: Banderas:
+ABS MOVE :	CCC = 0 : I=1 O=1 : X e Y	;
+PLOT : 		CCC = 0	: I=i O=o : X e Y	;
+REL MOVE :	CCC = 1 : I=1 O=1 : usa Ss, Xdelta, Ydelta	; x en el DAAD indica si son valores de 4 bits como XXXXYYYY o de 8 bits
+LINEA :		CCC = 1 : I=i O=o : usa Ss, signos de Xdelta e Ydelta : Xdelta e Ydelta ; x en el DAAD indica si son valores de 4 bits como XXXXYYYY o de 8 bits
+FILL :		CCC = 2 : I=0 O=0 x=0 : usa Ss : Xdelta e Ydelta : prepara un caracter relleno como doble máscara, y le aplica un shade. 
+SHADE :		CCC = 2 : I=i O=0 x=1 : usa Ss : ccccCCCC (caracteres de sombreado), Xdelta, Ydelta:
+BLOQUE :	CCC = 2 : I=1 O=0 Ssx = 0: ANCHO, ALTO (en caracteres), XORIGEN, YORIGEN
+GOSUB :		CCC = 3 : NNN: escala : ($92EA tiene el valor de la escala a la que se dibuja la subrutina)
+TEXTO :		CCC = 4 : I=i O=o Ssx= set: CHAR, Y, X
+PAPER :		CCC = 5 : Z=0 NNNN: color
+BRIGHT :	CCC = 5 : Z=1 NNNN: brillo
+INK :		CCC = 6 : Z=0 NNNN: color
+FLASH :		CCC = 6 : Z=1 NNNN: flash
+END 		CCC = 7
+
+La tabla de las rutinas que interpretan cada unos de los CCC está a partir de $8F54:
+$8F64 - 0 -> Plot/Abs Move
+$8F75 - 1 -> Linea/Rel Move
+$8FC9 - 2 -> Fill/Shade
+$905C - 3 -> Gosub
+$90AA - 4 -> Texto
+$90CC - 5 -> Paper/Bright
+$90E2 - 6 -> Ink/Flash
+$90EF - 7 -> end
+
+
+
+$5C7D : última coordenada de dibujo
+
+
+L_8F36: LD D, $00		 ; 8F36
+	ADD IX, DE		 ; 8F38
+	LD (IY+$0B), E		 ; 8F3A
+	LD A, (IX+$00)		 ; 8F3D
+	AND $07			 ; 8F40
+	SLA A			 ; 8F42
+	LD HL, TablaFunciones		 ; 8F44
+	LD E, A			 ; 8F47
+	LD D, $00		 ; 8F48
+	ADD HL, DE		 ; 8F4A
+	LD ($92E8), IX		 ; 8F4B
+	LD A, (HL)		 ; 8F4F
+	INC HL			 ; 8F50
+	LD H, (HL)		 ; 8F51
+	LD L, A			 ; 8F52
+	JP (HL)			 ; 8F53
+TablaFunciones: DEFW $8F64		 ; 8F54
+	DEFW $8F75		 ; 8F56
+	DEFW $8FC9		 ; 8F58
+	DEFW $905C		 ; 8F5A
+	DEFW $90AA		 ; 8F5C
+	DEFW $90CC		 ; 8F5E
+	DEFW $90E2		 ; 8F60
+	DEFW $90EF		 ; 8F62
+PlotFnc:
+	LD A, (IX+$00)		 ; 8F64
+	CALL L_8FB4		 ; 8F67
+	LD B, (IX+$02)		 ; 8F6A
+	LD C, (IX+$01)		 ; 8F6D
+	CALL $22E5		 ; 8F70
+	JR L_8FAD		 ; 8F73
+LineFnc:
+	LD A, (IX+$00)		 ; 8F75
+	AND $18			 ; 8F78
+	CP $18			 ; 8F7A
+	JR NZ, L_8F88		 ; 8F7C
+	CALL $9107		 ; 8F7E
+	LD ($5C7D), BC		 ; 8F81
+	JP $8F2F		 ; 8F85
+L_8F88: CALL L_8FB4		 ; 8F88
+	CALL $9135		 ; 8F8B
+	LD B, D			 ; 8F8E
+	LD C, E			 ; 8F8F
+	LD E, $01		 ; 8F90
+	BIT 6, (IX+$00)		 ; 8F92
+	JR Z, L_8F9A		 ; 8F96
+	LD E, $FF		 ; 8F98
+L_8F9A: LD D, $01		 ; 8F9A
+	BIT 7, (IX+$00)		 ; 8F9C
+	JR Z, L_8FA4		 ; 8FA0
+	LD D, $FF		 ; 8FA2
+L_8FA4: EXX			 ; 8FA4
+	PUSH HL			 ; 8FA5
+	EXX			 ; 8FA6
+	CALL $24BA		 ; 8FA7
+	EXX			 ; 8FAA
+	POP HL			 ; 8FAB
+	EXX			 ; 8FAC
+L_8FAD: XOR A			 ; 8FAD
+	CALL L_8FBE		 ; 8FAE
+	JP $8F2F		 ; 8FB1
+L_8FB4: RRCA			 ; 8FB4
+	RRCA			 ; 8FB5
+	RRCA			 ; 8FB6
+	AND $03			 ; 8FB7
+	OR A			 ; 8FB9
+	ADD A, $02		 ; 8FBA
+	AND $05			 ; 8FBC
+L_8FBE: LD E, A			 ; 8FBE
+	LD A, ($5C91)		 ; 8FBF
+	AND $FA			 ; 8FC2
+	OR E			 ; 8FC4
+	LD ($5C91), A		 ; 8FC5
+	RET			 ; 8FC8
+ShadeFnc:
+	LD A, (IX+$00)		 ; 8FC9
+	CP $12			 ; 8FCC
+	JP Z, $901F		 ; 8FCE
+	CALL $9107		 ; 8FD1
+	BIT 5, (IX+$00)		 ; 8FD4
+	JR NZ, $8FF0		 ; 8FD8
+	XOR A			 ; 8FDA
+	LD HL, L_8FE8		 ; 8FDB
+	LD E, L			 ; 8FDE
+	LD D, H			 ; 8FDF
+	CALL $9169		 ; 8FE0
+	LD E, $03		 ; 8FE3
+	JP L_8F36		 ; 8FE5
+L_8FE8: DEFS 8, $ff	;ESTE ES EL CARACTER DE RELLENO COMPLETO, que lo usa para FILL
+
+	LD A, (IX+$03)		 ; 8FF0
+	AND $0F			 ; 8FF3
+	RLCA			 ; 8FF5
+	RLCA			 ; 8FF6
+	RLCA			 ; 8FF7
+	CALL L_9015		 ; 8FF8
+	EX DE, HL		 ; 8FFB
+	LD A, (IX+$03)		 ; 8FFC
+	AND $F0			 ; 8FFF
+	RRCA			 ; 9001
+	CALL L_9015		 ; 9002
+	XOR A			 ; 9005
+	BIT 4, (IX+$00)		 ; 9006
+	JR Z, L_900D		 ; 900A
+	DEC A			 ; 900C
+L_900D: CALL $9169		 ; 900D
+	LD E, $04		 ; 9010
+	JP $8F36		 ; 9012
+L_9015: PUSH DE			 ; 9015
+	LD E, A			 ; 9016
+	LD D, $00		 ; 9017
+	LD HL, $9398		 ; 9019
+	ADD HL, DE		 ; 901C
+	POP DE			 ; 901D
+	RET			 ; 901E
+	LD H, $00		 ; 901F
+	LD L, (IX+$04)		 ; 9021
+	LD D, H			 ; 9024
+	LD E, (IX+$03)		 ; 9025
+	ADD HL, HL		 ; 9028
+	ADD HL, HL		 ; 9029
+	ADD HL, HL		 ; 902A
+	ADD HL, HL		 ; 902B
+	ADD HL, HL		 ; 902C
+	ADD HL, DE		 ; 902D
+	LD DE, $5800		 ; 902E
+	ADD HL, DE		 ; 9031
+	LD C, (IX+$01)		 ; 9032
+	LD B, (IX+$02)		 ; 9035
+L_9038: PUSH BC			 ; 9038
+	PUSH HL			 ; 9039
+L_903A: LD DE, ($5C8F)		 ; 903A
+	LD A, (HL)		 ; 903E
+	XOR E			 ; 903F
+	AND D			 ; 9040
+	XOR E			 ; 9041
+	LD (HL), A		 ; 9042
+	XOR A			 ; 9043
+	CP B			 ; 9044
+	JR Z, L_904C		 ; 9045
+	INC HL			 ; 9047
+	DEC B			 ; 9048
+	JP L_903A		 ; 9049
+L_904C: POP HL			 ; 904C
+	POP BC			 ; 904D
+	CP C			 ; 904E
+	LD DE, $0005		 ; 904F
+	JP Z, $8F36		 ; 9052
+	LD E, $20		 ; 9055
+	ADD HL, DE		 ; 9057
+	DEC C			 ; 9058
+	JP L_9038		 ; 9059
+GosubFnc:
+	LD A, (IY+$0A)		 ; 905C
+	CP $0A			 ; 905F
+	JR NZ, L_9070		 ; 9061
+	LD A, $00		 ; 9063
+	LD (IY+$0A), A		 ; 9065
+	LD ($92EA), A		 ; $92EA -> escala del dibujado
+	LD L, $1E		 ; 906B
+	JP $0055		 ; 906D
+L_9070: OR A			 ; 9070
+	JR NZ, L_9077		 ; 9071
+	LD ($92E6), IX		 ; 9073
+L_9077: INC (IY+$0A)		 ; 9077
+	PUSH IX			 ; 907A
+	LD A, ($92EA)		 ; $92EA -> escala del dibujado
+	PUSH AF			 ; 907F
+	LD A, (IX+$00)		 ; 9080
+	RRCA			 ; 9083
+	RRCA			 ; 9084
+	RRCA			 ; 9085
+	AND $07			 ; 9086
+	LD ($92EA), A		 ; $92EA -> escala del dibujado
+	POP BC			 ; 908B
+	LD A, ($5B5C)		 ; 908C
+	AND $07			 ; 908F
+	LD C, A			 ; 9091
+	PUSH BC			 ; 9092
+	LD A, (IX+$01)		 ; 9093
+	CALL $8A7C		 ; 9096
+	LD H, B			 ; 9099
+	LD L, C			 ; 909A
+	ADD HL, HL		 ; 909B
+	LD DE, ($FFF1)		 ; 909C
+	ADD HL, DE		 ; 90A0
+	LD E, (HL)		 ; 90A1
+	INC HL			 ; 90A2
+	LD D, (HL)		 ; 90A3
+	PUSH DE			 ; 90A4
+	POP IX			 ; 90A5
+	JP $8F3D		 ; 90A7
+TextoFnc:
+	LD A, (IX+$00)		 ; 90AA
+	PUSH AF			 ; 90AD
+	CALL $8FB4		 ; 90AE
+	LD A, $16		 ; 90B1
+	RST $10			 ; 90B3
+	LD A, (IX+$03)		 ; 90B4
+	RST $10			 ; 90B7
+	LD A, (IX+$02)		 ; 90B8
+	RST $10			 ; 90BB
+	POP AF			 ; 90BC
+	RLCA			 ; 90BD
+	RLCA			 ; 90BE
+	RLCA			 ; 90BF
+	AND $07			 ; 90C0
+	RST $10			 ; 90C2
+	LD A, (IX+$01)		 ; 90C3
+	RST $10			 ; 90C6
+	LD E, $04		 ; 90C7
+	JP $8F36		 ; 90C9
+PaperBrightFnc:
+	LD D, (IX+$00)		 ; 90CC
+	LD A, $11		 ; 90CF
+	BIT 7, D		 ; 90D1
+	JR Z, L_90D7		 ; 90D3
+	LD A, $13		 ; 90D5
+L_90D7: RST $10			 ; 90D7
+	LD A, D			 ; 90D8
+	RRCA			 ; 90D9
+	RRCA			 ; 90DA
+	RRCA			 ; 90DB
+	AND $0F			 ; 90DC
+	RST $10			 ; 90DE
+	JP $8F34		 ; 90DF
+InkFlashFnc:
+	LD D, (IX+$00)		 ; 90E2
+	LD A, $10		 ; 90E5
+	BIT 7, D		 ; 90E7
+	JR Z, L_90D7		 ; 90E9
+	LD A, $12		 ; 90EB
+	JR L_90D7		 ; 90ED
+EndFnc:
+	LD A, (IY+$0A)		 ; 90EF
+	OR A			 ; 90F2
+	RET Z			 ; 90F3
+	POP BC			 ; 90F4
+	LD A, B			 ; 90F5
+	LD ($92EA), A		 ; $92EA -> escala del dibujado
+	LD A, C			 ; 90F9
+	CALL $8A92		 ; 90FA
+	POP IX			 ; 90FD
+	DEC (IY+$0A)		 ; 90FF
+	LD E, $02		 ; 9102
+	JP $8F36		 ; 910
+
+L_9107
+	CALL L_9135		 ; 9107
+	LD BC, ($5C7D)		 ; 910A
+	LD A, C			 ; 910E
+	BIT 6, (IX+$00)		 ; 910F
+	JR Z, L_9119		 ; 9113
+	SUB E			 ; 9115
+	JP L_911A		 ; 9116
+L_9119: ADD A, E		 ; 9119
+L_911A: LD C, A			 ; 911A
+	LD A, B			 ; 911B
+	BIT 7, (IX+$00)		 ; 911C
+	JR Z, L_912A		 ; 9120
+	SUB D			 ; 9122
+	JR NC, L_9133		 ; 9123
+	SUB $50			 ; 9125
+	JP L_9133		 ; 9127
+L_912A: ADD A, D		 ; 912A
+	JR C, L_9131		 ; 912B
+	CP $B0			 ; 912D
+	JR C, L_9133		 ; 912F
+L_9131: SUB $B0			 ; 9131
+L_9133: LD B, A			 ; 9133
+	RET			 ; 9134
+L_9135: LD A, ($92EA)		 ; $92EA -> escala del dibujado
+	AND A			 ; 9138
+	JP NZ, L_9143		 ; 9139
+	LD E, (IX+$01)		 ; 913C
+	LD D, (IX+$02)		 ; 913F
+	RET			 ; 9142
+L_9143: LD D, $00		 ; 9143
+	LD E, (IX+$02)		 ; 9145
+	CALL L_9155		 ; 9148
+	LD C, L			 ; 914B
+	LD E, (IX+$01)		 ; 914C
+	CALL L_9155		 ; 914F
+	LD D, C			 ; 9152
+	LD E, L			 ; 9153
+	RET			 ; 9154
+L_9155: LD HL, $0000		 ; 9155
+	LD B, A			 ; 9158
+L_9159: ADD HL, DE		 ; 9159
+	DJNZ L_9159		 ; 915A
+	SRL H			 ; 915C
+	RR L			 ; 915E
+	SRL H			 ; 9160
+	RR L			 ; 9162
+	SRL H			 ; 9164
+	RR L			 ; 9166
+	RET			 ; 916
+	
+9161 _ Rutina de Relleno
+	DI			 ; 9169
+	PUSH IY			 ; 916A
+	PUSH IX			 ; 916C
+	EXX			 ; 916E
+	PUSH HL			 ; 916F
+	LD ($92ED), SP		 ; 9170
+	LD DE, ($5C65)		 ; 9174
+	LD HL, $FEF8		 ; 9178
+	ADD HL, SP		 ; 917B
+	SBC HL, DE		 ; 917C
+	EXX			 ; 917E
+	JR NC, L_9189		 ; 917F
+	CALL L_92AD		 ; 9181
+	LD L, $03		 ; 9184
+	JP $0055		 ; 9186
+L_9189: LD ($92EB), BC		 ; 9189
+	LD C, A			 ; 918D
+	LD IX, $FFF8		 ; 918E
+	ADD IX, SP		 ; 9192
+	LD B, $08		 ; 9194
+L_9196: LD A, (DE)		 ; 9196
+	OR (HL)			 ; 9197
+	XOR C			 ; 9198
+	INC HL			 ; 9199
+	INC DE			 ; 919A
+	PUSH AF			 ; 919B
+	INC SP			 ; 919C
+	DJNZ L_9196		 ; 919D
+	LD HL, $FFFF		 ; 919F
+	PUSH HL			 ; 91A2
+	LD DE, $0000		 ; 91A3
+	LD B, $58		 ; 91A6
+L_91A8: PUSH DE			 ; 91A8
+	DJNZ L_91A8		 ; 91A9
+	PUSH HL			 ; 91AB
+	LD BC, ($92EB)		 ; 91AC
+	LD HL, $0002		 ; 91B0
+	ADD HL, SP		 ; 91B3
+	LD ($92EF), HL		 ; 91B4
+	LD D, $00		 ; 91B7
+L_91B9: CALL L_92D1		 ; 91B9
+	LD A, (HL)		 ; 91BC
+	AND E			 ; 91BD
+	JP NZ, L_92AD		 ; 91BE
+	LD A, $1E		 ; 91C1
+	EX AF, AF'		 ; 91C3
+	LD HL, $FFFF		 ; 91C4
+	PUSH HL			 ; 91C7
+L_91C8: LD A, D			 ; 91C8
+	AND $FC			 ; 91C9
+	LD D, A			 ; 91CB
+	CALL L_92D1		 ; 91CC
+	LD A, B			 ; 91CF
+	BIT 7, D		 ; 91D0
+	JR Z, L_91D8		 ; 91D2
+	INC B			 ; 91D4
+	JP L_91D9		 ; 91D5
+L_91D8: DEC B			 ; 91D8
+L_91D9: PUSH BC			 ; 91D9
+	EXX			 ; 91DA
+	LD L, A			 ; 91DB
+	LD H, $00		 ; 91DC
+	LD DE, ($92EF)		 ; 91DE
+	ADD HL, DE		 ; 91E2
+	PUSH HL			 ; 91E3
+	POP IY			 ; 91E4
+	AND $07			 ; 91E6
+	LD ($91ED), A		 ; 91E8
+	LD D, (IX+$07)		 ; 91EB
+	POP BC			 ; 91EE
+	LD A, B			 ; 91EF
+	CP $B0			 ; 91F0
+	CALL C, L_92D1		 ; 91F2
+	EXX			 ; 91F5
+	BIT 7, D		 ; 91F6
+	EXX			 ; 91F8
+	JR Z, L_9201		 ; 91F9
+	LD C, (IY+$01)		 ; 91FB
+	JP L_9204		 ; 91FE
+L_9201: LD C, (IY-$01)		 ; 9201
+L_9204: EXX			 ; 9204
+L_9205: SRL E			 ; 9205
+	JR NC, L_920F		 ; 9207
+	LD E, $80		 ; 9209
+	INC HL			 ; 920B
+	EXX			 ; 920C
+	INC HL			 ; 920D
+	EXX			 ; 920E
+L_920F: INC C			 ; 920F
+	JR Z, L_9216		 ; 9210
+	LD A, (HL)		 ; 9212
+	AND E			 ; 9213
+	JR Z, L_9205		 ; 9214
+L_9216: DEC C			 ; 9216
+	LD (IY+$00), C		 ; 9217
+	JP L_9263		 ; 921A
+L_921D: LD A, (HL)		 ; 921D
+	AND E			 ; 921E
+	JR NZ, L_9293		 ; 921F
+	EXX			 ; 9221
+	LD A, D			 ; 9222
+	EXX			 ; 9223
+	AND E			 ; 9224
+	OR (HL)			 ; 9225
+	LD (HL), A		 ; 9226
+	CALL L_92BA		 ; 9227
+	LD A, C			 ; 922A
+	OR A			 ; 922B
+	JR Z, L_9293		 ; 922C
+	BIT 1, D		 ; 922E
+	JR NZ, L_9262		 ; 9230
+	EXX			 ; 9232
+	LD E, A			 ; 9233
+	LD A, C			 ; 9234
+	OR A			 ; 9235
+	JP Z, L_9245		 ; 9236
+	CP E			 ; 9239
+	JP C, L_9245		 ; 923A
+	EXX			 ; 923D
+	LD A, D			 ; 923E
+	OR $03			 ; 923F
+	LD D, A			 ; 9241
+	JP L_9262		 ; 9242
+L_9245: LD A, (HL)		 ; 9245
+	EXX			 ; 9246
+	AND E			 ; 9247
+	JR NZ, L_924B		 ; 9248
+	SCF			 ; 924A
+L_924B: BIT 0, D		 ; 924B
+	JP NZ, L_925D		 ; 924D
+	JR NC, L_9262		 ; 9250
+	EX AF, AF'		 ; 9252
+	DEC A			 ; 9253
+	JR Z, L_929C		 ; 9254
+	EX AF, AF'		 ; 9256
+	PUSH BC			 ; 9257
+	SET 0, D		 ; 9258
+	JP L_9262		 ; 925A
+L_925D: JP C, L_9262		 ; 925D
+	RES 0, D		 ; 9260
+L_9262: DEC C			 ; 9262
+L_9263: SLA E			 ; 9263
+	JP NC, L_921D		 ; 9265
+	LD E, $01		 ; 9268
+L_926A: DEC HL			 ; 926A
+	LD A, (HL)		 ; 926B
+	EXX			 ; 926C
+	DEC HL			 ; 926D
+	OR A			 ; 926E
+	JR NZ, L_928F		 ; 926F
+	EXX			 ; 9271
+	BIT 1, D		 ; 9272
+	EXX			 ; 9274
+	JR NZ, L_9280		 ; 9275
+	CP (HL)			 ; 9277
+	JR NZ, L_928F		 ; 9278
+	EXX			 ; 927A
+	BIT 0, D		 ; 927B
+	EXX			 ; 927D
+	JR Z, L_928F		 ; 927E
+L_9280: LD A, D			 ; 9280
+	EXX			 ; 9281
+	LD (HL), A		 ; 9282
+	CALL L_92BA		 ; 9283
+	LD A, C			 ; 9286
+	SUB $08			 ; 9287
+	LD C, A			 ; 9289
+	JR C, L_9293		 ; 928A
+	JP L_926A		 ; 928C
+L_928F: EXX			 ; 928F
+	JP L_921D		 ; 9290
+L_9293: EX AF, AF'		 ; 9293
+	INC A			 ; 9294
+	EX AF, AF'		 ; 9295
+	POP BC			 ; 9296
+	LD A, B			 ; 9297
+	INC A			 ; 9298
+	JP NZ, L_91C8		 ; 9299
+L_929C: LD BC, ($92EB)		 ; 929C
+	BIT 7, D		 ; 92A0
+	JR NZ, L_92AD		 ; 92A2
+	SET 7, D		 ; 92A4
+	INC B			 ; 92A6
+	LD A, B			 ; 92A7
+	CP $B0			 ; 92A8
+	JP C, L_91B9		 ; 92AA
+L_92AD: LD SP, ($92ED)		 ; 92AD
+	EXX			 ; 92B1
+	POP HL			 ; 92B2
+	EXX			 ; 92B3
+	POP IX			 ; 92B4
+	POP IY			 ; 92B6
+	EI			 ; 92B8
+	RET			 ; 92B9
+L_92BA: PUSH HL			 ; 92BA
+	PUSH DE			 ; 92BB
+	LD A, H			 ; 92BC
+	RRCA			 ; 92BD
+	RRCA			 ; 92BE
+	RRCA			 ; 92BF
+	AND $03			 ; 92C0
+	OR $58			 ; 92C2
+	LD H, A			 ; 92C4
+	LD DE, ($5C8F)		 ; 92C5
+	LD A, (HL)		 ; 92C9
+	XOR E			 ; 92CA
+	AND D			 ; 92CB
+	XOR E			 ; 92CC
+	LD (HL), A		 ; 92CD
+	POP DE			 ; 92CE
+	POP HL			 ; 92CF
+	RET			 ; 92D0
+L_92D1: PUSH BC			 ; 92D1
+	CALL $22AA		 ; 92D2
+	LD BC, $92DE		 ; 92D5
+	ADD A, C		 ; 92D8
+	LD C, A			 ; 92D9
+	LD A, (BC)		 ; 92DA
+	LD E, A			 ; 92DB
+	POP BC
+	RET ;

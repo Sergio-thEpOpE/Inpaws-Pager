@@ -1,0 +1,29 @@
+InpawsPager Changelog
+
+v1.3b
+Bugs arreglados
+- en determinados contextos se borra el archivo de entrada cuando da un error en Inpaws
+- se restablece la ordenación de entradas de los procesos, tal como hace Paws, por orden de Verbo - Nombre
+
+v1.2b
+Bugs arreglados
+- volcado de las conexiones al código fuente, ahora ya pone el separador " TO " y trata bien las conexiones hechas con verbos
+- volcado a codigo fuente de los procesos, ahora ya trata bien los nombres convertibles a verbo
+- volcado a codigo fuente de los procesos: ahora los argumentos de NOUN2, ADJECT1, ADJECT2, ADVERB y PRERP los muestra como palabras
+- corregido un bug en la ordenación de entradas de los procesos, ahora se respeta la ordenación y se procesan en el orden en que estén en el archivo preprocesado que genera Inpaws.
+
+
+Nuevas características
+- comandos -eg y -egfx se procesas propiamente, para poder extraer los gráficos de las aventuras de 128k que están paginados
+
+
+v1.1b
+- se corrige un bug en la detección de la base de datos de Paws, y en las bloques que se deben cargar paginados
+
+
+v1.0b
+- se añade la posibilidad de extraer el código fuente de la aventura (tanto de un sna como de un tap), para poder trabajar sobre aventuras de 128kb
+
+
+v0.9b
+- desde un archivo preprocesado por Inpaws ya genera un .Tap con las paginaciones hechas
